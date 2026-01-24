@@ -18,8 +18,8 @@
             background-color: var(--dark-bg);
             color: var(--light-text);
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2em;
-            line-height: 1.8;
+            font-size: 1.1em;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -40,20 +40,20 @@
             top: 0;
             z-index: 10;
             background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-            padding: 40px 20px 20px;
+            padding: 25px 15px 15px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 4px 10px var(--shadow-color);
         }
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
+            font-size: 1.8em;
             font-weight: 700;
             font-style: italic;
             color: var(--accent-color);
             margin: 0;
             text-shadow: 0 0 20px rgba(255,215,0,0.4);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: glowFadeIn 2s ease-in-out;
         }
         @keyframes glowFadeIn {
@@ -62,13 +62,13 @@
         }
         .cd-timeline {
             overflow: hidden;
-            padding: 4rem 0;
+            padding: 2.5rem 0;
             max-width: 1000px;
             margin: 0 auto;
         }
         .cd-timeline__container {
             position: relative;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
         }
         .cd-timeline__container::before {
             content: '';
@@ -76,7 +76,7 @@
             top: 0;
             left: 18px;
             height: 100%;
-            width: 4px;
+            width: 3px;
             background: var(--glow-color);
         }
         @media (min-width: 768px) {
@@ -86,8 +86,8 @@
         }
         .cd-timeline__block {
             display: flex;
-            margin: 4rem 0; /* Increased margin to prevent overlaps */
-            position: relative; /* Ensure relative positioning */
+            margin: 3rem 0;
+            position: relative;
         }
         .cd-timeline__block:first-child {
             margin-top: 0;
@@ -97,7 +97,7 @@
         }
         @media (min-width: 768px) {
             .cd-timeline__block {
-                margin: 5rem 0; /* Further increase for larger screens */
+                margin: 4rem 0;
             }
             .cd-timeline__block:nth-child(even) {
                 flex-direction: row-reverse;
@@ -107,47 +107,54 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             background: var(--glow-color);
             box-shadow: 0 0 0 4px var(--dark-bg), inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1; /* Ensure dot is above line */
+            z-index: 1;
         }
         .dot {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             background: var(--accent-color);
             border-radius: 50%;
         }
         @media (min-width: 768px) {
             .cd-timeline__img {
                 left: 50%;
-                margin-left: -20px;
+                margin-left: -17.5px;
+                width: 40px;
+                height: 40px;
+            }
+            .dot {
+                width: 20px;
+                height: 20px;
             }
         }
         .cd-timeline__img--bounce-in {
-            animation: cd-bounce-1 0.6s ease-out; /* Smoothed animation */
+            animation: cd-bounce-1 0.6s ease-out;
         }
         @keyframes cd-bounce-1 {
             0% { opacity: 0; transform: scale(0.5); }
-            60% { opacity: 1; transform: scale(1.1); } /* Reduced bounce intensity */
+            60% { opacity: 1; transform: scale(1.1); }
             100% { transform: scale(1); }
         }
         .cd-timeline__content {
             position: relative;
-            margin-left: 60px;
+            margin-left: 55px;
             background: rgba(255, 215, 0, 0.05);
             border: 1px solid var(--glow-color);
-            padding: 1.5rem; /* Increased padding for better spacing */
+            padding: 1.2rem;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            transition: box-shadow 0.4s ease; /* Smoothed transition */
+            transition: box-shadow 0.4s ease;
             color: var(--light-text);
-            min-height: 100px; /* Minimum height to prevent collapse */
-            z-index: 0; /* Below dot */
+            min-height: 90px;
+            z-index: 0;
+            border-radius: 8px;
         }
         .cd-timeline__content:hover {
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
@@ -156,26 +163,35 @@
             color: var(--glow-color);
             text-shadow: 0 0 10px var(--glow-color);
             margin-bottom: 0.5rem;
+            font-size: 1.2em;
+            line-height: 1.3;
         }
         .cd-timeline__content h3:hover {
             text-shadow: 0 0 20px var(--glow-color);
         }
         .cd-timeline__content p {
-            line-height: 1.6;
+            line-height: 1.5;
+            margin: 0.8rem 0;
+            font-size: 0.95em;
         }
         .cd-timeline__content a {
             color: var(--glow-color);
             font-weight: bold;
             text-decoration: none;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 0.8rem;
         }
         .cd-timeline__content a:hover {
             text-shadow: 0 0 15px var(--glow-color);
         }
         .year {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--glow-color);
             text-shadow: 0 0 12px var(--glow-color);
+            margin-bottom: 0.5rem;
+            display: block;
         }
         .year:hover {
             text-shadow: 0 0 20px var(--glow-color);
@@ -183,15 +199,15 @@
         @media (min-width: 768px) {
             .cd-timeline__content {
                 margin-left: 0;
-                padding: 1.6rem;
-                width: calc(50% - 40px);
+                padding: 1.4rem;
+                width: calc(50% - 35px);
             }
             .cd-timeline__content::before {
                 content: '';
                 position: absolute;
-                top: 24px;
+                top: 20px;
                 left: 100%;
-                border: 10px solid transparent;
+                border: 8px solid transparent;
                 border-left-color: rgba(255, 215, 0, 0.05);
             }
             .cd-timeline__block:nth-child(even) .cd-timeline__content {
@@ -202,6 +218,12 @@
                 right: 100%;
                 border-left-color: transparent;
                 border-right-color: rgba(255, 215, 0, 0.05);
+            }
+            .cd-timeline__content h3 {
+                font-size: 1.4em;
+            }
+            .year {
+                font-size: 1.8rem;
             }
         }
         .cd-timeline__content--bounce-in {
@@ -216,13 +238,13 @@
             }
         }
         @keyframes cd-bounce-2 {
-            0% { opacity: 0; transform: translateX(-100px); }
-            60% { opacity: 1; transform: translateX(10px); } /* Reduced overshoot */
+            0% { opacity: 0; transform: translateX(-80px); }
+            60% { opacity: 1; transform: translateX(8px); }
             100% { transform: translateX(0); }
         }
         @keyframes cd-bounce-2-inverse {
-            0% { opacity: 0; transform: translateX(100px); }
-            60% { opacity: 1; transform: translateX(-10px); } /* Reduced overshoot */
+            0% { opacity: 0; transform: translateX(80px); }
+            60% { opacity: 1; transform: translateX(-8px); }
             100% { transform: translateX(0); }
         }
         .cd-timeline__img--hidden, .cd-timeline__content--hidden {
@@ -231,11 +253,11 @@
         .back-button {
             display: inline-block;
             margin: 20px auto;
-            padding: 15px 30px;
+            padding: 14px 28px;
             background: linear-gradient(to right, #ffd700, #ffeb3b);
             color: #0a0a0a;
             font-family: 'Playfair Display', serif;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
@@ -248,57 +270,168 @@
         }
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px 20px;
             font-size: 0.9em;
             color: rgba(255,255,255,0.5);
             border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 80px;
+            margin-top: 60px;
         }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1em;
+                line-height: 1.5;
+            }
+            
+            header {
+                padding: 20px 15px 15px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+                letter-spacing: 0.5px;
+            }
+            
+            .cd-timeline {
+                padding: 2rem 1rem;
+            }
+            
+            .cd-timeline__container {
+                padding: 1rem 0;
+            }
+            
+            .cd-timeline__container::before {
+                left: 16px;
+                width: 2px;
+            }
+            
+            .cd-timeline__block {
+                margin: 2.5rem 0;
+            }
+            
+            .cd-timeline__img {
+                width: 32px;
+                height: 32px;
+                left: 1px;
+            }
+            
+            .dot {
+                width: 14px;
+                height: 14px;
+            }
+            
+            .cd-timeline__content {
+                margin-left: 50px;
+                padding: 1rem;
+                min-height: 80px;
+            }
+            
+            .year {
+                font-size: 1.3rem;
+            }
+            
+            .cd-timeline__content h3 {
+                font-size: 1.1em;
+                margin-bottom: 0.4rem;
+            }
+            
+            .cd-timeline__content p {
+                font-size: 0.92em;
+                line-height: 1.4;
+                margin: 0.6rem 0;
+            }
+            
+            .back-button {
+                font-size: 1em;
+                padding: 12px 24px;
+                width: 90%;
+                max-width: 280px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            footer {
+                padding: 20px 15px;
+                font-size: 0.85em;
+                margin-top: 50px;
+            }
+        }
+        
+        /* Small mobile devices */
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem !important;
-                word-break: break-word;
-                hyphens: auto;
-                text-align: center;
-                padding: 0 0.5rem;
+                font-size: 1.3em;
             }
+            
             .cd-timeline__container::before {
-                left: 8px; /* Slim line for tight screens */
+                left: 14px;
             }
+            
             .cd-timeline__img {
-                left: -4px; /* Adjust dot position */
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
+                left: 0;
             }
+            
             .dot {
-                width: 15px;
-                height: 15px;
+                width: 12px;
+                height: 12px;
             }
+            
+            .cd-timeline__content {
+                margin-left: 45px;
+                padding: 0.9rem;
+                min-height: 70px;
+            }
+            
+            .year {
+                font-size: 1.2rem;
+            }
+            
+            .cd-timeline__content h3 {
+                font-size: 1em;
+            }
+            
+            .cd-timeline__content p {
+                font-size: 0.9em;
+            }
+            
+            .cd-timeline {
+                padding: 1.5rem 0.8rem;
+            }
+            
+            .cd-timeline__block {
+                margin: 2rem 0;
+            }
+            
+            .back-button {
+                font-size: 0.95em;
+                padding: 10px 20px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 360px) {
             .cd-timeline__content {
                 margin-left: 40px;
                 padding: 0.8rem;
             }
+            
+            .cd-timeline__img {
+                width: 26px;
+                height: 26px;
+            }
+            
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+            
             .year {
-                font-size: 1.5rem;
+                font-size: 1.1rem;
             }
-            h3 {
-                font-size: 1.2rem;
-            }
-            p {
-                line-height: 1.4;
-                word-break: break-word;
-                hyphens: auto;
-            }
-            a {
-                overflow-wrap: break-word;
-            }
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2.9em; }
-            .cd-timeline { padding: 40px 20px; margin: 40px 15px; }
-            h2 { font-size: 2em; }
-            h3 { font-size: 1.7em; }
-            .cd-timeline__block { margin: 3rem 0; } /* Adjusted margin for mobile */
         }
     </style>
 </head>
@@ -376,7 +509,7 @@
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="1">
                     <div class="year">1965</div>
                     <h3>Hart-Celler Act</h3>
-                    <p>Ted Kennedy: “The ethnic mix will not be upset.” Biggest demographic lie of the century becomes law. Abolished national-origin quotas, leading to surge in immigration from Asia and Latin America, transforming U.S. demographics.</p>
+                    <p>Ted Kennedy: "The ethnic mix will not be upset." Biggest demographic lie of the century becomes law. Abolished national-origin quotas, leading to surge in immigration from Asia and Latin America, transforming U.S. demographics.</p>
                 </div>
             </div>
             <div class="cd-timeline__block">
@@ -526,7 +659,7 @@
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="1">
                     <div class="year">2016</div>
                     <h3>Pizzagate Suppressed</h3>
-                    <p>Wikileaks drops Podesta emails. Media calls child-trafficking investigation “fake news.” Allegations of elite pedophile ring dismissed as conspiracy.</p>
+                    <p>Wikileaks drops Podesta emails. Media calls child-trafficking investigation "fake news." Allegations of elite pedophile ring dismissed as conspiracy.</p>
                 </div>
             </div>
             <div class="cd-timeline__block">
@@ -546,7 +679,7 @@
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="3">
                     <div class="year">2020</div>
                     <h3>Election Night Anomalies</h3>
-                    <p>Five swing states stop counting simultaneously. Water main “burst” in Fulton County. Still no real audit in 2025. Claims of fraud remain uninvestigated.</p>
+                    <p>Five swing states stop counting simultaneously. Water main "burst" in Fulton County. Still no real audit in 2025. Claims of fraud remain uninvestigated.</p>
                 </div>
             </div>
             <div class="cd-timeline__block">
@@ -566,7 +699,7 @@
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="2">
                     <div class="year">2021–2025</div>
                     <h3>The Spreadsheet Conquest</h3>
-                    <p>1,088,000+ “unaccompanied minors” + 312,000 got-aways + override codes + $4.7 billion NGO bounties = engineered replacement in real time. Biden-era policies facilitated massive migration.</p>
+                    <p>1,088,000+ "unaccompanied minors" + 312,000 got-aways + override codes + $4.7 billion NGO bounties = engineered replacement in real time. Biden-era policies facilitated massive migration.</p>
                     <a href="analysis.html">Raw leaks →</a>
                 </div>
             </div>
@@ -586,7 +719,7 @@
                 </div>
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="1">
                     <div class="year">2023</div>
-                    <h3>TikTok “Ban” Theater</h3>
+                    <h3>TikTok "Ban" Theater</h3>
                     <p>Congress screams about Chinese spyware while ignoring NSA backdoors in every American phone. Bills proposed but no full ban, highlighting selective outrage.</p>
                 </div>
             </div>
@@ -597,7 +730,7 @@
                 <div class="cd-timeline__content text-component cd-timeline__content--bounce-in cd-timeline__content--hidden" data-shadow-intensity="2">
                     <div class="year">2024</div>
                     <h3>Trump Assassination Attempt</h3>
-                    <p>Butler, PA. Shooter had clear line of sight. Secret Service comms “encrypted.” Still no answers. Thomas Crooks fired from rooftop, wounding Trump.</p>
+                    <p>Butler, PA. Shooter had clear line of sight. Secret Service comms "encrypted." Still no answers. Thomas Crooks fired from rooftop, wounding Trump.</p>
                 </div>
             </div>
             <div class="cd-timeline__block">
@@ -612,11 +745,11 @@
             </div>
         </div>
     </section>
-    <div style="text-align: center; margin: 40px 0;">
+    <div style="text-align: center; margin: 30px 0;">
         <a href="index.html" class="back-button">Back to The Octopus</a>
     </div>
     <footer>
-        History doesn’t repeat. It upgrades.
+        History doesn't repeat. It upgrades.
     </footer>
     <script>
         function VerticalTimeline(element) {
