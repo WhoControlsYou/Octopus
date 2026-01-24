@@ -1,1 +1,1 @@
-# Octopus
+# Octopus, for entertainment purposes only.
