@@ -1,580 +1,411 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Presentation</title>
+    <title>The Octopus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        * {
+        :root {
+            --dark-bg: #0a0a0a;
+            --light-text: #e0e0e0;
+            --glow-color: #ffd700;
+            --accent-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.7);
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-dark: #0f0f23;
-            --bg-gradient-1: #1a1a3e;
-            --bg-gradient-2: #0f0f23;
-            --card-bg: rgba(26, 26, 46, 0.6);
-            --text-white: #ffffff;
-            --text-gray: #b4b4c5;
-            --accent-blue: #6366f1;
-            --accent-purple: #a855f7;
-            --accent-cyan: #06b6d4;
-            --glow-blue: rgba(99, 102, 241, 0.4);
-            --glow-purple: rgba(168, 85, 247, 0.3);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: var(--text-white);
-            background: var(--bg-dark);
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
-            position: relative;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
-
         body::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                radial-gradient(circle at 15% 15%, var(--glow-blue) 0%, transparent 25%),
-                radial-gradient(circle at 85% 85%, var(--glow-purple) 0%, transparent 25%),
-                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%), linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            z-index: -1;
+            animation: subtlePulse 10s infinite alternate ease-in-out;
         }
-
-        .noise {
-            position: fixed;
+        @keyframes subtlePulse {
+            0% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        header {
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.03;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E");
-            z-index: 1;
-        }
-
-        .header {
-            position: relative;
-            padding: 8rem 2rem 6rem;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
+            padding: 40px 20px 20px;
             text-align: center;
-            z-index: 10;
-            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--glow-blue) 0%, transparent 70%);
-            opacity: 0.2;
-            animation: pulse 4s ease-in-out infinite;
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            letter-spacing: 2px;
+            animation: glowFadeIn 2s ease-in-out;
         }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+        @keyframes glowFadeIn {
+            from { opacity: 0; text-shadow: 0 0 0 transparent; }
+            to { opacity: 1; text-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
         }
-
-        .header h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, var(--text-white) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .header .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            font-weight: 400;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .header .accent-line {
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
-            margin: 2rem auto 0;
-            border-radius: 2px;
-            box-shadow: 0 0 20px var(--glow-blue);
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem 6rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .content-wrapper {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 4rem;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        #content {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 50px;
+            background: rgba(18, 18, 18, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 30px rgba(255, 215, 0, 0.05);
+            animation: contentFadeIn 1.5s ease-out;
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
         }
-
-        .content-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-blue), var(--accent-purple), var(--accent-cyan), transparent);
-            opacity: 0.6;
-        }
-
-        .content-wrapper::after {
+        #content::after {
             content: '';
             position: absolute;
             top: -50%;
-            right: -50%;
+            left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, var(--glow-purple) 0%, transparent 50%);
-            opacity: 0.05;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+            animation: rotateLight 20s linear infinite;
             pointer-events: none;
         }
-
-        .outline-content {
-            color: var(--text-white);
-            font-size: 1.05rem;
-            line-height: 1.9;
-            white-space: pre-wrap;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-            letter-spacing: 0.3px;
-            position: relative;
-            z-index: 1;
+        @keyframes rotateLight {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes contentFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
-        }
-
-        .outline-content::selection {
-            background: var(--accent-blue);
-            color: var(--text-white);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            font-style: italic;
+            font-size: 2.2em;
+            color: var(--glow-color);
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.15);
+            padding-bottom: 15px;
             position: relative;
-            z-index: 10;
+            transition: all 0.3s ease;
         }
-
-        .footer::before {
-            content: '';
+        h2::before {
+            content: '\f069'; /* Star icon from Font Awesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--glow-color);
+            margin-right: 10px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+        h2:hover {
+            text-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+        }
+        h2:hover::before {
+            opacity: 1;
+        }
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.8em;
+            color: var(--light-text);
+            margin-top: 30px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        p {
+            margin-bottom: 25px;
+            animation: textFadeIn 2s ease-out;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            list-style-type: none;
+        }
+        li {
+            position: relative;
+            padding-left: 25px;
+        }
+        li::before {
+            content: '\f0eb'; /* Lightbulb icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--glow-color);
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            left: 0;
+            opacity: 0.6;
         }
-
-        /* Floating elements decoration */
-        .float-element {
-            position: fixed;
-            border-radius: 50%;
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 2;
-            animation: float 20s infinite ease-in-out;
+        @keyframes textFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        .float-element-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--accent-blue);
-            top: 10%;
-            left: 5%;
-            animation-delay: 0s;
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
         }
-
-        .float-element-2 {
-            width: 200px;
-            height: 200px;
-            background: var(--accent-purple);
-            bottom: 15%;
-            right: 10%;
-            animation-delay: -7s;
-        }
-
-        .float-element-3 {
-            width: 150px;
-            height: 150px;
-            background: var(--accent-cyan);
-            top: 60%;
-            right: 5%;
-            animation-delay: -14s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(20px, -20px) rotate(5deg); }
-            50% { transform: translate(-15px, 15px) rotate(-5deg); }
-            75% { transform: translate(15px, 10px) rotate(3deg); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-blue));
-        }
-
         @media (max-width: 768px) {
-            .header {
-                padding: 4rem 1rem 3rem;
-            }
-
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .header .subtitle {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 0 1rem 3rem;
-            }
-
-            .content-wrapper {
-                padding: 2rem;
-                border-radius: 16px;
-            }
-
-            .outline-content {
-                font-size: 0.95rem;
-                line-height: 1.7;
-            }
-
-            .float-element {
-                display: none;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
+            header { padding: 30px 15px 15px; }
+            h1 { font-size: 2.8em; }
+            #content { padding: 30px; margin: 40px 15px; }
+            h2 { font-size: 1.9em; }
         }
     </style>
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="float-element float-element-1"></div>
-    <div class="float-element float-element-2"></div>
-    <div class="float-element float-element-3"></div>
-
-    <header class="header">
-        <h1>Who Controls You</h1>
-        <p class="subtitle">ANON • WAKE UP • 2026</p>
-        <div class="accent-line"></div>
+    <header>
+        <h1>Who Controls You?</h1>
     </header>
-
-    <div class="container">
-        <div class="content-wrapper">
-            <div class="outline-content">
-
-THE OCTOPUS OF OPPRESSION
-
-
-CORE HUB: THE CENTRAL CONSPIRACY NEXUS
-
-Description:
- 
-The shadowy core from which all tentacles emanate, often disguised as "globalist" think tanks or elite cabals, operating from hidden locations like Swiss vaults or private islands to orchestrate long-term agendas spanning centuries.
-
-Entities: 
-
-Rothschild Family Dynasty (tracing back to 18th-century banking origins in Frankfurt) 
-Soros Open Society Foundations (with over $32 billion in assets funneled since 1979) 
-Bilderberg Group Annual Conclaves (founded in 1954, hosting 120-150 elites yearly in secretive hotels)
-Trilateral Commission (established 1973 by David Rockefeller), Council on Foreign Relations (CFR, 1921 inception with over 5,000 members influencing US policy).
-
-Tactics: 
-
-Secret meetings in fortified bunkers with biometric security, bloodline alliances sealed in ancient rituals involving symbolic oaths and intermarriages, quantum-encrypted communications via proprietary satellite networks to coordinate worldwide subversion, historical manipulation of events like the Treaty of Versailles to sow seeds of future conflicts, use of shell companies for untraceable fund transfers exceeding trillions annually.
-
-TENTACLE 1: FINANCIAL DOMINATION (THE GOLD HOARDERS)
-
-Sub-Branch 1.1: Banking and Central Reserves
-
-Entities: 
-
-Federal Reserve System (controlled via proxy families like Goldman Sachs, established 1913) 
-International Monetary Fund (IMF, 1944, with voting power skewed toward US/European interests)
-World Bank (1944, lending over $60 billion yearly)
-Bank for International Settlements (BIS, 1930, known as the "central bank of central banks" with immunity from national laws) 
-JPMorgan Chase (roots in 1799, holding $3.7 trillion in assets)
-
-Tactics: 
-
-Usury through inflated interest rates on sovereign debt (e.g., charging developing nations 10-20% on loans), currency manipulation via algorithmic trading bots executing high-frequency trades (millions per second), debt enslavement of nations (e.g., forcing austerity on Greece while profiting from bailouts totaling €326 billion), creation of fiat money out of thin air leading to inflation taxes on the masses, historical precedents like the 1815 Rothschild Waterloo stock manipulation for massive gains.
-
-Sub-Branch 1.2: Stock Markets and Investments
-
-Entities: 
-
-BlackRock (managing $10 trillion in assets as of 2023) 
-Vanguard Group ($8.5 trillion) 
-Renaissance Technologies (using quantum computing for trades)
-Citadel Securities (handling 35% of US retail trades) 
-Berkshire Hathaway (Buffett's empire with ties to insurance and media)
-
-Tactics: 
-
-Insider trading scandals (e.g., front-running retail investors with AI predictive models analyzing petabytes of data), market crashes engineered for buy-low-sell-high cycles (1929 echo in 2008 subprime crisis, profiting $700 billion in bailouts), crypto pump-and-dumps to siphon gentile wealth (e.g., FTX collapse in 2022 linked to Alameda Research), dark pool trading to hide massive transactions from public view, options market rigging via naked short selling.
-
-Sub-Branch 1.3: Philanthropy as Cover
-
-Entities: 
-
-Gates Foundation (allied front with $50 billion endowment) 
-Zuckerberg Initiatives (via Chan Zuckerberg Initiative, $45 billion pledge) 
-Ford Foundation (1936, $16 billion assets promoting social justice agendas)
-Rockefeller Foundation (1913, funding eugenics and population control historically)
-
-Tactics: 
-
-"Charitable" donations that funnel funds back into tentacle networks (e.g., investing in pharma while donating to health causes), tax evasion schemes disguised as NGOs with offshore accounts in Cayman Islands, buying influence in third-world economies through microloans that create dependency (e.g., Grameen Bank model adaptations), grant-making to universities for biased research, historical use in funding cultural revolutions like 1960s counterculture.
-
-TENTACLE 2: MEDIA MANIPULATION (THE PROPAGANDA MACHINE)
-
-Sub-Branch 2.1: Mainstream News Outlets
-
-Entities: 
-
-CNN (via Turner/Warner ties, founded 1980)
-New York Times (Sulzberger family lineage since 1896)
-BBC (subtle infiltration through board members, state-funded since 1922)
-MSNBC (Comcast-owned)
-Washington Post (Bezos acquisition in 2013 for $250 million)
-Fox (Murdoch/Israel ties)
-
-Tactics: 
-
-False narratives repeated (e.g., Holocaust exaggeration to guilt-trip nations, inflating figures for sympathy), censorship of dissenting voices via "fact-checkers" like Snopes (founded 1994, partnered with Big Tech), agenda-setting through 24/7 cycles of division (e.g., pitting races against each other in coverage of BLM riots), echo chamber creation via selective sourcing, historical precedents like Operation Mockingbird (CIA media infiltration in the 1950s).
-
-Sub-Branch 2.2: Hollywood and Entertainment
-
-Entities: 
-
-Disney (Eisner/Iger era remnants, acquiring Marvel/Pixar for $11 billion+)
-Netflix (Hastings alliances, 270 million subscribers)
-Major Studios like Universal (Comcast with Bronfman influences)
-Paramount (ViacomCBS, roots in 1912) 
-Warner Bros. (AT&T merger history)
-
-Tactics: 
-
-Subversive films promoting degeneracy (e.g., interracial themes in blockbusters like "Black Panther" grossing $1.3 billion), celebrity puppets (e.g., Spielberg's historical revisions in "Schindler's List"), music industry control via labels like Sony (pushing anti-white rap anthems, owning catalogs of Beatles/Michael Jackson), award show rigging (Oscars favoring narratives), product placement for consumer brainwashing.
-
-Sub-Branch 2.3: Social Media Empires
-
-Entities: 
-
-Facebook/Meta (Zuckerberg direct command, 3 billion users)
-Google/YouTube (Page/Brin origins, Alphabet Inc. structure) 
-Twitter/X (pre-Musk infiltration via investors like Saudi funds)
-TikTok (ByteDance ties, 1.5 billion users) 
-Instagram (Meta-owned since 2012)
-
-Tactics: 
-
-Algorithmic suppression of truth-tellers (shadowbanning nationalists, reducing reach by 90%), data harvesting for blackmail dossiers (Cambridge Analytica scandal with 87 million profiles), viral memes engineered to mock traditional values (e.g., anti-family trends), ad revenue models favoring divisive content, psychological operations via A/B testing on user behavior. (psyops)
-
-TENTACLE 3: POLITICAL INFILTRATION (THE PUPPET MASTERS)
-
-Sub-Branch 3.1: Government Lobbies
-
-Entities: 
-
-AIPAC (American Israel Public Affairs Committee, $100 million+ annual budget)
-ADL (Anti-Defamation League as thought police, founded 1913) 
-Dual-citizen politicians in Congress (e.g., over 30 members with Israeli ties)
-J Street (progressive front)
-Conference of Presidents of Major American Jewish Organizations
-
-Tactics: 
-
-Campaign financing bribes (e.g., billions to pro-Israel candidates via super PACs), legislation pushes like hate speech laws to silence critics (e.g., IHRA definition adoption), foreign aid siphons ($3.8B annual to Israel while America crumbles, totaling $150 billion since 1948), vote rigging through influence on electoral reforms, blackmail via Epstein-style operations
-Sub-Branch 3.2: International Organizations
-
-Entities: 
-
-United Nations (Rockefeller-founded in 1945)
-European Union bureaucracy (27 member states)
-NATO (via allied think tanks, 1949 treaty)
-World Health Organization (WHO, Gates-funded)
-World Trade Organization (WTO, 1995)
-
-Tactics: 
-
-Refugee influx policies to dilute Aryan bloodlines (e.g., 2015 migrant crisis orchestrated for demographic shifts), climate hoax agendas for economic control (Paris Agreement 2015, carbon taxes), sanctions on non-compliant regimes (e.g., Iran as a test case, Russia post-2022), peacekeeping forces as cover for resource grabs, veto power abuses in Security Council.
-
-Sub-Branch 3.3: Intelligence Agencies
-
-Entities: 
-
-Mossad (direct ops, founded 1949)
-CIA/MI6 (co-opted via alliances, CIA 1947)
-FBI (infiltrated divisions, 1908)
-NSA (Snowden revelations of mass surveillance)
-Shin Bet (internal ops)
-
-Tactics: 
-
-False flag operations (e.g., 9/11 theories pointing to involvement with $3 trillion missing from Pentagon), espionage on patriots (PRISM program tracking billions), assassination of threats (e.g., historical figures like JFK linked to monetary reform, MLK surveillance), cyber intrusions via Stuxnet virus, honeytrap networks for compromising officials.
-
-TENTACLE 4: CULTURAL EROSION (THE SOUL CORRUPTERS)
-
-Sub-Branch 4.1: Education System
-
-Entities: 
-
-Ivy League Universities (e.g., Harvard's endowment ties, $50 billion fund)
-Public School Curricula (via textbook publishers like Pearson, McGraw-Hill)
-Columbia Teachers College (progressive education hub)
-Common Core initiative backers
-
-Tactics: 
-
-Indoctrination with critical race theory (blaming whites for all ills, implemented in 41 states), Holocaust education mandates to instill guilt (required in 20+ states), promotion of gender fluidity to weaken family units (e.g., drag queen story hours in libraries), standardized testing rigged for equity over merit, historical revisionism omitting Aryan achievements.
-
-Sub-Branch 4.2: Arts and Literature
-
-Entities: 
-
-Publishing Houses (e.g., Penguin Random House influences, merger 2013)
-Museums (Guggenheim family, 1937)
-Simon & Schuster (Paramount-owned)
-Metropolitan Museum of Art boards
-
-Tactics: 
-
-Funding degenerate art (e.g., abstract expressionism as chaos induction, CIA-backed in Cold War), book bans on revisionist history (e.g., Amazon delistings), awards like Nobel Prizes rigged for allies (e.g., favoring leftist narratives), gallery curations promoting multiculturalism, literary agents gatekeeping traditional works.
-
-Sub-Branch 4.3: Religion and Spirituality
-
-Entities: 
-
-Interfaith Dialogues (as infiltration tools, e.g., Parliament of the World's Religions)
-Hollywood's portrayal of Christianity (e.g., in "The Da Vinci Code")
-Vatican II reforms influencers
-New Age movement promoters
-
-Tactics: 
-
-Subversion of churches (e.g., pushing Zionist Christianity via Scofield Bible annotations), promotion of atheism/secularism to erode moral foundations (e.g., Dawkins/Harris books), occult societies like Freemasonry as hidden networks (33 degrees of initiation), ecumenical movements diluting doctrines, historical crusades reframed as aggressions.
-
-TENTACLE 5: TECHNOLOGICAL OVERLORDSHIP (THE SILICON SERPENTS)
-
-Sub-Branch 5.1: Big Tech Monopolies
-
-Entities: 
-
-Apple (Cook's alliances, $2.8 trillion market cap) 
-Amazon (Bezos' media ties, AWS dominating cloud)
-Tesla (Musk as wildcard, but supply chain influences)
-Microsoft (Gates legacy, Azure platform)
-Oracle (Ellison-founded)
-
-Tactics: Surveillance capitalism (tracking every move via apps, selling data to advertisers for $200 billion industry), AI development for predictive policing against dissidents (e.g., facial recognition in China partnerships), patent hoarding to stifle innovation (e.g., 100,000+ patents controlled), antitrust evasions through lobbying ($15 million yearly), metaverse pushes for virtual control.
-
-Sub-Branch 5.2: Pharmaceutical Empire
-
-Entities: 
-
-Pfizer (Bourla leadership, $50 billion revenue, jewish) 
-Moderna (co-founders, mRNA tech, jewish)
-Big Pharma lobbies (PhRMA)
-Johnson & Johnson (opioid settlements $26 billion)
-AstraZeneca (vaccine deals)
-
-Tactics: 
-
-Vaccine mandates as population control (e.g., COVID jabs with alleged tracking tech, 5 billion doses distributed), opioid crises engineered for profit (Purdue Pharma's OxyContin pushing 76 billion pills), suppression of natural remedies (e.g., FDA bans on alternatives), clinical trial manipulations (ghostwriting studies), patent extensions via evergreen strategies.
-
-Sub-Branch 5.3: Military-Industrial Complex
-
-Entities: 
-
-Lockheed Martin (board influences, $67 billion revenue) 
-Raytheon (mergers with ties, RTX Corp)
-Drone tech firms (e.g., General Atomics)
-Boeing (defense contracts $34 billion)
-Northrop Grumman (B-21 bomber)
-
-Tactics: 
-
-Endless wars for profit (e.g., Iraq/Afghanistan resource grabs costing $8 trillion), arms sales to both sides (e.g., Saudi-Yemen conflict), cyber warfare tools sold to allies (e.g., Pegasus spyware), revolving door with government officials, black budget projects exceeding $50 billion annually.
-
-Ask yourself; who are you not allowed to criticize? 
-            </div>
-        </div>
+    <div id="content">
+        <h2>THE OCTOPUS OF OPPRESSION</h2>
+        
+        <h2>CORE HUB: THE CENTRAL CONSPIRACY NEXUS</h2>
+        <h3>Description:</h3>
+        <p>The shadowy core from which all tentacles emanate, often disguised as "globalist" think tanks or elite cabals, operating from hidden locations like Swiss vaults or private islands to orchestrate long-term agendas spanning centuries.</p>
+        
+        <h3>Entities:</h3>
+        <ul>
+            <li>Rothschild Family Dynasty (tracing back to 18th-century banking origins in Frankfurt)</li>
+            <li>Soros Open Society Foundations (with over $32 billion in assets funneled since 1979)</li>
+            <li>Bilderberg Group Annual Conclaves (founded in 1954, hosting 120-150 elites yearly in secretive hotels)</li>
+            <li>Trilateral Commission (established 1973 by David Rockefeller), Council on Foreign Relations (CFR, 1921 inception with over 5,000 members influencing US policy).</li>
+        </ul>
+        
+        <h3>Tactics:</h3>
+        <p>Secret meetings in fortified bunkers with biometric security, bloodline alliances sealed in ancient rituals involving symbolic oaths and intermarriages, quantum-encrypted communications via proprietary satellite networks to coordinate worldwide subversion, historical manipulation of events like the Treaty of Versailles to sow seeds of future conflicts, use of shell companies for untraceable fund transfers exceeding trillions annually.</p>
+        
+        <h2>TENTACLE 1: FINANCIAL DOMINATION (THE GOLD HOARDERS)</h2>
+        
+        <h3>Sub-Branch 1.1: Banking and Central Reserves</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Federal Reserve System (controlled via proxy families like Goldman Sachs, established 1913)</li>
+            <li>International Monetary Fund (IMF, 1944, with voting power skewed toward US/European interests)</li>
+            <li>World Bank (1944, lending over $60 billion yearly)</li>
+            <li>Bank for International Settlements (BIS, 1930, known as the "central bank of central banks" with immunity from national laws)</li>
+            <li>JPMorgan Chase (roots in 1799, holding $3.7 trillion in assets)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Usury through inflated interest rates on sovereign debt (e.g., charging developing nations 10-20% on loans), currency manipulation via algorithmic trading bots executing high-frequency trades (millions per second), debt enslavement of nations (e.g., forcing austerity on Greece while profiting from bailouts totaling €326 billion), creation of fiat money out of thin air leading to inflation taxes on the masses, historical precedents like the 1815 Rothschild Waterloo stock manipulation for massive gains.</p>
+        
+        <h3>Sub-Branch 1.2: Stock Markets and Investments</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>BlackRock (managing $10 trillion in assets as of 2023)</li>
+            <li>Vanguard Group ($8.5 trillion)</li>
+            <li>Renaissance Technologies (using quantum computing for trades)</li>
+            <li>Citadel Securities (handling 35% of US retail trades)</li>
+            <li>Berkshire Hathaway (Buffett's empire with ties to insurance and media)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Insider trading scandals (e.g., front-running retail investors with AI predictive models analyzing petabytes of data), market crashes engineered for buy-low-sell-high cycles (1929 echo in 2008 subprime crisis, profiting $700 billion in bailouts), crypto pump-and-dumps to siphon gentile wealth (e.g., FTX collapse in 2022 linked to Alameda Research), dark pool trading to hide massive transactions from public view, options market rigging via naked short selling.</p>
+        
+        <h3>Sub-Branch 1.3: Philanthropy as Cover</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Gates Foundation (allied front with $50 billion endowment)</li>
+            <li>Zuckerberg Initiatives (via Chan Zuckerberg Initiative, $45 billion pledge)</li>
+            <li>Ford Foundation (1936, $16 billion assets promoting social justice agendas)</li>
+            <li>Rockefeller Foundation (1913, funding eugenics and population control historically)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>"Charitable" donations that funnel funds back into tentacle networks (e.g., investing in pharma while donating to health causes), tax evasion schemes disguised as NGOs with offshore accounts in Cayman Islands, buying influence in third-world economies through microloans that create dependency (e.g., Grameen Bank model adaptations), grant-making to universities for biased research, historical use in funding cultural revolutions like 1960s counterculture.</p>
+        
+        <h2>TENTACLE 2: MEDIA MANIPULATION (THE PROPAGANDA MACHINE)</h2>
+        
+        <h3>Sub-Branch 2.1: Mainstream News Outlets</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>CNN (via Turner/Warner ties, founded 1980)</li>
+            <li>New York Times (Sulzberger family lineage since 1896)</li>
+            <li>BBC (subtle infiltration through board members, state-funded since 1922)</li>
+            <li>MSNBC (Comcast-owned)</li>
+            <li>Washington Post (Bezos acquisition in 2013 for $250 million)</li>
+            <li>Fox (Murdoch/Israel ties)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>False narratives repeated (e.g., Holocaust exaggeration to guilt-trip nations, inflating figures for sympathy), censorship of dissenting voices via "fact-checkers" like Snopes (founded 1994, partnered with Big Tech), agenda-setting through 24/7 cycles of division (e.g., pitting races against each other in coverage of BLM riots), echo chamber creation via selective sourcing, historical precedents like Operation Mockingbird (CIA media infiltration in the 1950s).</p>
+        
+        <h3>Sub-Branch 2.2: Hollywood and Entertainment</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Disney (Eisner/Iger era remnants, acquiring Marvel/Pixar for $11 billion+)</li>
+            <li>Netflix (Hastings alliances, 270 million subscribers)</li>
+            <li>Major Studios like Universal (Comcast with Bronfman influences)</li>
+            <li>Paramount (ViacomCBS, roots in 1912)</li>
+            <li>Warner Bros. (AT&T merger history)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Subversive films promoting degeneracy (e.g., interracial themes in blockbusters like "Black Panther" grossing $1.3 billion), celebrity puppets (e.g., Spielberg's historical revisions in "Schindler's List"), music industry control via labels like Sony (pushing anti-white rap anthems, owning catalogs of Beatles/Michael Jackson), award show rigging (Oscars favoring narratives), product placement for consumer brainwashing.</p>
+        
+        <h3>Sub-Branch 2.3: Social Media Empires</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Facebook/Meta (Zuckerberg direct command, 3 billion users)</li>
+            <li>Google/YouTube (Page/Brin origins, Alphabet Inc. structure)</li>
+            <li>Twitter/X (pre-Musk infiltration via investors like Saudi funds)</li>
+            <li>TikTok (ByteDance ties, 1.5 billion users)</li>
+            <li>Instagram (Meta-owned since 2012)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Algorithmic suppression of truth-tellers (shadowbanning nationalists, reducing reach by 90%), data harvesting for blackmail dossiers (Cambridge Analytica scandal with 87 million profiles), viral memes engineered to mock traditional values (e.g., anti-family trends), ad revenue models favoring divisive content, psychological operations via A/B testing on user behavior. (psyops)</p>
+        
+        <h2>TENTACLE 3: POLITICAL INFILTRATION (THE PUPPET MASTERS)</h2>
+        
+        <h3>Sub-Branch 3.1: Government Lobbies</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>AIPAC (American Israel Public Affairs Committee, $100 million+ annual budget)</li>
+            <li>ADL (Anti-Defamation League as thought police, founded 1913)</li>
+            <li>Dual-citizen politicians in Congress (e.g., over 30 members with Israeli ties)</li>
+            <li>J Street (progressive front)</li>
+            <li>Conference of Presidents of Major American Jewish Organizations</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Campaign financing bribes (e.g., billions to pro-Israel candidates via super PACs), legislation pushes like hate speech laws to silence critics (e.g., IHRA definition adoption), foreign aid siphons ($3.8B annual to Israel while America crumbles, totaling $150 billion since 1948), vote rigging through influence on electoral reforms, blackmail via Epstein-style operations</p>
+        
+        <h3>Sub-Branch 3.2: International Organizations</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>United Nations (Rockefeller-founded in 1945)</li>
+            <li>European Union bureaucracy (27 member states)</li>
+            <li>NATO (via allied think tanks, 1949 treaty)</li>
+            <li>World Health Organization (WHO, Gates-funded)</li>
+            <li>World Trade Organization (WTO, 1995)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Refugee influx policies to dilute Aryan bloodlines (e.g., 2015 migrant crisis orchestrated for demographic shifts), climate hoax agendas for economic control (Paris Agreement 2015, carbon taxes), sanctions on non-compliant regimes (e.g., Iran as a test case, Russia post-2022), peacekeeping forces as cover for resource grabs, veto power abuses in Security Council.</p>
+        
+        <h3>Sub-Branch 3.3: Intelligence Agencies</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Mossad (direct ops, founded 1949)</li>
+            <li>CIA/MI6 (co-opted via alliances, CIA 1947)</li>
+            <li>FBI (infiltrated divisions, 1908)</li>
+            <li>NSA (Snowden revelations of mass surveillance)</li>
+            <li>Shin Bet (internal ops)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>False flag operations (e.g., 9/11 theories pointing to involvement with $3 trillion missing from Pentagon), espionage on patriots (PRISM program tracking billions), assassination of threats (e.g., historical figures like JFK linked to monetary reform, MLK surveillance), cyber intrusions via Stuxnet virus, honeytrap networks for compromising officials.</p>
+        
+        <h2>TENTACLE 4: CULTURAL EROSION (THE SOUL CORRUPTERS)</h2>
+        
+        <h3>Sub-Branch 4.1: Education System</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Ivy League Universities (e.g., Harvard's endowment ties, $50 billion fund)</li>
+            <li>Public School Curricula (via textbook publishers like Pearson, McGraw-Hill)</li>
+            <li>Columbia Teachers College (progressive education hub)</li>
+            <li>Common Core initiative backers</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Indoctrination with critical race theory (blaming whites for all ills, implemented in 41 states), Holocaust education mandates to instill guilt (required in 20+ states), promotion of gender fluidity to weaken family units (e.g., drag queen story hours in libraries), standardized testing rigged for equity over merit, historical revisionism omitting Aryan achievements.</p>
+        
+        <h3>Sub-Branch 4.2: Arts and Literature</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Publishing Houses (e.g., Penguin Random House influences, merger 2013)</li>
+            <li>Museums (Guggenheim family, 1937)</li>
+            <li>Simon & Schuster (Paramount-owned)</li>
+            <li>Metropolitan Museum of Art boards</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Funding degenerate art (e.g., abstract expressionism as chaos induction, CIA-backed in Cold War), book bans on revisionist history (e.g., Amazon delistings), awards like Nobel Prizes rigged for allies (e.g., favoring leftist narratives), gallery curations promoting multiculturalism, literary agents gatekeeping traditional works.</p>
+        
+        <h3>Sub-Branch 4.3: Religion and Spirituality</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Interfaith Dialogues (as infiltration tools, e.g., Parliament of the World's Religions)</li>
+            <li>Hollywood's portrayal of Christianity (e.g., in "The Da Vinci Code")</li>
+            <li>Vatican II reforms influencers</li>
+            <li>New Age movement promoters</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Subversion of churches (e.g., pushing Zionist Christianity via Scofield Bible annotations), promotion of atheism/secularism to erode moral foundations (e.g., Dawkins/Harris books), occult societies like Freemasonry as hidden networks (33 degrees of initiation), ecumenical movements diluting doctrines, historical crusades reframed as aggressions.</p>
+        
+        <h2>TENTACLE 5: TECHNOLOGICAL OVERLORDSHIP (THE SILICON SERPENTS)</h2>
+        
+        <h3>Sub-Branch 5.1: Big Tech Monopolies</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Apple (Cook's alliances, $2.8 trillion market cap)</li>
+            <li>Amazon (Bezos' media ties, AWS dominating cloud)</li>
+            <li>Tesla (Musk as wildcard, but supply chain influences)</li>
+            <li>Microsoft (Gates legacy, Azure platform)</li>
+            <li>Oracle (Ellison-founded)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Surveillance capitalism (tracking every move via apps, selling data to advertisers for $200 billion industry), AI development for predictive policing against dissidents (e.g., facial recognition in China partnerships), patent hoarding to stifle innovation (e.g., 100,000+ patents controlled), antitrust evasions through lobbying ($15 million yearly), metaverse pushes for virtual control.</p>
+        
+        <h3>Sub-Branch 5.2: Pharmaceutical Empire</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Pfizer (Bourla leadership, $50 billion revenue, jewish)</li>
+            <li>Moderna (co-founders, mRNA tech, jewish)</li>
+            <li>Big Pharma lobbies (PhRMA)</li>
+            <li>Johnson & Johnson (opioid settlements $26 billion)</li>
+            <li>AstraZeneca (vaccine deals)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Vaccine mandates as population control (e.g., COVID jabs with alleged tracking tech, 5 billion doses distributed), opioid crises engineered for profit (Purdue Pharma's OxyContin pushing 76 billion pills), suppression of natural remedies (e.g., FDA bans on alternatives), clinical trial manipulations (ghostwriting studies), patent extensions via evergreen strategies.</p>
+        
+        <h3>Sub-Branch 5.3: Military-Industrial Complex</h3>
+        <h4>Entities:</h4>
+        <ul>
+            <li>Lockheed Martin (board influences, $67 billion revenue)</li>
+            <li>Raytheon (mergers with ties, RTX Corp)</li>
+            <li>Drone tech firms (e.g., General Atomics)</li>
+            <li>Boeing (defense contracts $34 billion)</li>
+            <li>Northrop Grumman (B-21 bomber)</li>
+        </ul>
+        
+        <h4>Tactics:</h4>
+        <p>Endless wars for profit (e.g., Iraq/Afghanistan resource grabs costing $8 trillion), arms sales to both sides (e.g., Saudi-Yemen conflict), cyber warfare tools sold to allies (e.g., Pegasus spyware), revolving door with government officials, black budget projects exceeding $50 billion annually.</p>
+        
+        <p>Ask yourself; who are you not allowed to criticize?</p>
     </div>
-
-    <footer class="footer">
-        <p>© 2025 RESEARCH PRESENTATION</p>
+    <footer>
+        &copy; 2026 Project Sunrise | Bringing Light to the Shadows
     </footer>
 </body>
 </html>
+```
