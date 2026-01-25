@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>The Plan | The Octopus 💡</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,6 +16,10 @@
             --evidence-bg: rgba(255, 215, 0, 0.05);
         }
         
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             background-color: var(--dark-bg);
             color: var(--light-text);
@@ -26,11 +30,13 @@
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
         }
         
         body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
                         linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
@@ -43,13 +49,14 @@
             100% { opacity: 1; } 
         }
         
-        /* Navigation */
+        /* Navigation - Mobile First */
         .main-nav {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 30px auto 0;
-            padding: 15px 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 15px auto 0;
+            padding: 10px 15px;
             max-width: 1000px;
             position: relative;
         }
@@ -71,18 +78,24 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 600;
-            font-size: 1.1em;
-            padding: 10px 0;
+            font-size: 1em;
+            padding: 12px 20px;
             position: relative;
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.1);
+            border-radius: 6px;
+            background: rgba(20,20,20,0.3);
         }
         
         .nav-link::before {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 2px;
             background: var(--glow-color);
@@ -90,13 +103,15 @@
             box-shadow: 0 0 10px var(--glow-color);
         }
         
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link:active {
             color: var(--glow-color);
             text-shadow: 0 0 15px rgba(255,215,0,0.5);
         }
         
-        .nav-link:hover::before {
-            width: 100%;
+        .nav-link:hover::before,
+        .nav-link:active::before {
+            width: 80%;
         }
         
         .nav-link i {
@@ -105,13 +120,9 @@
             transition: opacity 0.3s ease;
         }
         
-        .nav-link:hover i {
-            opacity: 1;
-        }
-        
         header {
             background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-            padding: 30px 20px 10px;
+            padding: 20px 15px 10px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 4px 10px var(--shadow-color);
@@ -119,37 +130,40 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
+            font-size: 1.8em;
             font-weight: 700;
             font-style: italic;
             color: var(--accent-color);
             margin: 0;
             text-shadow: 0 0 20px rgba(255,215,0,0.4);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
         
         .subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
+            font-size: 1.1em;
             color: var(--glow-color);
-            margin: 10px auto 30px;
+            margin: 10px auto 20px;
             max-width: 800px;
             font-style: italic;
             text-shadow: 0 0 10px rgba(255,215,0,0.3);
+            line-height: 1.4;
+            padding: 0 10px;
         }
         
         /* Main Content */
         .container {
             max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 25px auto;
+            padding: 0 15px;
         }
         
         .intro-box {
             background: var(--evidence-bg);
             border: 1px solid var(--glow-color);
-            padding: 2rem;
-            margin-bottom: 3rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
             position: relative;
@@ -159,82 +173,88 @@
         .intro-box::before {
             content: '2026';
             position: absolute;
-            top: 20px;
-            right: -30px;
+            top: 15px;
+            right: -35px;
             background: rgba(255, 215, 0, 0.9);
             color: #000;
-            padding: 5px 40px;
+            padding: 4px 35px;
             transform: rotate(45deg);
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 0.8em;
             letter-spacing: 1px;
         }
         
         .section {
-            margin-bottom: 3rem;
-            padding: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
             background: var(--evidence-bg);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         
-        .section:hover {
-            transform: translateY(-5px);
+        .section:active {
+            transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
         }
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-size: 1.4em;
             color: var(--glow-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         
         .section-title i {
-            font-size: 1.2em;
+            font-size: 1.1em;
+            min-width: 24px;
         }
         
         .evidence-card {
             background: rgba(20, 20, 20, 0.7);
             border-left: 4px solid var(--glow-color);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
+            padding: 1.2rem;
+            margin: 1.2rem 0;
             border-radius: 0 8px 8px 0;
         }
         
         .evidence-card h4 {
             color: var(--glow-color);
             margin-top: 0;
-            font-size: 1.2em;
+            font-size: 1.1em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
         
         .evidence-card h4 i {
             font-size: 0.9em;
+            min-width: 20px;
         }
         
         .citation {
-            font-size: 0.85em;
+            font-size: 0.8em;
             color: rgba(255, 215, 0, 0.7);
             font-style: italic;
             margin-top: 10px;
             padding-top: 10px;
             border-top: 1px solid rgba(255, 215, 0, 0.1);
+            line-height: 1.4;
         }
         
         .data-point {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 1rem 0;
+            flex-direction: column;
+            gap: 8px;
+            margin: 0.8rem 0;
             padding: 1rem;
             background: rgba(255, 215, 0, 0.03);
             border-radius: 6px;
@@ -242,22 +262,27 @@
         
         .data-point i {
             color: var(--glow-color);
-            font-size: 1.5em;
-            min-width: 30px;
+            font-size: 1.3em;
+            margin-bottom: 5px;
         }
         
         .chart-container {
             background: rgba(20, 20, 20, 0.8);
-            padding: 1.5rem;
-            margin: 2rem 0;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             border-radius: 8px;
             border: 1px solid rgba(255, 215, 0, 0.2);
+            overflow-x: auto;
+        }
+        
+        .chart-bar-container {
+            min-width: 300px;
         }
         
         .chart-bar {
-            height: 30px;
+            height: 26px;
             background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,215,0,0.7));
-            margin: 10px 0;
+            margin: 12px 0;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
@@ -265,27 +290,30 @@
         
         .chart-label {
             position: absolute;
-            left: 15px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
             font-weight: bold;
             color: #000;
             text-shadow: 0 0 2px rgba(255,255,255,0.5);
+            font-size: 0.85em;
+            white-space: nowrap;
         }
         
         .chart-value {
             position: absolute;
-            right: 15px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
             font-weight: bold;
             color: #000;
+            font-size: 0.85em;
         }
         
         .tentacle-connection {
             background: rgba(255, 215, 0, 0.08);
-            padding: 1.5rem;
-            margin: 2rem 0;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
             border-radius: 8px;
             border: 1px dashed rgba(255, 215, 0, 0.4);
         }
@@ -295,13 +323,14 @@
             margin-top: 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-size: 1.1em;
         }
         
         .conclusion {
             background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
-            padding: 2.5rem;
-            margin-top: 3rem;
+            padding: 1.8rem;
+            margin-top: 2.5rem;
             border-radius: 8px;
             border: 1px solid var(--glow-color);
             text-align: center;
@@ -328,41 +357,46 @@
         
         .conclusion h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2em;
+            font-size: 1.5em;
             color: var(--glow-color);
             margin-bottom: 1rem;
         }
         
         .footnote {
-            font-size: 0.85em;
+            font-size: 0.8em;
             color: rgba(255,255,255,0.5);
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             padding-top: 1rem;
             border-top: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.5;
         }
         
         /* Footer Navigation */
         .footer-nav {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0 auto 25px;
-            padding: 0 20px;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 0 auto 20px;
+            padding: 0 15px;
         }
         
         .footer-nav-link {
             color: rgba(255,255,255,0.6);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9em;
-            padding: 8px 15px;
+            font-size: 0.85em;
+            padding: 10px 20px;
             border-radius: 4px;
             border: 1px solid rgba(255,215,0,0.1);
             background: rgba(20,20,20,0.5);
             transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
         }
         
-        .footer-nav-link:hover {
+        .footer-nav-link:hover,
+        .footer-nav-link:active {
             color: var(--glow-color);
             border-color: rgba(255,215,0,0.4);
             background: rgba(255,215,0,0.05);
@@ -371,11 +405,11 @@
         
         footer {
             text-align: center;
-            padding: 25px 20px 20px;
-            font-size: 0.9em;
+            padding: 20px 15px 15px;
+            font-size: 0.85em;
             color: rgba(255,255,255,0.5);
             border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 60px;
+            margin-top: 40px;
             position: relative;
         }
         
@@ -390,61 +424,159 @@
             background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* Mobile-specific improvements */
+        ul, ol {
+            padding-left: 20px;
+            margin: 1rem 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        blockquote {
+            font-style: italic;
+            border-left: 3px solid var(--glow-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            padding: 10px 15px;
+            background: rgba(255,215,0,0.05);
+            border-radius: 0 6px 6px 0;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        /* Touch-friendly improvements */
+        button, 
+        .nav-link, 
+        .footer-nav-link {
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Responsive Design - Tablet */
+        @media (min-width: 600px) {
             .main-nav {
-                gap: 20px;
+                flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
             }
             
             .nav-link {
-                font-size: 1em;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
-            
-            .subtitle {
-                font-size: 1.2em;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.5em;
-            }
-            
-            .intro-box::before {
-                font-size: 0.8em;
-                right: -35px;
-                padding: 4px 35px;
+                width: auto;
+                min-width: 140px;
             }
             
             .footer-nav {
-                gap: 15px;
+                flex-direction: row;
                 flex-wrap: wrap;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-nav {
+                justify-content: center;
                 gap: 15px;
+            }
+            
+            .footer-nav-link {
+                width: auto;
+            }
+            
+            .data-point {
+                flex-direction: row;
+                align-items: center;
             }
             
             h1 {
-                font-size: 1.5em;
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1.3em;
+            }
+        }
+        
+        /* Responsive Design - Desktop */
+        @media (min-width: 768px) {
+            .main-nav {
+                flex-direction: row;
+                gap: 40px;
+                flex-wrap: nowrap;
+            }
+            
+            .nav-link {
+                width: auto;
+                border: none;
+                background: transparent;
+                padding: 10px 0;
+            }
+            
+            .footer-nav {
+                flex-direction: row;
+                gap: 30px;
+            }
+            
+            .container {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+            
+            .intro-box {
+                padding: 2rem;
+            }
+            
+            .section {
+                padding: 2rem;
             }
             
             .section-title {
-                font-size: 1.3em;
+                font-size: 1.8em;
             }
             
-            .evidence-card {
-                padding: 1rem;
+            h1 {
+                font-size: 2.2em;
             }
+            
+            .subtitle {
+                font-size: 1.4em;
+            }
+            
+            .chart-container {
+                overflow-x: visible;
+            }
+            
+            .chart-bar-container {
+                min-width: auto;
+            }
+        }
+        
+        /* Very small devices */
+        @media (max-width: 360px) {
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .section-title {
+                font-size: 1.2em;
+            }
+            
+            .nav-link, .footer-nav-link {
+                padding: 10px 15px;
+                font-size: 0.95em;
+            }
+            
+            .intro-box::before {
+                right: -40px;
+                padding: 3px 30px;
+                font-size: 0.7em;
+            }
+        }
+        
+        /* Prevent horizontal scroll */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -478,24 +610,26 @@
                 <h4><i class="fas fa-database"></i> The Fertility Cliff</h4>
                 <p>The Total Fertility Rate (TFR) required for a stable population is approximately 2.1 children per woman. Data from the World Bank and national statistical offices show a sustained, systemic drop below this threshold across the developed world since the 1970s.</p>
                 <div class="chart-container">
-                    <p><strong>Fertility Rate Decline (1970 vs. 2020):</strong></p>
-                    <div class="data-point">
-                        <i class="fas fa-flag-usa"></i>
-                        <div><strong>United States:</strong> TFR fell from 2.48 to 1.64</div>
+                    <div class="chart-bar-container">
+                        <p><strong>Fertility Rate Decline (1970 vs. 2020):</strong></p>
+                        <div class="data-point">
+                            <i class="fas fa-flag-usa"></i>
+                            <div><strong>United States:</strong> TFR fell from 2.48 to 1.64</div>
+                        </div>
+                        <div class="chart-bar" style="width: 66%"><span class="chart-label">US Decline</span><span class="chart-value">-34%</span></div>
+                        
+                        <div class="data-point">
+                            <i class="fas fa-flag-eu"></i>
+                            <div><strong>European Union Average:</strong> TFR fell from 2.39 to 1.50</div>
+                        </div>
+                        <div class="chart-bar" style="width: 63%"><span class="chart-label">EU Decline</span><span class="chart-value">-37%</span></div>
+                        
+                        <div class="data-point">
+                            <i class="fas fa-flag-jp"></i>
+                            <div><strong>Japan:</strong> TFR fell from 2.13 to 1.34</div>
+                        </div>
+                        <div class="chart-bar" style="width: 63%"><span class="chart-label">Japan Decline</span><span class="chart-value">-37%</span></div>
                     </div>
-                    <div class="chart-bar" style="width: 66%"><span class="chart-label">US Decline</span><span class="chart-value">-34%</span></div>
-                    
-                    <div class="data-point">
-                        <i class="fas fa-flag-eu"></i>
-                        <div><strong>European Union Average:</strong> TFR fell from 2.39 to 1.50</div>
-                    </div>
-                    <div class="chart-bar" style="width: 63%"><span class="chart-label">EU Decline</span><span class="chart-value">-37%</span></div>
-                    
-                    <div class="data-point">
-                        <i class="fas fa-flag-jp"></i>
-                        <div><strong>Japan:</strong> TFR fell from 2.13 to 1.34</div>
-                    </div>
-                    <div class="chart-bar" style="width: 63%"><span class="chart-label">Japan Decline</span><span class="chart-value">-37%</span></div>
                 </div>
                 <div class="citation">Source: World Bank Development Indicators, 2023 | Eurostat Demographic Report, 2022</div>
             </div>
@@ -589,7 +723,7 @@
             <p><strong>The Ultimate Objective:</strong> To erase national, ethnic, and cultural loyalties that hinder global governance. A divided, demographically transformed population preoccupied with internal strife is easier to manage than a cohesive, confident citizenry. It is the final solution to the problem of national sovereignty.</p>
         </div>
 
-            <!-- Section 5: The Ideological Vanguard -->
+        <!-- Section 5: The Ideological Vanguard -->
         <div class="section" id="ideological-vanguard">
             <div class="section-title">
                 <i class="fas fa-quote-right"></i> Section 5: The Ideological Vanguard — Statements of Intent
@@ -599,7 +733,7 @@
             <div class="evidence-card">
                 <h4><i class="fas fa-user-graduate"></i> Barbara Lerner Spectre</h4>
                 <p>Founding director of Paideia, The European Institute for Jewish Studies in Sweden, in a statement on European multiculturalism:</p>
-                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 1rem; margin: 1rem 0;">
+                <blockquote>
                     "I think there is a resurgence of anti-Semitism because at this point in time Europe has not yet learned how to be multicultural, and I think we are going to be part of the transformation which must take place. Europe is not going to be the monolithic societies they once were in the last century. Jews are going to be at the center of that... Jews will be resented because of our leading role. But without that leading role, and without that transformation, Europe will not survive."
                 </blockquote>
                 <div class="citation">Source: Interview with IBA News, 2010. Publicly available footage.</div>
@@ -608,12 +742,12 @@
             <div class="evidence-card">
                 <h4><i class="fas fa-book"></i> Noel Ignatiev</h4>
                 <p>Scholar and co-founder of the journal <em>Race Traitor</em>, outlining the publication's foundational goal:</p>
-                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 1rem; margin: 1rem 0;">
+                <blockquote>
                     "The goal of abolishing the White race is on its face so desirable that some may find it hard to believe that it could incur any opposition other than from committed White supremacists." 
                     "We'll keep bashing the dead White males, and the live ones, and the females too, until the social construct known as the White race is destroyed. Not deconstructed, but destroyed."
                 </blockquote>
                 <p>From the journal's statement of purpose:</p>
-                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 1rem; margin: 1rem 0;">
+                <blockquote>
                     "Treason to the White race is Loyalty to Humanity."
                 </blockquote>
                 <div class="citation">Source: Ignatiev, N. (1992). <em>Race Traitor</em>, Issue 1. &amp; Interview in <em>Harvard Magazine</em>, 2002.</div>
@@ -628,7 +762,7 @@
         <div class="conclusion">
             <h3>Conclusion: The Pattern is the Proof</h3>
             <p>The evidence chain is clear and documented:</p>
-            <ol style="text-align: left; display: inline-block; margin: 20px auto;">
+            <ol style="text-align: left; display: inline-block; margin: 15px auto; max-width: 100%;">
                 <li>A <strong>demographic crisis</strong> (falling birth rates) is actively exacerbated by cultural engineering.</li>
                 <li>Official bodies like the UN propose <strong>"Replacement Migration"</strong> as the stated solution.</li>
                 <li>Governments and corporations <strong>implement the policy</strong>, leading to predictable demographic change.</li>
@@ -661,14 +795,34 @@
             });
         });
         
-        // Add a subtle glow effect to section titles on hover
-        document.querySelectorAll('.section-title').forEach(title => {
-            title.addEventListener('mouseenter', function() {
-                this.style.textShadow = '0 0 15px var(--glow-color)';
+        // Add a subtle glow effect to section titles on hover (for devices with hover)
+        if (window.matchMedia("(hover: hover)").matches) {
+            document.querySelectorAll('.section-title').forEach(title => {
+                title.addEventListener('mouseenter', function() {
+                    this.style.textShadow = '0 0 15px var(--glow-color)';
+                });
+                title.addEventListener('mouseleave', function() {
+                    this.style.textShadow = '';
+                });
             });
-            title.addEventListener('mouseleave', function() {
-                this.style.textShadow = '';
-            });
+        }
+        
+        // Prevent zoom on double-tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Ensure proper scaling on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewport = document.querySelector('meta[name="viewport"]');
+            if (viewport) {
+                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover');
+            }
         });
     </script>
 </body>
