@@ -1,1 +1,3 @@
-# Octopus, for entertainment purposes only.
+# 404: Plausible Deniability Not Found
+
+feds r gay
