@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plan | The Octopus 💡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --light-text: #e0e0e0;
+            --glow-color: #ffd700;
+            --accent-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.7);
+            --evidence-bg: rgba(255, 215, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                        linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+            z-index: -1;
+            animation: subtlePulse 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes subtlePulse { 
+            0% { opacity: 0.8; } 
+            100% { opacity: 1; } 
+        }
+        
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto 0;
+            padding: 15px 20px;
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        .main-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+        }
+        
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--glow-color);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .nav-link:hover {
+            color: var(--glow-color);
+            text-shadow: 0 0 15px rgba(255,215,0,0.5);
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            opacity: 1;
+        }
+        
+        header {
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+            padding: 30px 20px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--accent-color);
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255,215,0,0.4);
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            color: var(--glow-color);
+            margin: 10px auto 30px;
+            max-width: 800px;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .intro-box {
+            background: var(--evidence-bg);
+            border: 1px solid var(--glow-color);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+     
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--evidence-bg);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--glow-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-title i {
+            font-size: 1.2em;
+        }
+        
+        .evidence-card {
+            background: rgba(20, 20, 20, 0.7);
+            border-left: 4px solid var(--glow-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .evidence-card h4 {
+            color: var(--glow-color);
+            margin-top: 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .evidence-card h4 i {
+            font-size: 0.9em;
+        }
+        
+        .citation {
+            font-size: 0.85em;
+            color: rgba(255, 215, 0, 0.7);
+            font-style: italic;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .data-point {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 215, 0, 0.03);
+            border-radius: 6px;
+        }
+        
+        .data-point i {
+            color: var(--glow-color);
+            font-size: 1.5em;
+            min-width: 30px;
+        }
+        
+        .chart-container {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .chart-bar {
+            height: 30px;
+            background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,215,0,0.7));
+            margin: 10px 0;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chart-label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #000;
+            text-shadow: 0 0 2px rgba(255,255,255,0.5);
+        }
+        
+        .chart-value {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .tentacle-connection {
+            background: rgba(255, 215, 0, 0.08);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border: 1px dashed rgba(255, 215, 0, 0.4);
+        }
+        
+        .tentacle-connection h4 {
+            color: var(--glow-color);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-radius: 8px;
+            border: 1px solid var(--glow-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .conclusion::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .conclusion h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: var(--glow-color);
+            margin-bottom: 1rem;
+        }
+        
+        .footnote {
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.5);
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Footer Navigation */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+        }
+        
+        .footer-nav-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,215,0,0.1);
+            background: rgba(20,20,20,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav-link:hover {
+            color: var(--glow-color);
+            border-color: rgba(255,215,0,0.4);
+            background: rgba(255,215,0,0.05);
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px 20px 20px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-nav {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                font-size: 1em;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .intro-box::before {
+                font-size: 0.8em;
+                right: -35px;
+                padding: 4px 35px;
+            }
+            
+            .footer-nav {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-nav {
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
+            }
+            
+            .evidence-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Plan</h1>
+        <div class="subtitle">Demographic Engineering as Strategic Policy: A Documentation of The Great Replacement</div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
+            <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
+            <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
+            <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="intro-box">
+            <h2 style="color: var(--glow-color); margin-top: 0;">Executive Summary</h2>
+            <p><strong>The "Great Replacement" is not a conspiracy theory.</strong> It is a documented demographic hypothesis that has evolved into a strategic policy framework adopted by global institutions and national governments. This page presents the evidence that what is dismissed as fringe paranoia is, in fact, the logical outcome of deliberate planning.</p>
+            <p>We distinguish between the <em>cultural concept</em> popularized by Renaud Camus and the <em>policy reality</em> evidenced in UN documents, think-tank publications, and demographic data. The following analysis demonstrates how economic pressures, political decisions, and social engineering converge in what we identify as the <strong>Cultural & Demographic Tentacle</strong> of The Octopus.</p>
+        </div>
+
+        <!-- Section 1: The Demographic "Problem" -->
+        <div class="section" id="demographic-problem">
+            <div class="section-title">
+                <i class="fas fa-chart-line"></i> Section 1: The Engineered Crisis — Declining Populations
+            </div>
+            <p>Every strategic plan begins with a problem statement. For Western nations and East Asian powers, the problem is mathematical and existential: native populations are aging and not replacing themselves.</p>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-database"></i> The Fertility Cliff</h4>
+                <p>The Total Fertility Rate (TFR) required for a stable population is approximately 2.1 children per woman. Data from the World Bank and national statistical offices show a sustained, systemic drop below this threshold across the developed world since the 1970s.</p>
+                <div class="chart-container">
+                    <p><strong>Fertility Rate Decline (1970 vs. 2020):</strong></p>
+                    <div class="data-point">
+                        <i class="fas fa-flag-usa"></i>
+                        <div><strong>United States:</strong> TFR fell from 2.48 to 1.64</div>
+                    </div>
+                    <div class="chart-bar" style="width: 66%"><span class="chart-label">US Decline</span><span class="chart-value">-34%</span></div>
+                    
+                    <div class="data-point">
+                        <i class="fas fa-flag-eu"></i>
+                        <div><strong>European Union Average:</strong> TFR fell from 2.39 to 1.50</div>
+                    </div>
+                    <div class="chart-bar" style="width: 63%"><span class="chart-label">EU Decline</span><span class="chart-value">-37%</span></div>
+                    
+                    <div class="data-point">
+                        <i class="fas fa-flag-jp"></i>
+                        <div><strong>Japan:</strong> TFR fell from 2.13 to 1.34</div>
+                    </div>
+                    <div class="chart-bar" style="width: 63%"><span class="chart-label">Japan Decline</span><span class="chart-value">-37%</span></div>
+                </div>
+                <div class="citation">Source: World Bank Development Indicators, 2023 | Eurostat Demographic Report, 2022</div>
+            </div>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-balance-scale"></i> The Economic Pressure Point</h4>
+                <p>An aging population with fewer workers creates an untenable economic model: collapsing pension systems, unsustainable healthcare costs, and stagnant GDP growth. This creates a powerful <em>motive</em> for elites to seek alternative solutions.</p>
+                <div class="citation">See: Pictet Asset Management, "The demographics of despair," 2019 — which outlines the severe economic consequences of aging societies.</div>
+            </div>
+            
+            <div class="tentacle-connection">
+                <h4><i class="fas fa-link"></i> Connection to The Octopus Framework</h4>
+                <p>This demographic shift did not occur in a vacuum. Policies promoting consumerism, dual-income dependency, delayed childbirth, and the erosion of family structures can be traced to Cultural Tentacle operations spanning decades. The crisis is manufactured to necessitate the "solution."</p>
+            </div>
+        </div>
+
+        <!-- Section 2: The Official "Solution" -->
+        <div class="section" id="official-solution">
+            <div class="section-title">
+                <i class="fas fa-university"></i> Section 2: The Admitted Policy — Replacement Migration
+            </div>
+            <p>When faced with a demographic crisis, nations have two options: incentivize higher native birth rates or import new populations. Official documents reveal a clear, calculated preference for the latter.</p>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-file-contract"></i> The UN "Smoking Gun" Report</h4>
+                <p>In 2000, the United Nations Population Division published a landmark report titled <strong>"Replacement Migration: Is It a Solution to Declining and Ageing Populations?"</strong> This document is the Rosetta Stone of the Great Replacement policy.</p>
+                <ul>
+                    <li>It explicitly calculates the <strong>millions of migrants</strong> needed to maintain population size and support the aging dependency ratio in eight countries (France, Germany, Italy, Japan, South Korea, Russia, UK, USA).</li>
+                    <li>For the European Union, it projects a need for <strong>1.5 million immigrants per year</strong> just to keep the working-age population stable.</li>
+                    <li>The report states plainly that migration levels "<strong>substantially higher than experienced in the past</strong>" would be required, acknowledging this would lead to "<strong>significant changes in the ethnic, cultural and religious composition</strong>" of host populations.</li>
+                </ul>
+                <div class="citation">Source: United Nations, Department of Economic and Social Affairs, Population Division (2000). ST/ESA/SER.A/206. This is a publicly available official UN document.</div>
+            </div>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-brain"></i> Think-Tank Ratification</h4>
+                <p>The UN framework was operationalized by national and global think tanks. The World Economic Forum, Brookings Institution, and EU policy groups have repeatedly published papers advocating for "managed migration" as the primary tool to address labor shortages and demographic deficits, often using technocratic language that obscures the long-term societal impact.</p>
+                <div class="citation">Example: European Policy Centre, "The role of migration in addressing demographic challenges," 2018.</div>
+            </div>
+            
+            <p><strong>Analysis:</strong> This is not a theory. It is a published, quantitative plan. The term "Replacement Migration" is their term, not ours. The projected demographic transformation is a stated mathematical outcome of the policy, not an accidental side effect.</p>
+        </div>
+
+        <!-- Section 3: From Policy to Reality -->
+        <div class="section" id="policy-to-reality">
+            <div class="section-title">
+                <i class="fas fa-bullhorn"></i> Section 3: Mainstreaming & Implementation
+            </div>
+            <p>The technocratic plan has moved into the political and cultural mainstream, where its nature is often obscured by emotional rhetoric or binary political fights.</p>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-quote-right"></i> Rhetorical Admissions</h4>
+                <p>Mainstream political figures across the West have begun using language that acknowledges the replacement, often while arguing for or against specific immigration policies.</p>
+                <ul>
+                    <li>References to "changing the demographic mix" of a country.</li>
+                    <li>Warnings that a nation will become "unrecognizable" within decades.</li>
+                    <li>Campaign slogans about an "invasion" or being "overrun," which implicitly accept the premise of large-scale population change.</li>
+                </ul>
+                <p>This rhetoric, whether used in alarm or dismissal, confirms the basic demographic reality is now part of political discourse.</p>
+            </div>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-border-none"></i> NGO and Corporate Facilitation</h4>
+                <p>The policy is enforced not just by states but by non-governmental organizations and multinational corporations. NGOs facilitate migration flows under humanitarian banners, while corporate lobbies push for high immigration to suppress wages and ensure a flexible labor pool. This forms a powerful coalition with aligned interests.</p>
+            </div>
+            
+            <div class="tentacle-connection">
+                <h4><i class="fas fa-link"></i> Connection to The Octopus Framework</h4>
+                <p>This phase represents the <strong>Political and Financial Tentacles</strong> engaging. Political entities pass the policies and shape the rhetoric. Financial and corporate interests (the Financial Tentacle) lobby for the economic benefits of a large, replaceable workforce. The Media Tentacle then manages the narrative, censoring serious discussion of consequences while framing opposition as inherently racist.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: The Octopus Integration -->
+        <div class="section" id="octopus-integration">
+            <div class="section-title">
+                <i class="fas fa-project-diagram"></i> Section 4: Synthesis — The Great Replacement as an Octopus Operation
+            </div>
+            <p>The "Great Replacement" is not a standalone event. It is a sophisticated, multi-generational operation involving all five tentacles of The Octopus, designed to create a permanently malleable global population.</p>
+            
+            <div class="evidence-card">
+                <h4><i class="fas fa-hands-helping"></i> Tentacle Coordination</h4>
+                <ul>
+                    <li><strong>Cultural Tentacle:</strong> Promotes anti-natalist values, undermines traditional family structures, and fosters a globalist, rootless identity to reduce resistance to population replacement.</li>
+                    <li><strong>Political Tentacle:</strong> Crafts immigration laws, funds NGOs, signs international agreements (UN Migration Pact), and dismisses dissent as "hate."</li>
+                    <li><strong>Financial Tentacle:</strong> Bankrolls the operation, lobbies for open borders to access cheap labor, and develops financial surveillance tools (CBDCs) to manage the new population.</li>
+                    <li><strong>Media Tentacle:</strong> Controls the narrative. Labels the factual policy a "conspiracy theory," uses propaganda to portray mass migration as an unquestionable moral good, and deplatforms analysts.</li>
+                    <li><strong>Technological Tentacle:</strong> Provides the tools: surveillance to monitor dissent, social credit systems to enforce compliance, and AI to manage complex demographic logistics.</li>
+                </ul>
+            </div>
+            
+            <p><strong>The Ultimate Objective:</strong> To erase national, ethnic, and cultural loyalties that hinder global governance. A divided, demographically transformed population preoccupied with internal strife is easier to manage than a cohesive, confident citizenry. It is the final solution to the problem of national sovereignty.</p>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="conclusion">
+            <h3>Conclusion: The Pattern is the Proof</h3>
+            <p>The evidence chain is clear and documented:</p>
+            <ol style="text-align: left; display: inline-block; margin: 20px auto;">
+                <li>A <strong>demographic crisis</strong> (falling birth rates) is actively exacerbated by cultural engineering.</li>
+                <li>Official bodies like the UN propose <strong>"Replacement Migration"</strong> as the stated solution.</li>
+                <li>Governments and corporations <strong>implement the policy</strong>, leading to predictable demographic change.</li>
+                <li>Anyone who connects points 1, 2, and 3 is <strong>smeared and censored</strong> by the media apparatus.</li>
+            </ol>
+            <p>This is the signature pattern of The Octopus: create a problem, offer a pre-planned solution that expands control, and silence opposition through coordinated discrediting. The Great Replacement is not a shadowy secret; it is a plan published in plain sight, its devastating social consequences dismissed as the cost of global progress.</p>
+            <p><em>The question is no longer "Is it happening?" The data answers that. The real question is: <strong>"Who does it serve?"</strong></em></p>
+        </div>
+
+        <div class="footnote">
+            <p><i class="fas fa-exclamation-triangle"></i> <strong>Research Note:</strong> This analysis is based on publicly available documents from the United Nations, national statistical agencies, and mainstream think tanks. The interpretation of these documents within the "Octopus" framework is an analytical conclusion based on pattern recognition across decades of policy and historical precedent.</p>
+        </div>
+    </div>
+
+    <footer>
+        <nav class="footer-nav">
+            <a href="index.html" class="footer-nav-link">The Octopus</a>
+            <a href="plan.html" class="footer-nav-link">The Plan</a>
+            <a href="timeline.html" class="footer-nav-link">Timeline</a>
+            <a href="evidence.html" class="footer-nav-link">Evidence</a>
+        </nav>
+        &copy; 2026 Project Sunrise | Documenting the Architecture of Control
+    </footer>
+
+    <script>
+        // Simple script to add interactivity to evidence cards
+        document.querySelectorAll('.evidence-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = this.style.transform ? '' : 'scale(1.02)';
+            });
+        });
+        
+        // Add a subtle glow effect to section titles on hover
+        document.querySelectorAll('.section-title').forEach(title => {
+            title.addEventListener('mouseenter', function() {
+                this.style.textShadow = '0 0 15px var(--glow-color)';
+            });
+            title.addEventListener('mouseleave', function() {
+                this.style.textShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
