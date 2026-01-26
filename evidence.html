@@ -366,7 +366,7 @@
             border: 1px solid rgba(255,215,0,0.1);
         }
         
-        /* Mobile optimizations */
+        /* Mobile optimizations - UPDATED TO MATCH INDEX.HTML */
         @media (max-width: 768px) {
             body {
                 font-size: 1em;
@@ -466,7 +466,7 @@
             }
         }
         
-        /* Small mobile devices */
+        /* Small mobile devices - UPDATED TO MATCH INDEX.HTML */
         @media (max-width: 480px) {
             h1 {
                 font-size: 1.3em;
@@ -475,14 +475,19 @@
             .main-nav {
                 gap: 15px;
                 margin: 15px auto 0;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .nav-link {
                 font-size: 0.95em;
+                padding: 5px 0;
             }
             
             .footer-nav {
                 gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             .footer-nav-link {
@@ -516,6 +521,35 @@
                 text-align: center;
                 margin-top: 10px;
             }
+            
+            /* Mobile vertical stacking for navigation */
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255,215,0,0.1);
+            }
+            
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+            
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .footer-nav-link {
+                width: 80%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -527,6 +561,7 @@
             <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
             <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
             <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
+            <a href="opposition.html" class="nav-link"><i class="fas fa-gavel"></i> Opposition</a>
         </nav>
     </header>
     <div id="content">
@@ -733,6 +768,8 @@
             <a href="index.html" class="footer-nav-link">The Octopus</a>
             <a href="timeline.html" class="footer-nav-link">Timeline</a>
             <a href="evidence.html" class="footer-nav-link">Evidence</a>
+            <a href="plan.html" class="footer-nav-link">The Plan</a>
+            <a href="opposition.html" class="footer-nav-link">Opposition</a>
         </nav>
         &copy; 2026 Project Sunrise | Bringing Light to the Shadows
     </footer>
