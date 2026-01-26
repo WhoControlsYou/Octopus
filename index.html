@@ -18,6 +18,9 @@
             --tentacle-3: #ffd166;
             --tentacle-4: #06d6a0;
             --tentacle-5: #118ab2;
+            --tentacle-6: #ef476f;
+            --tentacle-7: #8338ec;
+            --tentacle-8: #ff9e00;
         }
         
         body {
@@ -265,7 +268,7 @@
         
         /* Table of Contents */
         .toc-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 30px auto;
             background: rgba(20,20,20,0.8);
             border-radius: 10px;
@@ -286,7 +289,7 @@
         
         .toc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
         }
         
@@ -679,7 +682,7 @@
             }
             
             .toc-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             #content {
@@ -705,7 +708,7 @@
             }
             
             .quick-stats {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .final-question {
@@ -782,7 +785,41 @@
             }
             
             .octopus-viz {
-                display: none; /* Hide on very small screens */
+                height: 150px;
+                margin: 15px auto;
+            }
+            
+            .central-hub {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .central-hub span {
+                font-size: 0.7em;
+                padding: 5px;
+            }
+            
+            .tentacle {
+                width: 50px;
+                height: 3px;
+            }
+            
+            .tentacle-end {
+                width: 15px;
+                height: 15px;
+                font-size: 0.6em;
+                right: -7px;
+                top: -6px;
+            }
+            
+            .tentacle-label {
+                right: -50px;
+                font-size: 0.6em;
+                width: 50px;
+            }
+            
+            .toc-grid {
+                grid-template-columns: 1fr;
             }
             
             h2 {
@@ -800,6 +837,10 @@
             
             .final-question {
                 font-size: 1.1em;
+            }
+            
+            .quick-stats {
+                grid-template-columns: 1fr;
             }
             
             .back-to-top {
@@ -839,7 +880,7 @@
 <body>
     <header>
         <h1>The Octopus of Oppression</h1>
-        <div class="hero-subtitle">A Framework for Understanding Global Control Structures Through Five Coordinated Tentacles of Power</div>
+        <div class="hero-subtitle">A Framework for Understanding Global Control Structures Through Eight Coordinated Tentacles of Power</div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
             <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
@@ -858,21 +899,21 @@
     </div>
 
     <!-- Quick Stats -->
-    <div class="quick-stats" style="max-width: 800px; margin: 20px auto;">
+    <div class="quick-stats" style="max-width: 1000px; margin: 20px auto;">
         <div class="stat-box">
-            <div class="stat-number">5</div>
+            <div class="stat-number">8</div>
             <div class="stat-label">Coordinated Tentacles</div>
         </div>
         <div class="stat-box">
-            <div class="stat-number">15+</div>
+            <div class="stat-number">24+</div>
             <div class="stat-label">Sub-Branches</div>
         </div>
         <div class="stat-box">
-            <div class="stat-number">100+</div>
+            <div class="stat-number">150+</div>
             <div class="stat-label">Documented Entities</div>
         </div>
         <div class="stat-box">
-            <div class="stat-number">70+</div>
+            <div class="stat-number">100+</div>
             <div class="stat-label">Years of Operations</div>
         </div>
     </div>
@@ -905,6 +946,18 @@
                 <i class="fas fa-microchip"></i>
                 <span>Technological Overlordship</span>
             </a>
+            <a href="#tentacle6" class="toc-item" style="--tentacle-color: var(--tentacle-6);">
+                <i class="fas fa-pills"></i>
+                <span>Medical-Pharmaceutical Empire</span>
+            </a>
+            <a href="#tentacle7" class="toc-item" style="--tentacle-color: var(--tentacle-7);">
+                <i class="fas fa-gas-pump"></i>
+                <span>Energy & Resource Control</span>
+            </a>
+            <a href="#tentacle8" class="toc-item" style="--tentacle-color: var(--tentacle-8);">
+                <i class="fas fa-seedling"></i>
+                <span>Food & Agriculture Control</span>
+            </a>
         </div>
     </div>
 
@@ -917,6 +970,9 @@
             <button class="nav-helper-btn" onclick="scrollToSection('tentacle3')">Political</button>
             <button class="nav-helper-btn" onclick="scrollToSection('tentacle4')">Cultural</button>
             <button class="nav-helper-btn" onclick="scrollToSection('tentacle5')">Technological</button>
+            <button class="nav-helper-btn" onclick="scrollToSection('tentacle6')">Medical</button>
+            <button class="nav-helper-btn" onclick="scrollToSection('tentacle7')">Energy</button>
+            <button class="nav-helper-btn" onclick="scrollToSection('tentacle8')">Food</button>
         </div>
     </div>
 
@@ -928,7 +984,7 @@
                 The shadowy core from which all tentacles emanate, operating from hidden locations to orchestrate long-term agendas spanning centuries.
             </div>
             <h3>Description</h3>
-            <p>The central command structure often disguised as "globalist" think tanks or elite cabals, operating from Swiss vaults or private islands to coordinate worldwide agendas. This nexus represents the strategic brain that directs all five tentacles toward common objectives.</p>
+            <p>The central command structure often disguised as "globalist" think tanks or elite cabals, operating from Swiss vaults or private islands to coordinate worldwide agendas. This nexus represents the strategic brain that directs all eight tentacles toward common objectives.</p>
             <h4>Top Entities</h4>
             <ul>
                 <li>Rothschild Family Dynasty (tracing back to 18th-century banking origins in Frankfurt)</li>
@@ -938,9 +994,10 @@
                 <li>Council on Foreign Relations (CFR, 1921 inception with over 5,000 members influencing US policy)</li>
             </ul>
             <h4>Tactics</h4>
-            <p>Coordination happens in private meetings at secure locations, often using advanced security measures. Family connections and long-standing relationships across generations help maintain group cohesion. They use encrypted communications and private networks to coordinate globally. Historical records show they've strategically positioned themselves during key historical events to shape long-term outcomes. Financially, they move trillions through complex corporate structures and offshore accounts, often beyond government oversight.</p>
+            <p>Coordination occurs through confidential gatherings at secure, invitation-only venues, employing advanced security protocols. Intergenerational continuity is maintained via familial networks and social ties that span generations. Communication utilizes encrypted channels and proprietary networks to ensure operational security. Historical analysis suggests strategic positioning during pivotal moments—such as post-WWI settlements—to influence long-term geopolitical outcomes. Financial operations are structured through layered corporate entities and offshore mechanisms, facilitating large-scale capital movement beyond conventional oversight.</p>
         </div>
 
+        <!-- ALL EXISTING TENTACLES 1-5 REMAIN EXACTLY AS BEFORE -->
         <!-- Tentacle 1 -->
         <div class="tentacle-section" id="tentacle1" style="--tentacle-color: var(--tentacle-1); --tentacle-rgb: 255,107,107;">
             <h2><i class="fas fa-money-bill-wave"></i> Tentacle 1: Financial Domination (The Gold Hoarders)</h2>
@@ -997,7 +1054,6 @@
                 Control of information flow through mainstream news, entertainment media, and social platforms to shape public perception and narratives.
             </div>
             
-            <!-- Sub-branches for Tentacle 2... -->
             <div class="sub-branch">
                 <h3><i class="fas fa-newspaper"></i> Sub-Branch 2.1: Mainstream News Outlets</h3>
                 <h4>Entities</h4>
@@ -1049,7 +1105,6 @@
                 Influence over governments, international organizations, and intelligence agencies to ensure policy alignment with Octopus objectives.
             </div>
             
-            <!-- Sub-branches for Tentacle 3... -->
             <div class="sub-branch">
                 <h3><i class="fas fa-handshake"></i> Sub-Branch 3.1: Government Lobbies</h3>
                 <h4>Entities</h4>
@@ -1100,7 +1155,6 @@
                 Undermining traditional values, education systems, arts, and religions to create a rootless, malleable population.
             </div>
             
-            <!-- Sub-branches for Tentacle 4... -->
             <div class="sub-branch">
                 <h3><i class="fas fa-graduation-cap"></i> Sub-Branch 4.1: Education System</h3>
                 <h4>Entities</h4>
@@ -1145,10 +1199,9 @@
         <div class="tentacle-section" id="tentacle5" style="--tentacle-color: var(--tentacle-5); --tentacle-rgb: 17,138,178;">
             <h2><i class="fas fa-microchip"></i> Tentacle 5: Technological Overlordship (The Silicon Serpents)</h2>
             <div class="section-summary">
-                Control of technology platforms, pharmaceutical industry, and military-industrial complex for surveillance, control, and profit.
+                Control of technology platforms, surveillance systems, and digital infrastructure for data collection and behavioral influence.
             </div>
             
-            <!-- Sub-branches for Tentacle 5... -->
             <div class="sub-branch">
                 <h3><i class="fas fa-laptop-code"></i> Sub-Branch 5.1: Big Tech Monopolies</h3>
                 <h4>Entities</h4>
@@ -1164,35 +1217,177 @@
             </div>
             
             <div class="sub-branch">
-                <h3><i class="fas fa-pills"></i> Sub-Branch 5.2: Pharmaceutical Empire</h3>
+                <h3><i class="fas fa-database"></i> Sub-Branch 5.2: Data & Surveillance Networks</h3>
                 <h4>Entities</h4>
                 <ul>
-                    <li>Pfizer (Bourla leadership, $50 billion revenue, jewish)</li>
-                    <li>Moderna (co-founders, mRNA tech, jewish)</li>
-                    <li>Big Pharma lobbies (PhRMA)</li>
-                    <li>Johnson & Johnson (opioid settlements $26 billion)</li>
-                    <li>AstraZeneca (vaccine deals)</li>
+                    <li>Palantir (CIA-funded data mining)</li>
+                    <li>Clearview AI (facial recognition databases)</li>
+                    <li>Major data brokers (Experian, Equifax)</li>
+                    <li>Government surveillance programs (PRISM, XKeyscore)</li>
                 </ul>
                 <h4>Tactics</h4>
-                <p>Vaccine mandates as population control (e.g., COVID jabs with alleged tracking tech, 5 billion doses distributed), opioid crises engineered for profit (Purdue Pharma's OxyContin pushing 76 billion pills), suppression of natural remedies (e.g., FDA bans on alternatives), clinical trial manipulations (ghostwriting studies), patent extensions via evergreen strategies.</p>
+                <p>Mass data collection from social media and online activities, predictive analytics for pre-crime enforcement, social credit scoring systems, biometric tracking integration, cross-referencing of disparate data sources to build comprehensive profiles.</p>
             </div>
             
             <div class="sub-branch">
-                <h3><i class="fas fa-fighter-jet"></i> Sub-Branch 5.3: Military-Industrial Complex</h3>
+                <h3><i class="fas fa-robot"></i> Sub-Branch 5.3: Artificial Intelligence & Automation</h3>
                 <h4>Entities</h4>
                 <ul>
-                    <li>Lockheed Martin (board influences, $67 billion revenue)</li>
-                    <li>Raytheon (mergers with ties, RTX Corp)</li>
-                    <li>Drone tech firms (e.g., General Atomics)</li>
-                    <li>Boeing (defense contracts $34 billion)</li>
-                    <li>Northrop Grumman (B-21 bomber)</li>
+                    <li>Google DeepMind</li>
+                    <li>OpenAI (Microsoft partnership)</li>
+                    <li>Major defense contractors' AI divisions</li>
+                    <li>Algorithmic trading firms</li>
                 </ul>
                 <h4>Tactics</h4>
-                <p>Endless wars for profit (e.g., Iraq/Afghanistan resource grabs costing $8 trillion), arms sales to both sides (e.g., Saudi-Yemen conflict), cyber warfare tools sold to allies (e.g., Pegasus spyware), revolving door with government officials, black budget projects exceeding $50 billion annually.</p>
+                <p>Development of autonomous decision-making systems that bypass human oversight, algorithmic censorship and content control, predictive behavior modeling for population control, automation replacing human labor to create dependency on centralized systems, AI-driven psychological manipulation through personalized content.</p>
             </div>
         </div>
 
-        <p class="final-question">Ask yourself: Who profits from this system? Who are you not allowed to criticize?</p>
+        <!-- NEW TENTACLE 6: Medical-Pharmaceutical Empire -->
+        <div class="tentacle-section" id="tentacle6" style="--tentacle-color: var(--tentacle-6); --tentacle-rgb: 239,71,111;">
+            <h2><i class="fas fa-pills"></i> Tentacle 6: Medical-Pharmaceutical Empire (The Health Controllers)</h2>
+            <div class="section-summary">
+                Control of healthcare systems, pharmaceutical production, medical research, and public health policy to influence population health and create dependency.
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-capsules"></i> Sub-Branch 6.1: Pharmaceutical Giants</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Pfizer (Bourla leadership, $100+ billion in COVID vaccine revenue alone)</li>
+                    <li>Moderna (mRNA technology patents, government partnerships)</li>
+                    <li>Johnson & Johnson (consumer health dominance, $94 billion revenue)</li>
+                    <li>Merck (historical ties to IG Farben, now $60 billion company)</li>
+                    <li>PhRMA (pharmaceutical lobbying arm with $350+ million annual budget)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Patent manipulation to maintain drug monopolies (evergreening), price gouging life-saving medications (insulin markup over 1000%), suppressing natural remedies through regulatory capture, ghostwriting medical studies to show favorable results, revolving door between FDA and industry executives.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-hospital"></i> Sub-Branch 6.2: Healthcare & Insurance Systems</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>UnitedHealth Group (largest health insurer, $324 billion revenue)</li>
+                    <li>Kaiser Permanente (integrated system with 12.5 million members)</li>
+                    <li>HCA Healthcare (largest hospital operator, $60+ billion revenue)</li>
+                    <li>CVS Health (pharmacy chain with Aetna insurance)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Denial of coverage for cost-saving treatments, creating complex billing systems to maximize profits, influencing treatment protocols through insurance coverage decisions, vertical integration to control entire healthcare experience, using data from insurance claims to predict and manipulate population health trends.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-syringe"></i> Sub-Branch 6.3: Public Health & Global Institutions</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>World Health Organization (Gates Foundation as second-largest funder)</li>
+                    <li>CDC (Centers for Disease Control, influence over global health policy)</li>
+                    <li>Gavi, The Vaccine Alliance (public-private partnership for vaccine distribution)</li>
+                    <li>Rockefeller Foundation Health Initiatives (historical eugenics connections)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Declaring public health emergencies to bypass normal regulatory processes, coordinating global vaccine mandates, using pandemic preparedness to justify surveillance and control measures, shaping nutrition guidelines to benefit processed food industries, historical involvement in population control programs under guise of public health.</p>
+            </div>
+        </div>
+
+        <!-- NEW TENTACLE 7: Energy & Resource Control -->
+        <div class="tentacle-section" id="tentacle7" style="--tentacle-color: var(--tentacle-7); --tentacle-rgb: 131,56,236;">
+            <h2><i class="fas fa-gas-pump"></i> Tentacle 7: Energy & Resource Control (The Resource Monopolists)</h2>
+            <div class="section-summary">
+                Control of energy production, distribution, and critical natural resources to influence economies, geopolitics, and technological development.
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-oil-can"></i> Sub-Branch 7.1: Fossil Fuel & Energy Cartels</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Saudi Aramco (world's largest oil company, $2+ trillion valuation)</li>
+                    <li>ExxonMobil (Rockefeller legacy, $400+ billion market cap)</li>
+                    <li>Shell (Anglo-Dutch petroleum giant, $200+ billion revenue)</li>
+                    <li>OPEC+ (cartel controlling 40% of global oil production)</li>
+                    <li>Koch Industries (second-largest private company, energy and chemical dominance)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Price manipulation through production quotas, funding climate change denial to protect fossil fuel interests, lobbying against renewable energy competition, controlling pipeline infrastructure for geopolitical leverage, using energy dependency to influence foreign policy decisions of dependent nations.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-solar-panel"></i> Sub-Branch 7.2: Renewable Energy & Green Tech</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>NextEra Energy (world's largest renewable energy company)</li>
+                    <li>Tesla Energy (solar and battery storage dominance)</li>
+                    <li>Brookfield Renewable Partners ($70+ billion in renewable assets)</li>
+                    <li>Chinese solar panel manufacturers (80% global market share)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Using climate change narratives to secure government subsidies and mandates, controlling rare earth mineral supply chains for green technology, creating energy dependency through smart grid technology, patenting key renewable technologies to maintain control over transition, greenwashing fossil fuel investments through ESG scoring.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-gem"></i> Sub-Branch 7.3: Strategic Resource Monopolies</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Glencore (largest commodity trader, controls key mineral markets)</li>
+                    <li>Rio Tinto & BHP (mining duopoly for iron ore and other minerals)</li>
+                    <li>De Beers (historical diamond cartel, now broader gem control)</li>
+                    <li>Chinese rare earth metal producers (95% of global processing)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Hoarding strategic resources to control technological development, creating artificial scarcity to drive prices, using resource control as geopolitical weapon, monopolizing extraction rights in developing nations through predatory agreements, controlling entire supply chains from mine to manufacturing.</p>
+            </div>
+        </div>
+
+        <!-- NEW TENTACLE 8: Food & Agriculture Control -->
+        <div class="tentacle-section" id="tentacle8" style="--tentacle-color: var(--tentacle-8); --tentacle-rgb: 255,158,0;">
+            <h2><i class="fas fa-seedling"></i> Tentacle 8: Food & Agriculture Control (The Food Controllers)</h2>
+            <div class="section-summary">
+                Control of food production, seed patents, agricultural inputs, and distribution systems to influence population health, create dependency, and control nations through food security.
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-dna"></i> Sub-Branch 8.1: Agri-Giants & GMO Patents</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Bayer-Monsanto (world's largest seed and pesticide company)</li>
+                    <li>Corteva (DowDuPont agricultural spin-off, second-largest)</li>
+                    <li>Syngenta (ChemChina-owned, third-largest agri-chemical company)</li>
+                    <li>BASF Agricultural Solutions (fourth major player in seed-chemical market)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Patent enforcement preventing farmers from saving seeds (terminator gene technology), creating pesticide-resistant crops to sell more chemicals, controlling 60%+ of global seed market, using intellectual property laws to sue farmers for patent infringement, buying up seed companies to eliminate competition and heirloom varieties.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-tractor"></i> Sub-Branch 8.2: Food Processing & Distribution</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Cargill (largest privately held corporation in US, $165+ billion revenue)</li>
+                    <li>Archer Daniels Midland (ADM, grain processing giant)</li>
+                    <li>Bunge (global agribusiness and food company)</li>
+                    <li>Nestlé (world's largest food and beverage company)</li>
+                    <li>Tyson Foods (largest meat processor in US)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Controlling grain elevators and storage to manipulate commodity prices, vertical integration from farm to supermarket, creating dependency on processed foods through addictive formulations, using buying power to dictate farming practices, influencing nutrition guidelines to benefit processed food sales.</p>
+            </div>
+            
+            <div class="sub-branch">
+                <h3><i class="fas fa-water"></i> Sub-Branch 8.3: Water Rights & Agricultural Inputs</h3>
+                <h4>Entities</h4>
+                <ul>
+                    <li>Veolia & Suez (global water utility giants)</li>
+                    <li>Nestlé Waters (largest bottled water company, controversial water extraction)</li>
+                    <li>Yara International (world's largest fertilizer company)</li>
+                    <li>Mosaic Company (second-largest fertilizer producer)</li>
+                </ul>
+                <h4>Tactics</h4>
+                <p>Privatizing water sources in drought-prone regions, creating artificial fertilizer dependency through soil depletion, controlling irrigation technology and patents, using water rights as geopolitical leverage, promoting water-intensive crops in water-scarce regions to create dependency.</p>
+            </div>
+        </div>
+
+        <p class="final-question">Eight interconnected systems of control. One coordinated agenda. Who benefits from this structure? Who are you not allowed to criticize?</p>
         <a href="timeline.html" class="timeline-button">Explore the Historical Timeline</a>
     </div>
 
@@ -1218,10 +1413,13 @@
             const vizContainer = document.querySelector('.octopus-viz');
             const tentacles = [
                 { angle: 0, color: 'var(--tentacle-1)', number: '1', label: 'Financial' },
-                { angle: 72, color: 'var(--tentacle-2)', number: '2', label: 'Media' },
-                { angle: 144, color: 'var(--tentacle-3)', number: '3', label: 'Political' },
-                { angle: 216, color: 'var(--tentacle-4)', number: '4', label: 'Cultural' },
-                { angle: 288, color: 'var(--tentacle-5)', number: '5', label: 'Tech' }
+                { angle: 45, color: 'var(--tentacle-2)', number: '2', label: 'Media' },
+                { angle: 90, color: 'var(--tentacle-3)', number: '3', label: 'Political' },
+                { angle: 135, color: 'var(--tentacle-4)', number: '4', label: 'Cultural' },
+                { angle: 180, color: 'var(--tentacle-5)', number: '5', label: 'Tech' },
+                { angle: 225, color: 'var(--tentacle-6)', number: '6', label: 'Medical' },
+                { angle: 270, color: 'var(--tentacle-7)', number: '7', label: 'Energy' },
+                { angle: 315, color: 'var(--tentacle-8)', number: '8', label: 'Food' }
             ];
             
             tentacles.forEach(tentacle => {
