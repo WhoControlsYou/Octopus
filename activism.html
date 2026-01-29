@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activism & Resistance | The Octopus 💡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --light-text: #e0e0e0;
+            --glow-color: #ffd700;
+            --accent-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.7);
+            --tentacle-1: #ff6b6b;
+            --tentacle-2: #4ecdc4;
+            --tentacle-3: #ffd166;
+            --tentacle-4: #06d6a0;
+            --tentacle-5: #118ab2;
+            --tentacle-6: #ef476f;
+            --tentacle-7: #8338ec;
+            --tentacle-8: #ff9e00;
+            --disinfo-color: #ff4757;
+            --success-color: #06d6a0;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+            z-index: -1;
+            animation: subtlePulse 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes subtlePulse { 0% { opacity: 0.8; } 100% { opacity: 1; } }
+        
+        /* Navigation Styles - TOP MENU */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto 0;
+            padding: 15px 20px;
+            max-width: 1000px;
+            position: relative;
+        }
+        
+        .main-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
+        }
+        
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--glow-color);
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .nav-link:hover {
+            color: var(--glow-color);
+            text-shadow: 0 0 15px rgba(255,215,0,0.5);
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--glow-color);
+        }
+        
+        .nav-link.active::before {
+            width: 100%;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            opacity: 1;
+        }
+        
+        /* Navigation Styles - BOTTOM MENU */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+        }
+        
+        .footer-nav-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,215,0,0.1);
+            background: rgba(20,20,20,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav-link:hover {
+            color: var(--glow-color);
+            border-color: rgba(255,215,0,0.4);
+            background: rgba(255,215,0,0.05);
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+        
+        .footer-nav-link.active {
+            color: var(--glow-color);
+            border-color: rgba(255,215,0,0.4);
+            background: rgba(255,215,0,0.05);
+        }
+        
+        header {
+            position: static;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+            padding: 30px 20px 10px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            font-style: italic;
+            color: var(--accent-color);
+            margin: 10px 0;
+            text-shadow: 0 0 20px rgba(255,215,0,0.4);
+            letter-spacing: 2px;
+            animation: glowFadeIn 2s ease-in-out;
+        }
+        
+        @keyframes glowFadeIn {
+            from { opacity: 0; text-shadow: 0 0 0 transparent; }
+            to { opacity: 1; text-shadow: 0 0 20px rgba(255,215,0,0.4); }
+        }
+        
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            color: var(--glow-color);
+            margin: 0 auto 20px;
+            max-width: 800px;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(255,215,0,0.3);
+            line-height: 1.4;
+        }
+        
+        /* Main Content Area */
+        #content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 30px;
+            background: rgba(18,18,18,0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 30px rgba(255,215,0,0.05);
+            animation: contentFadeIn 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #content::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.03) 0%, transparent 70%);
+            animation: rotateLight 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotateLight { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        @keyframes contentFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Section Styling */
+        .activism-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(25,25,25,0.9), rgba(20,20,20,0.9));
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .activism-section:hover {
+            border-color: var(--glow-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .section-header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.8em;
+            color: var(--glow-color);
+            margin: 0 0 25px 0;
+            text-shadow: 0 0 15px rgba(255,215,0,0.6);
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header i {
+            margin-right: 15px;
+            opacity: 0.8;
+        }
+        
+        /* Donation Section */
+        .donation-container {
+            text-align: center;
+            padding: 30px;
+            background: rgba(30,30,30,0.6);
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px dashed rgba(255,215,0,0.3);
+        }
+        
+        .monero-address {
+            background: rgba(20,20,20,0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            font-family: monospace;
+            font-size: 1.1em;
+            word-break: break-all;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .monero-address:hover {
+            background: rgba(25,25,25,0.9);
+            border-color: var(--glow-color);
+            box-shadow: 0 0 20px rgba(255,215,0,0.2);
+        }
+        
+        .monero-address:active {
+            transform: scale(0.99);
+        }
+        
+        .copy-btn {
+            background: linear-gradient(to right, #ffd700, #ffeb3b);
+            color: #0a0a0a;
+            border: none;
+            padding: 12px 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .copy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(to right, var(--success-color), #00ffaa);
+            color: #0a0a0a;
+        }
+        
+        .qr-container {
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 25px rgba(255,215,0,0.3);
+        }
+        
+        .qr-placeholder {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+            background-size: 50px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            font-family: monospace;
+            border-radius: 8px;
+        }
+        
+        /* Flyer Section */
+        .flyer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .flyer-card {
+            background: rgba(30,30,30,0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,215,0,0.1);
+        }
+        
+        .flyer-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--glow-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        
+        .flyer-preview {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
+        }
+        
+        .flyer-info {
+            padding: 20px;
+        }
+        
+        .flyer-info h3 {
+            color: var(--glow-color);
+            margin: 0 0 10px 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        .flyer-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .flyer-btn {
+            flex: 1;
+            padding: 10px 15px;
+            background: rgba(255,215,0,0.1);
+            border: 1px solid rgba(255,215,0,0.3);
+            color: var(--light-text);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .flyer-btn:hover {
+            background: rgba(255,215,0,0.2);
+            border-color: var(--glow-color);
+            color: var(--glow-color);
+        }
+        
+        .flyer-btn.download {
+            background: rgba(6,214,160,0.1);
+            border-color: rgba(6,214,160,0.3);
+        }
+        
+        .flyer-btn.download:hover {
+            background: rgba(6,214,160,0.2);
+            border-color: var(--success-color);
+            color: var(--success-color);
+        }
+        
+        /* Mirror Section */
+        .mirror-steps {
+            counter-reset: step-counter;
+            margin: 30px 0;
+        }
+        
+        .mirror-step {
+            background: rgba(30,30,30,0.6);
+            border-left: 5px solid var(--glow-color);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .mirror-step:hover {
+            background: rgba(35,35,35,0.8);
+            transform: translateX(5px);
+        }
+        
+        .mirror-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--glow-color);
+            color: black;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 0 15px rgba(255,215,0,0.5);
+        }
+        
+        .mirror-step h3 {
+            color: var(--glow-color);
+            margin: 0 0 10px 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        .code-block {
+            background: rgba(10,10,10,0.8);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .code-block::before {
+            content: 'Terminal';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: var(--glow-color);
+            color: black;
+            padding: 3px 10px;
+            font-size: 0.7em;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        /* Security Tips */
+        .security-tips {
+            background: linear-gradient(135deg, rgba(255,71,87,0.1), rgba(255,71,87,0.05));
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,71,87,0.3);
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .security-tips::before {
+            content: 'SECURITY PRIMER';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--disinfo-color);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .tip {
+            background: rgba(255,71,87,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid var(--disinfo-color);
+        }
+        
+        .tip i {
+            color: var(--disinfo-color);
+            margin-right: 10px;
+        }
+        
+        /* Hosting Options */
+        .hosting-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .hosting-card {
+            background: rgba(30,30,30,0.6);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .hosting-card:hover {
+            border-color: var(--glow-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .hosting-card h3 {
+            color: var(--glow-color);
+            margin: 0 0 15px 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hosting-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .hosting-card li {
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .hosting-card li::before {
+            content: '→';
+            color: var(--glow-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--glow-color);
+            color: black;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255,215,0,0.8);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px 20px 20px;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+        }
+        
+        .copyright {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        /* Call to Action */
+        .cta-container {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border-radius: 10px;
+            margin: 50px 0 30px;
+            border: 2px solid rgba(255,215,0,0.3);
+        }
+        
+        .cta-container h2 {
+            color: var(--glow-color);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255,71,87,0.1), rgba(255,71,87,0.05));
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--disinfo-color);
+            margin: 30px 0;
+            font-style: italic;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1em;
+                line-height: 1.6;
+            }
+            
+            header {
+                padding: 25px 15px 5px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+            
+            .main-nav {
+                gap: 20px;
+                margin: 20px auto 0;
+                padding: 15px 10px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                font-size: 1em;
+                padding: 8px 0;
+            }
+            
+            .footer-nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                padding: 0 10px;
+            }
+            
+            .footer-nav-link {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            
+            #content {
+                padding: 25px 20px;
+                margin: 25px 15px;
+                border-radius: 12px;
+            }
+            
+            .activism-section {
+                padding: 20px;
+            }
+            
+            .section-header {
+                font-size: 1.5em;
+            }
+            
+            .flyer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hosting-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .monero-address {
+                font-size: 0.9em;
+                padding: 15px;
+            }
+            
+            .qr-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .mirror-step::before {
+                width: 30px;
+                height: 30px;
+                left: -15px;
+                font-size: 1em;
+            }
+            
+            .mirror-step {
+                padding: 20px 20px 20px 30px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1em;
+            }
+            
+            .main-nav {
+                gap: 15px;
+                margin: 15px auto 0;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                font-size: 0.95em;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,215,0,0.1);
+            }
+            
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+            
+            .footer-nav {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-nav-link {
+                font-size: 0.8em;
+                padding: 5px 10px;
+                width: 80%;
+                text-align: center;
+            }
+            
+            #content {
+                padding: 20px 15px;
+                margin: 20px 10px;
+            }
+            
+            .section-header {
+                font-size: 1.3em;
+            }
+            
+            .donation-container {
+                padding: 20px;
+            }
+            
+            .flyer-actions {
+                flex-direction: column;
+            }
+            
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .main-nav, .footer-nav, .back-to-top, .copy-btn, .flyer-btn {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            #content {
+                box-shadow: none;
+                background: white;
+                border: 1px solid #ddd;
+            }
+            
+            .section-header, .monero-address, .hosting-card h3 {
+                color: black;
+                text-shadow: none;
+            }
+            
+            .activism-section {
+                border: 1px solid #ddd;
+            }
+            
+            .code-block {
+                background: #f5f5f5;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Octopus Resistance</h1>
+        <div class="hero-subtitle">Practical Activism: Fund, Distribute, Mirror, Survive</div>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
+            <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
+            <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
+            <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
+            <a href="opposition.html" class="nav-link"><i class="fas fa-gavel"></i> Opposition</a>
+            <a href="activism.html" class="nav-link active"><i class="fas fa-fist-raised"></i> Activism</a>
+        </nav>
+    </header>
+
+    <div id="content">
+        <!-- Introduction -->
+        <div class="activism-section">
+            <div class="section-header">
+                <i class="fas fa-crosshairs"></i> The Resistance Imperative
+            </div>
+            <p>Information alone is powerless without action. This page provides practical tools for resisting the Octopus system. Below you'll find everything needed to fund, distribute, and preserve this research regardless of censorship attempts.</p>
+            <p><strong>Remember:</strong> The Octopus thrives on apathy, ignorance, and fragmentation. Our strength lies in decentralization, redundancy, and relentless dissemination of truth.</p>
+        </div>
+
+        <!-- Donation Section -->
+        <div class="activism-section">
+            <div class="section-header">
+                <i class="fas fa-donate"></i> Fund the Resistance (Monero)
+            </div>
+            <p>This research is funded entirely by individuals like you. Donations are appreciated, but not necessary. Monero (XMR) is the only truly private cryptocurrency—transactions cannot be traced back to donors, protecting both you and the project.</p>
+            
+            <div class="donation-container">
+                <h3>Monero Donation Address</h3>
+                <p>Click to copy or scan the QR code below:</p>
+                
+                <div class="monero-address" id="moneroAddress">
+                    89JpxiJ3VBXk3rFcnpB7cjpNqN2mhPKoYdHf<br>
+                    qbL1R8jWn2S7vM4pQ9tG6yH5zX8cV3bN1mK4j<br>
+                    (View Key: f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2)
+                </div>
+                
+                <button class="copy-btn" id="copyButton">
+                    <i class="far fa-copy"></i> Copy Address
+                </button>
+                
+                <div class="qr-container">
+                    <div class="qr-placeholder">
+                        MONERO QR CODE<br>
+                        (Generate at: getmonero.org)
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em;">Scan with Monero wallet</p>
+                </div>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Security Notice:</strong> Only donate to this exact address. Do not trust any other donation requests. Bookmark this page and verify the address before each donation.
+                </div>
+                
+                <h4>Where Your Donation Goes:</h4>
+                <ul>
+                    <li>Research into newly declassified documents</li>
+                    <li>Creation of printable materials and flyers</li>
+                    <li>Emergency hosting when main site is attacked</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Flyer Section -->
+        <div class="activism-section">
+            <div class="section-header">
+                <i class="fas fa-bullhorn"></i> Distribute: Printable Materials
+            </div>
+            <p>Physical distribution bypasses digital censorship. Print these flyers and place them in strategic locations: college campuses, community boards, coffee shops, public libraries, and workplaces.</p>
+            
+            <div class="flyer-grid">
+                <div class="flyer-card">
+                    <div class="flyer-preview">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2em; color: var(--glow-color); margin-bottom: 10px;">❓</div>
+                            <div style="font-weight: bold;">THE OCTOPUS</div>
+                            <div style="font-size: 0.8em; margin-top: 5px;">8 Tentacles of Control</div>
+                        </div>
+                    </div>
+                    <div class="flyer-info">
+                        <h3>QR Code Flyer</h3>
+                        <p>Simple design with QR code linking directly to the site. Minimal text, maximum curiosity.</p>
+                        <div class="flyer-actions">
+                            <a href="#" class="flyer-btn download"><i class="fas fa-download"></i> Download PDF</a>
+                            <a href="#" class="flyer-btn"><i class="fas fa-print"></i> Print</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flyer-card">
+                    <div class="flyer-preview">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2em; color: var(--tentacle-1); margin-bottom: 10px;">💰</div>
+                            <div style="font-weight: bold;">WHO CONTROLS<br>YOUR MONEY?</div>
+                        </div>
+                    </div>
+                    <div class="flyer-info">
+                        <h3>Financial Tentacle Flyer</h3>
+                        <p>Focuses on the banking system and Federal Reserve. Lists 3 key questions to provoke thought.</p>
+                        <div class="flyer-actions">
+                            <a href="#" class="flyer-btn download"><i class="fas fa-download"></i> Download PDF</a>
+                            <a href="#" class="flyer-btn"><i class="fas fa-print"></i> Print</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flyer-card">
+                    <div class="flyer-preview">
+                        <div style="text-align: center; padding: 20px;">
+                            <div style="font-size: 2em; color: var(--tentacle-2); margin-bottom: 10px;">📺</div>
+                            <div style="font-weight: bold;">WHO CONTROLS<br>YOUR MIND?</div>
+                        </div>
+                    </div>
+                    <div class="flyer-info">
+                        <h3>Media Tentacle Flyer</h3>
+                        <p>Exposes media consolidation and narrative control. Includes timeline of media mergers.</p>
+                        <div class="flyer-actions">
+                            <a href="#" class="flyer-btn download"><i class="fas fa-download"></i> Download PDF</a>
+                            <a href="#" class="flyer-btn"><i class="fas fa-print"></i> Print</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.05); border-radius: 8px;">
+                <h4 style="color: var(--glow-color); margin-top: 0;">Distribution Tips:</h4>
+                <ul>
+                    <li><strong>College Campuses:</strong> Bulletin boards near political science, history, and sociology departments</li>
+                    <li><strong>Public Spaces:</strong> Community boards at libraries, coffee shops, and grocery stores</li>
+                    <li><strong>Workplaces:</strong> Break rooms (if safe and appropriate)</li>
+                    <li><strong>Events:</strong> Local political rallies, town halls, community meetings</li>
+                    <li><strong>Digital:</strong> Convert to images and share on encrypted messaging apps</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Mirroring Section -->
+        <div class="activism-section">
+            <div class="section-header">
+                <i class="fas fa-sync-alt"></i> Mirror & Preserve: Clone This Site
+            </div>
+            <p>The most effective way to protect this information is through decentralization. Create your own copy (mirror) of this site. If the main site disappears, the network of mirrors ensures the information survives.</p>
+            
+            <div class="mirror-steps">
+                <div class="mirror-step">
+                    <h3>1. Download the Complete Site</h3>
+                    <p>Use HTTrack or wget to create a local copy of the entire website:</p>
+                    <div class="code-block">
+                        # Using wget (Linux/Mac)<br>
+                        wget --mirror --convert-links --adjust-extension --page-requisites \<br>
+                        &nbsp;&nbsp;--no-parent https://octopus-control-structures.org
+                    </div>
+                    <div class="code-block">
+                        # Using HTTrack (Windows)<br>
+                        # Download HTTrack from httrack.com<br>
+                        # Enter URL: https://octopus-control-structures.org<br>
+                        # Choose "Mirror website" option
+                    </div>
+                </div>
+                
+                <div class="mirror-step">
+                    <h3>2. Choose Hosting</h3>
+                    <p>Select a hosting provider (preferably outside Five Eyes jurisdiction):</p>
+                    <div class="hosting-options">
+                        <div class="hosting-card">
+                            <h3><i class="fas fa-server"></i> Free Options</h3>
+                            <ul>
+                                <li>GitHub Pages (static hosting)</li>
+                                <li>Netlify (free tier)</li>
+                                <li>Vercel (free tier)</li>
+                                <li>InfinityFree (with limitations)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hosting-card">
+                            <h3><i class="fas fa-shield-alt"></i> Privacy-Focused</h3>
+                            <ul>
+                                <li>Njalla (anonymous registration)</li>
+                                <li>Flokinet (Iceland-based)</li>
+                                <li>OrangeWebsite (Iceland)</li>
+                                <li>Bahnhof (Sweden)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hosting-card">
+                            <h3><i class="fas fa-tor"></i> Onion Services</h3>
+                            <ul>
+                                <li>Host as Tor onion service</li>
+                                <li>Completely anonymous</li>
+                                <li>Requires technical knowledge</li>
+                                <li>Instructions: torproject.org</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mirror-step">
+                    <h3>3. Upload & Configure</h3>
+                    <p>Upload the downloaded files to your hosting provider:</p>
+                    <div class="code-block">
+                        # Using FTP (replace with your credentials)<br>
+                        ftp your-hosting-provider.com<br>
+                        cd public_html<br>
+                        mput *<br>
+                        quit
+                    </div>
+                    <p><strong>Important:</strong> Test all links after uploading. Update any hardcoded URLs in the files if necessary.</p>
+                </div>
+                
+                <div class="mirror-step">
+                    <h3>4. Register a Domain (Optional)</h3>
+                    <p>For easier access, register a domain name:</p>
+                    <ul>
+                        <li>Use privacy-focused registrars: Njalla, OrangeWebsite</li>
+                        <li>Consider alternative TLDs: .org, .net, .info, .xyz</li>
+                        <li>Point DNS to your hosting provider</li>
+                        <li>Consider using Cloudflare for DDoS protection (weigh privacy trade-offs)</li>
+                    </ul>
+                </div>
+                
+                <div class="mirror-step">
+                    <h3>5. Share Your Mirror</h3>
+                    <p>Once your mirror is live, help others find it:</p>
+                    <ul>
+                        <li>Email the main site with your mirror URL (use encrypted email)</li>
+                        <li>Share on decentralized platforms: Matrix, Mastodon, Session</li>
+                        <li>Include in forum signatures (where appropriate)</li>
+                        <li>Add to the distributed mirror list (coming soon)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Section -->
+        <div class="security-tips">
+            <div class="section-header">
+                <i class="fas fa-user-secret"></i> Operational Security (OPSEC)
+            </div>
+            <p>Your safety is paramount. Follow these guidelines to protect yourself while engaging in activism:</p>
+            
+            <div class="tip">
+                <i class="fas fa-lock"></i> <strong>Use Encrypted Communication:</strong> Signal for messaging, ProtonMail or Tutanota for email, Session for anonymous messaging.
+            </div>
+            
+            <div class="tip">
+                <i class="fas fa-vpn"></i> <strong>Use a VPN:</strong> Always connect through a reputable VPN when accessing or mirroring the site. Mullvad and IVPN are privacy-focused options.
+            </div>
+            
+            <div class="tip">
+                <i class="fas fa-desktop"></i> <strong>Separate Identities:</strong> Use different devices/profiles for activism vs. personal life. Consider using Tails OS for high-risk activities.
+            </div>
+            
+            <div class="tip">
+                <i class="fas fa-question-circle"></i> <strong>Know Your Rights:</strong> In most countries, distributing factual information is protected speech. Document everything and know when to seek legal counsel.
+            </div>
+            
+            <div class="tip">
+                <i class="fas fa-users"></i> <strong>Work in Groups:</strong> Organize with trusted individuals. The "lone wolf" is easier to target than a distributed network.
+            </div>
+        </div>
+
+        <!-- Additional Resources -->
+        <div class="activism-section">
+            <div class="section-header">
+                <i class="fas fa-tools"></i> Additional Tools & Resources
+            </div>
+            
+            <div class="hosting-options">
+                <div class="hosting-card">
+                    <h3><i class="fas fa-code"></i> Technical Tools</h3>
+                    <ul>
+                        <li><strong>HTTrack:</strong> Website copier</li>
+                        <li><strong>Tor Browser:</strong> Anonymous browsing</li>
+                        <li><strong>Veracrypt:</strong> Encrypted containers</li>
+                        <li><strong>GPG:</strong> Encrypted email</li>
+                        <li><strong>Monero Wallet:</strong> GUI or CLI</li>
+                    </ul>
+                </div>
+                
+                <div class="hosting-card">
+                    <h3><i class="fas fa-book"></i> Research Resources</h3>
+                    <ul>
+                        <li>Internet Archive (archive.org)</li>
+                        <li>Library Genesis (libgen)</li>
+                        <li>Sci-Hub (sci-hub.se)</li>
+                        <li>Cryptome (cryptome.org)</li>
+                        <li>WikiLeaks (wikileaks.org)</li>
+                    </ul>
+                </div>
+                
+                <div class="hosting-card">
+                    <h3><i class="fas fa-network-wired"></i> Communication Platforms</h3>
+                    <ul>
+                        <li>Matrix/Element (encrypted chat)</li>
+                        <li>Mastodon (decentralized Twitter)</li>
+                        <li>Session (anonymous messaging)</li>
+                        <li>SimpleX Chat (no identifiers)</li>
+                        <li>Keybase (encrypted teams)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(6,214,160,0.05); border-radius: 8px; border-left: 5px solid var(--success-color);">
+                <h4 style="color: var(--success-color); margin-top: 0;"><i class="fas fa-lightbulb"></i> Pro Tip: Create a "Dead Man's Switch"</h4>
+                <p>Set up an automated system that releases all site files and source code if you become unreachable for a set period. This ensures the information survives even if individuals are targeted.</p>
+                <p><strong>Simple method:</strong> Use scheduled emails with attachments (ProtonMail allows scheduling) that send to multiple recipients if not canceled weekly.</p>
+            </div>
+        </div>
+
+        <!-- Final Call to Action -->
+        <div class="cta-container">
+            <h2>Your Choice: Complacency or Resistance</h2>
+            <p>The Octopus grows stronger with each passive observer. It weakens with each mirror created, each flyer distributed, each person who learns the pattern.</p>
+            <p><strong>Choose one action today:</strong></p>
+            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 25px 0;">
+                <button class="copy-btn" style="background: rgba(255,215,0,0.2); color: var(--glow-color);">
+                    <i class="fas fa-copy"></i> Copy Monero Address
+                </button>
+                <button class="copy-btn" style="background: rgba(6,214,160,0.2); color: var(--success-color);">
+                    <i class="fas fa-download"></i> Download Flyer Pack
+                </button>
+                <button class="copy-btn" style="background: rgba(131,56,236,0.2); color: var(--tentacle-7);">
+                    <i class="fas fa-sync-alt"></i> Start Mirroring Guide
+                </button>
+            </div>
+            <p style="font-style: italic; margin-top: 20px;">"The only thing necessary for the triumph of evil is for good men to do nothing." — Edmund Burke</p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <footer>
+        <nav class="footer-nav">
+            <a href="index.html" class="footer-nav-link">The Octopus</a>
+            <a href="timeline.html" class="footer-nav-link">Timeline</a>
+            <a href="evidence.html" class="footer-nav-link">Evidence</a>
+            <a href="plan.html" class="footer-nav-link">The Plan</a>
+            <a href="opposition.html" class="footer-nav-link">Opposition</a>
+            <a href="activism.html" class="footer-nav-link active">Activism</a>
+        </nav>
+        <div class="copyright">
+            &copy; 2026 Institute for Systemic Analysis | Resistance through distribution
+        </div>
+        <div style="font-size: 0.8em; color: rgba(255,255,255,0.3); margin-top: 10px;">
+            This site is part of a distributed information network. Mirror it. Share it. Preserve it.
+        </div>
+    </footer>
+
+    <script>
+        // Copy Monero Address Functionality
+        const moneroAddress = document.getElementById('moneroAddress');
+        const copyButton = document.getElementById('copyButton');
+        
+        copyButton.addEventListener('click', async () => {
+            try {
+                const text = moneroAddress.textContent.trim();
+                await navigator.clipboard.writeText(text);
+                
+                // Visual feedback
+                const originalText = copyButton.innerHTML;
+                copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyButton.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyButton.innerHTML = originalText;
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = moneroAddress.textContent.trim();
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const originalText = copyButton.innerHTML;
+                copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyButton.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyButton.innerHTML = originalText;
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            }
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Add animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all activism sections
+        document.querySelectorAll('.activism-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.body.classList.add('printing');
+        });
+        
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('printing');
+        });
+
+        // Add click effect to monero address
+        moneroAddress.addEventListener('click', () => {
+            copyButton.click();
+        });
+
+        // Add download functionality to flyer buttons (placeholder)
+        document.querySelectorAll('.flyer-btn.download').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Flyer download functionality would be implemented here. For now, right-click the flyer preview and save as image.');
+            });
+        });
+
+        // Simple encryption note
+        console.log('%c🔐 OPSEC Reminder: Use VPN + Tor when mirroring or donating', 
+            'color: #ffd700; background: #0a0a0a; padding: 10px; border: 1px solid #ffd700;');
+    </script>
+</body>
+</html>
