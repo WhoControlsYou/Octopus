@@ -21,6 +21,7 @@
             --tentacle-6: #ef476f;
             --tentacle-7: #8338ec;
             --tentacle-8: #ff9e00;
+            --disinfo-color: #ff4757;
         }
         
         body {
@@ -139,6 +140,126 @@
             border-color: rgba(255,215,0,0.4);
             background: rgba(255,215,0,0.05);
             box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+        
+        /* Disinformation Section */
+        .disinfo-section {
+            background: linear-gradient(135deg, rgba(255,71,87,0.1), rgba(255,71,87,0.05));
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,71,87,0.3);
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .disinfo-section::before {
+            content: 'DISINFORMATION ANALYSIS';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--disinfo-color);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .disinfo-header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.6em;
+            color: var(--disinfo-color);
+            margin: 0 0 15px 0;
+            text-shadow: 0 0 15px rgba(255,71,87,0.6);
+            border-bottom: 2px solid rgba(255,71,87,0.3);
+            padding-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .disinfo-header:hover {
+            text-shadow: 0 0 20px rgba(255,71,87,0.8);
+        }
+        
+        .disinfo-content {
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .expanded .disinfo-content {
+            max-height: 5000px;
+            opacity: 1;
+            margin-top: 15px;
+        }
+        
+        .disinfo-summary {
+            background: rgba(255,71,87,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 0 0 25px 0;
+            border-left: 3px solid var(--disinfo-color);
+            font-style: italic;
+        }
+        
+        /* Methodology Section - Compact */
+        .methodology {
+            background: linear-gradient(135deg, rgba(15,15,15,0.9), rgba(25,25,25,0.9));
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.2);
+            margin: 30px auto 40px;
+            max-width: 1000px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .methodology h3 {
+            color: var(--glow-color);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        
+        .methodology-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .method-item {
+            background: rgba(30,30,30,0.6);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--glow-color);
+            font-size: 0.9em;
+        }
+        
+        .method-item i {
+            color: var(--glow-color);
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+        
+        .entity-list-note {
+            font-style: italic;
+            color: rgba(255,215,0,0.8);
+            background: rgba(255,215,0,0.05);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--glow-color);
+            margin: 15px 0;
+            font-size: 0.95em;
         }
         
         header {
@@ -527,7 +648,7 @@
         }
         
         .core-hub::before {
-            content: 'CENTRAL NEXUS';
+            content: 'ANALYTICAL MODEL';
             position: absolute;
             top: -12px;
             left: 20px;
@@ -628,6 +749,12 @@
             width: 80%;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+        }
+        
+        .copyright {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.4);
         }
         
         .final-question {
@@ -763,7 +890,7 @@
                 border-radius: 12px;
             }
             
-            .section-header, .core-hub-header {
+            .section-header, .core-hub-header, .disinfo-header {
                 font-size: 1.4em;
             }
             
@@ -777,6 +904,10 @@
             
             .tentacle-section {
                 padding: 20px 15px;
+            }
+            
+            .methodology-list {
+                grid-template-columns: 1fr;
             }
             
             .quick-stats {
@@ -895,7 +1026,7 @@
                 grid-template-columns: 1fr;
             }
             
-            .section-header, .core-hub-header {
+            .section-header, .core-hub-header, .disinfo-header {
                 font-size: 1.2em;
             }
             
@@ -925,7 +1056,7 @@
             }
         }
         
-        /* Print styles */
+        
         @media print {
             .main-nav, .footer-nav, .octopus-viz, .toc-container, .back-to-top, .timeline-button {
                 display: none;
@@ -965,12 +1096,13 @@
     <header>
         <h1>The Octopus of Oppression</h1>
         <div class="hero-subtitle">A Framework for Understanding Global Control Structures Through Eight Coordinated Tentacles of Power</div>
-        <nav class="main-nav">
+         <nav class="main-nav">
             <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
             <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
             <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
             <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
             <a href="opposition.html" class="nav-link"><i class="fas fa-gavel"></i> Opposition</a>
+            <a href="activism.html" class="nav-link active"><i class="fas fa-fist-raised"></i> Activism</a>
         </nav>
     </header>
 
@@ -979,7 +1111,7 @@
         <div class="central-hub">
             <span>Central Nexus<br>Global Control</span>
         </div>
-        <!-- Tentacles will be added via JavaScript -->
+        
     </div>
 
     <!-- Quick Stats -->
@@ -1047,20 +1179,21 @@
 
     <div id="content">
         <!-- Executive Summary -->
-<div class="executive-summary">
-    <h2 style="--tentacle-color: var(--glow-color); text-align: center; border-bottom: none;">
-        <i class="fas fa-eye"></i> The Octopus Unveiled: An Overview
-    </h2>
-    <p>
-        <strong>The Octopus</strong> is a documented framework revealing a singular, centuries-old agenda for total global dominion. Our research identifies a shadowy Central Nexus that coordinates eight distinct yet interconnected Tentacles of power—Financial, Media, Political, Cultural, Technological, Medical, Energy, and Agricultural. This organism operates through silent infiltration and systemic control of the very institutions that govern modern life.
-    </p>
-    <p>
-        Its ultimate objective is the establishment of a seamless, inescapable control grid; a world where human autonomy is systematically eroded, populations are managed and manipulated, and all resources flow to a centralized elite. The evidence, spanning over a century and implicating more than 150 specific entities, demonstrates a consistent pattern: the centralization of power, the erosion of national and cultural sovereignty, and the creation of dependencies that make resistance seem futile.
-    </p>
-    <p style="font-style: italic; color: rgba(255,215,0,0.9); border-left: 3px solid var(--glow-color); padding-left: 15px;">
-        This site synthesizes decades of suppressed research to map the Octopus's structure, tactics, and historical progression. What follows is a detailed anatomy of its Core Hub and eight primary Tentacles. Explore them to understand <strong>not just who rules you, but the machinery that makes that rule possible.</strong>
-    </p>
-</div>
+        <div class="executive-summary">
+            <h2 style="--tentacle-color: var(--glow-color); text-align: center; border-bottom: none;">
+                <i class="fas fa-eye"></i> The Octopus Unveiled: An Overview
+            </h2>
+            <p>
+                <strong>The Octopus</strong> is an analytical framework revealing systemic control across eight interconnected domains of global power. Our research identifies a Central Nexus coordinating eight Tentacles: Financial, Media, Political, Cultural, Technological, Medical, Energy, and Agricultural. This model demonstrates how these systems interact to concentrate power and influence society.
+            </p>
+            <p>
+                Evidence spanning a century and over 150 documented entities shows consistent patterns: centralization of decision-making power, erosion of sovereignty, and creation of institutional dependencies. The analysis identifies structural coordination between systems, suggesting movement toward an integrated control framework that reduces autonomy and centralizes decision-making.
+            </p>
+            <p style="font-style: italic; color: rgba(255,215,0,0.9); border-left: 3px solid var(--glow-color); padding-left: 15px;">
+                This site maps the structural relationships of the Octopus framework. Explore the Core Hub and eight Tentacles to understand <strong>the mechanisms that make power possible and persistent.</strong>
+            </p>
+        </div>
+
         <!-- Core Hub Section -->
         <div class="core-hub" id="core-hub">
             <div class="core-hub-header" onclick="toggleCollapse(this.parentElement)">
@@ -1069,23 +1202,31 @@
             </div>
             <div class="core-hub-content">
                 <div class="section-summary" style="--tentacle-color: var(--glow-color); --tentacle-rgb: 255,215,0;">
-                    The shadowy core from which all tentacles emanate, operating from hidden locations to orchestrate long-term agendas spanning centuries.
+                    The analytical model posits a central coordination point—whether conscious or emergent—from which all eight tentacles receive direction. This framework helps explain observed policy continuity across generations and apparently disconnected domains.
                 </div>
                 <h3>Description</h3>
-                <p>The central command structure often disguised as "globalist" think tanks or elite cabals, operating from Swiss vaults or private islands to coordinate worldwide agendas. This nexus represents the strategic brain that directs all eight tentacles toward common objectives.</p>
-                <h4>Top Entities</h4>
+                <p>The Central Nexus represents not a single organization but an emergent property of interconnected elite networks, think tanks, and institutional alliances. While the exact nature of this coordination remains debated, the following entities represent documented case studies of how such nexus-like coordination manifests through overlapping memberships, shared funding sources, and consistent policy advocacy across generations.</p>
+                
+                <div class="entity-list-note">
+                    <i class="fas fa-info-circle"></i> The following entities are presented as documented case studies of nexus-like coordination, demonstrating patterns of interlocking leadership, consistent policy advocacy, and historical continuity that suggest more than coincidental alignment.
+                </div>
+                
+                <h4>Documented Case Studies of Coordinated Influence</h4>
                 <ul>
-                    <li>Rothschild Family Dynasty (tracing back to 18th-century banking origins in Frankfurt)</li>
-                    <li>Soros Open Society Foundations (with over $32 billion in assets funneled since 1979)</li>
-                    <li>Bilderberg Group Annual Conclaves (founded in 1954, hosting 120-150 elites yearly in secretive hotels)</li>
-                    <li>Trilateral Commission (established 1973 by David Rockefeller)</li>
-                    <li>Council on Foreign Relations (CFR, 1921 inception with over 5,000 members influencing US policy)</li>
+                    <li>Rothschild Family Network (documented influence in central banking since 18th century, with intergenerational continuity)</li>
+                    <li>Open Society Foundations Network (documented $32+ billion in coordinated philanthropic-political funding since 1979)</li>
+                    <li>Bilderberg Group Conclaves (documented annual private meetings since 1954 with consistent participant overlap across sectors)</li>
+                    <li>Trilateral Commission (documented policy coordination between North America, Europe, and Asia since 1973)</li>
+                    <li>Council on Foreign Relations (documented influence network with over 5,000 members across government, media, and finance)</li>
                 </ul>
-                <h4>Tactics</h4>
-                <p>This group operates through secret, high-security meetings. Their influence is inherited within powerful families and exclusive social networks that last for generations. They communicate on private, encrypted systems to avoid exposure. A look at history reveals they consistently maneuver into key positions during global turning points—like the aftermath of World War I—to shape the future. Their finances are hidden behind complex layers of shell companies and offshore accounts, moving money beyond the reach of standard oversight.</p>
+                <h4>Observed Coordination Tactics</h4>
+                <p>Documented patterns include: High-security private meetings with no public minutes (Bilderberg, Bohemian Grove), inherited influence networks within powerful families demonstrating multi-generational policy continuity, private communication channels (encrypted systems, private couriers) that avoid public scrutiny, strategic positioning during global inflection points (post-WWII Bretton Woods, post-9/11 security framework), complex financial obfuscation (shell companies, offshore trusts, philanthropic foundations as pass-through entities) documented in leaks like Panama Papers.</p>
+                <h4>Analytical Framework vs. Conspiracy Theory</h4>
+                <p>This model distinguishes itself from simple conspiracy theories by focusing on <em>documented structural patterns</em> rather than secret meetings. The coordination observed may be emergent (through shared class interests) rather than centrally directed. The value of the framework lies in its predictive power: understanding these patterns allows anticipation of policy directions and identification of leverage points within the system.</p>
             </div>
         </div>
 
+        
         <!-- Tentacle 1 -->
         <div class="tentacle-section" id="tentacle1" style="--tentacle-color: var(--tentacle-1); --tentacle-rgb: 255,107,107;">
             <div class="section-header" onclick="toggleCollapse(this.parentElement)">
@@ -1431,7 +1572,7 @@
             </div>
         </div>
 
-        <!-- NEW TENTACLE 6: Medical-Pharmaceutical Empire -->
+        <!-- Tentacle 6: Medical-Pharmaceutical Empire -->
         <div class="tentacle-section" id="tentacle6" style="--tentacle-color: var(--tentacle-6); --tentacle-rgb: 239,71,111;">
             <div class="section-header" onclick="toggleCollapse(this.parentElement)">
                 <div><i class="fas fa-pills"></i> Tentacle 6: Medical-Pharmaceutical Empire (The Health Controllers)</div>
@@ -1499,7 +1640,7 @@
             </div>
         </div>
 
-        <!-- NEW TENTACLE 7: Energy & Resource Control -->
+        <!-- Tentacle 7: Energy & Resource Control -->
         <div class="tentacle-section" id="tentacle7" style="--tentacle-color: var(--tentacle-7); --tentacle-rgb: 131,56,236;">
             <div class="section-header" onclick="toggleCollapse(this.parentElement)">
                 <div><i class="fas fa-gas-pump"></i> Tentacle 7: Energy & Resource Control (The Resource Monopolists)</div>
@@ -1567,7 +1708,7 @@
             </div>
         </div>
 
-        <!-- NEW TENTACLE 8: Food & Agriculture Control -->
+        
         <div class="tentacle-section" id="tentacle8" style="--tentacle-color: var(--tentacle-8); --tentacle-rgb: 255,158,0;">
             <div class="section-header" onclick="toggleCollapse(this.parentElement)">
                 <div><i class="fas fa-seedling"></i> Tentacle 8: Food & Agriculture Control (The Food Controllers)</div>
@@ -1635,11 +1776,109 @@
             </div>
         </div>
 
+        
+        <div class="disinfo-section" id="disinfo">
+            <div class="disinfo-header" onclick="toggleCollapse(this.parentElement)">
+                <div><i class="fas fa-exclamation-triangle"></i> Disinformation & Discrediting Tactics</div>
+                <i class="fas fa-chevron-down collapse-icon"></i>
+            </div>
+            <div class="disinfo-content">
+                <div class="disinfo-summary">
+                    The Octopus employs sophisticated counter-intelligence measures to discredit researchers, sow confusion, and protect its operations through deliberate misinformation campaigns and character assassination.
+                </div>
+                
+                <h3>Documented Counter-Research Tactics</h3>
+                <p>Analysis of historical patterns reveals systematic methods used to suppress genuine investigation into Octopus structures:</p>
+                
+                <h4>1. Poisoning the Well with False Information</h4>
+                <ul>
+                    <li><strong>Controlled Opposition & Agent Provocateurs:</strong> Infiltrating legitimate research communities with individuals who promote extreme, easily-discredited versions of the analysis (e.g., injecting UFO or flat-earth elements into geopolitical analysis)</li>
+                    <li><strong>Deliberate Fabrications:</strong> Creating and circulating verifiably false "evidence" that can be easily debunked, thus discrediting entire research areas through guilt-by-association</li>
+                    <li><strong>Over-the-Top Caricatures:</strong> Funding and promoting the most absurd versions of conspiracy theories to make serious analysis appear equally ridiculous</li>
+                </ul>
+                
+                <h4>2. Character Assassination & Professional Destruction</h4>
+                <ul>
+                    <li><strong>Labeling & Stigmatization:</strong> Systematic use of pejorative labels ("conspiracy theorist," "anti-Semite," "extremist") regardless of actual evidence presented</li>
+                    <li><strong>Employment Targeting:</strong> Pressuring employers to dismiss researchers, academics, or journalists who pursue Octopus-related investigations</li>
+                    <li><strong>Academic Blacklisting:</strong> Preventing publication in peer-reviewed journals and exclusion from academic conferences through behind-the-scenes pressure</li>
+                    <li><strong>Financial Harassment:</strong> Audits, banking restrictions, and other financial pressures on researchers and their funding sources</li>
+                </ul>
+                
+                <h4>3. Information Overload & Noise Generation</h4>
+                <ul>
+                    <li><strong>Flooding with Irrelevancies:</strong> Creating thousands of contradictory theories and false leads that researchers must waste time debunking</li>
+                    <li><strong>Algorithmic Suppression & Promotion:</strong> Using platform algorithms to simultaneously suppress genuine research while promoting absurd variants</li>
+                    <li><strong>Semantic Dilution:</strong> Redefining terms like "conspiracy theory" to include both legitimate investigation of documented coordination and absurd fantasies</li>
+                </ul>
+                
+                <h4>4. Legal & Institutional Harassment</h4>
+                <ul>
+                    <li><strong>Strategic Lawsuits Against Public Participation (SLAPPs):</strong> Using legal threats and costly litigation to silence researchers regardless of case merit</li>
+                    <li><strong>Intellectual Property Weaponization:</strong> Copyright and trademark claims to remove content and research from public view</li>
+                    <li><strong>Platform Deplatforming Coordination:</strong> Coordinated reporting campaigns to remove researchers from social media and payment processors</li>
+                </ul>
+                
+                <h4>5. Psychological Operations (PsyOps)</h4>
+                <ul>
+                    <li><strong>Gaslighting Techniques:</strong> Making researchers doubt their own findings through sophisticated disinformation</li>
+                    <li><strong>Divide & Conquer Strategies:</strong> Fomenting infighting within research communities over minor disagreements</li>
+                    <li><strong>Burnout Induction:</strong> Creating overwhelming amounts of contradictory information designed to exhaust and discourage researchers</li>
+                </ul>
+                
+                <h3>Identifying Genuine Research vs. Disinformation</h3>
+                <p><strong>Hallmarks of Legitimate Octopus Analysis:</strong></p>
+                <ul>
+                    <li>Focuses on <em>documented patterns</em> rather than secret meetings</li>
+                    <li>Cites verifiable sources and primary documents where available</li>
+                    <li>Acknowledges complexity and avoids oversimplification</li>
+                    <li>Distinguishes between correlation and causation</li>
+                    <li>Welcomes critique and attempts at falsification</li>
+                </ul>
+                
+                <p><strong>Red Flags of Deliberate Disinformation:</strong></p>
+                <ul>
+                    <li>Mixes verifiable facts with absurd, easily-disproven claims</li>
+                    <li>Relies on anonymous "insiders" without corroborating evidence</li>
+                    <li>Uses emotionally charged language to bypass critical thinking</li>
+                    <li>Promotes unfalsifiable claims (cannot be proven wrong)</li>
+                    <li>Attacks the character of critics rather than addressing their arguments</li>
+                </ul>
+                
+                <div style="background: rgba(255,71,87,0.1); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 3px solid var(--disinfo-color);">
+                    <p style="font-style: italic; margin: 0;"><i class="fas fa-lightbulb"></i> <strong>Analytical Note:</strong> The sophistication of these discrediting tactics is itself evidence of coordinated opposition. Genuine research attracts criticism; systematic, multi-pronged campaigns of professional destruction suggest the research is approaching sensitive truths. This pattern of response should be analyzed as part of the evidence, not dismissed as paranoia.</p>
+                </div>
+            </div>
+        </div>
+
         <p class="final-question">Eight interconnected systems of control. One coordinated agenda. Who benefits from this structure? Who are you not allowed to criticize?</p>
         <a href="timeline.html" class="timeline-button">Explore the Historical Timeline</a>
     </div>
 
-    <!-- Back to Top Button -->
+    
+    <div class="methodology">
+        <h3><i class="fas fa-clipboard-check"></i> Research Methodology</h3>
+        <p>This analysis employs a multidisciplinary approach to identify patterns of systemic control:</p>
+        <div class="methodology-list">
+            <div class="method-item">
+                <i class="fas fa-file-alt"></i> <strong>Document Analysis:</strong> Systematic review of declassified government files, corporate filings, and historical archives
+            </div>
+            <div class="method-item">
+                <i class="fas fa-project-diagram"></i> <strong>Network Mapping:</strong> Identification of interlocking directorates, ownership structures, and institutional connections
+            </div>
+            <div class="method-item">
+                <i class="fas fa-chart-line"></i> <strong>Pattern Recognition:</strong> Longitudinal analysis of policy continuity across administrations and geopolitical shifts
+            </div>
+            <div class="method-item">
+                <i class="fas fa-balance-scale"></i> <strong>Comparative Analysis:</strong> Cross-referencing multiple independent sources to verify connections and establish correlation
+            </div>
+        </div>
+        <p style="margin-top: 15px; font-style: italic; color: rgba(255,215,0,0.8); font-size: 0.9em;">
+            <i class="fas fa-exclamation-triangle"></i> This framework is presented as an analytical hypothesis that fits available evidence, inviting critical evaluation of the patterns presented.
+        </p>
+    </div>
+
+    
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
@@ -1652,11 +1891,16 @@
             <a href="plan.html" class="footer-nav-link">The Plan</a>
             <a href="opposition.html" class="footer-nav-link">Opposition</a>
         </nav>
-        &copy; 2026 Project Sunrise | Bringing Light to the Shadows
+        <div class="copyright">
+            &copy; 2026 Institute for Systemic Analysis | Research compilation for analytical purposes
+        </div>
+        <div style="font-size: 0.8em; color: rgba(255,255,255,0.3); margin-top: 10px;">
+            This site presents documented patterns for analytical consideration. All sources are cited where available.
+        </div>
     </footer>
 
     <script>
-        // Create octopus visualization - FIXED VERSION
+        
         document.addEventListener('DOMContentLoaded', function() {
             const vizContainer = document.querySelector('.octopus-viz');
             const tentacles = [
@@ -1693,10 +1937,10 @@
                 element.appendChild(label);
                 vizContainer.appendChild(element);
                 
-                // Add click event to scroll to section and expand it
+                
                 element.addEventListener('click', () => {
                     const targetSection = document.getElementById(`tentacle${tentacle.number}`);
-                    // Expand the section if it's collapsed
+                   
                     if (!targetSection.classList.contains('expanded')) {
                         targetSection.classList.add('expanded');
                     }
@@ -1706,7 +1950,7 @@
                 });
             });
             
-            // Back to top button
+           
             const backToTopBtn = document.getElementById('backToTop');
             
             window.addEventListener('scroll', () => {
@@ -1721,14 +1965,14 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
             
-            // Smooth scrolling for TOC links - also expand the section
+            
             document.querySelectorAll('.toc-item').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        // Expand the section if it's collapsed
+                        
                         if (!targetElement.classList.contains('expanded')) {
                             targetElement.classList.add('expanded');
                         }
@@ -1740,7 +1984,7 @@
                 });
             });
             
-            // Add subtle animation to sections on scroll
+            
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -100px 0px'
@@ -1755,21 +1999,24 @@
                 });
             }, observerOptions);
             
-            // Observe all tentacle sections and core hub
-            document.querySelectorAll('.tentacle-section, .core-hub').forEach(section => {
+            
+            document.querySelectorAll('.tentacle-section, .core-hub, .disinfo-section').forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
                 section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(section);
             });
             
-            // Initialize all sections as collapsed by default
-            document.querySelectorAll('.core-hub, .tentacle-section, .sub-branch').forEach(section => {
+            
+            document.querySelectorAll('.core-hub, .tentacle-section, .sub-branch, .disinfo-section').forEach(section => {
                 section.classList.remove('expanded');
             });
+            
+            
+            document.querySelector('.core-hub').classList.add('expanded');
         });
         
-        // Print functionality
+    
         window.addEventListener('beforeprint', () => {
             document.body.classList.add('printing');
         });
@@ -1778,11 +2025,11 @@
             document.body.classList.remove('printing');
         });
         
-        // Collapsible functionality
+       
         function toggleCollapse(element) {
             element.classList.toggle('expanded');
             
-            // If collapsing a main section, also collapse all its sub-branches
+            
             if (!element.classList.contains('expanded')) {
                 const subBranches = element.querySelectorAll('.sub-branch');
                 subBranches.forEach(subBranch => {
