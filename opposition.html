@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opposition & Rebuttals | The Octopus 💡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1+700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --dark-bg: #0a0a0a;
@@ -13,52 +13,50 @@
             --glow-color: #ffd700;
             --accent-color: #ffffff;
             --shadow-color: rgba(0, 0, 0, 0.7);
-            --evidence-bg: rgba(255, 215, 0, 0.05);
-            --rebuttal-bg: rgba(0, 100, 0, 0.08);
-            --narrative-bg: rgba(100, 0, 0, 0.08);
-        }
-        
-        * {
-            box-sizing: border-box;
+            --tentacle-1: #ff6b6b;
+            --tentacle-2: #4ecdc4;
+            --tentacle-3: #ffd166;
+            --tentacle-4: #06d6a0;
+            --tentacle-5: #118ab2;
+            --tentacle-6: #ef476f;
+            --tentacle-7: #8338ec;
+            --tentacle-8: #ff9e00;
+            --disinfo-color: #ff4757;
+            --narrative-bg: rgba(255, 71, 87, 0.1);
+            --rebuttal-bg: rgba(0, 200, 83, 0.1);
         }
         
         body {
             background-color: var(--dark-bg);
             color: var(--light-text);
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
+            font-size: 1.2em;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
         }
         
         body::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-                        linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%), linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9));
             z-index: -1;
             animation: subtlePulse 10s infinite alternate ease-in-out;
         }
         
-        @keyframes subtlePulse { 
-            0% { opacity: 0.8; } 
-            100% { opacity: 1; } 
-        }
+        @keyframes subtlePulse { 0% { opacity: 0.8; } 100% { opacity: 1; } }
         
-        /* Navigation - Mobile First */
+        /* Navigation Styles - TOP MENU */
         .main-nav {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 15px auto 0;
-            padding: 10px 15px;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px auto 0;
+            padding: 15px 20px;
             max-width: 1000px;
             position: relative;
         }
@@ -80,24 +78,18 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-weight: 600;
-            font-size: 1em;
-            padding: 12px 20px;
+            font-size: 1.1em;
+            padding: 10px 0;
             position: relative;
             transition: all 0.3s ease;
             letter-spacing: 0.5px;
-            width: 100%;
-            text-align: center;
-            border: 1px solid rgba(255,215,0,0.1);
-            border-radius: 6px;
-            background: rgba(20,20,20,0.3);
         }
         
         .nav-link::before {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             width: 0;
             height: 2px;
             background: var(--glow-color);
@@ -105,15 +97,13 @@
             box-shadow: 0 0 10px var(--glow-color);
         }
         
-        .nav-link:hover,
-        .nav-link:active {
+        .nav-link:hover {
             color: var(--glow-color);
             text-shadow: 0 0 15px rgba(255,215,0,0.5);
         }
         
-        .nav-link:hover::before,
-        .nav-link:active::before {
-            width: 80%;
+        .nav-link:hover::before {
+            width: 100%;
         }
         
         .nav-link i {
@@ -122,9 +112,44 @@
             transition: opacity 0.3s ease;
         }
         
+        .nav-link:hover i {
+            opacity: 1;
+        }
+        
+        /* Navigation Styles - BOTTOM MENU */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+        }
+        
+        .footer-nav-link {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,215,0,0.1);
+            background: rgba(20,20,20,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-nav-link:hover {
+            color: var(--glow-color);
+            border-color: rgba(255,215,0,0.4);
+            background: rgba(255,215,0,0.05);
+            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+        }
+        
         header {
+            position: static;
+            top: 0;
+            z-index: 10;
             background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-            padding: 20px 15px 10px;
+            padding: 30px 20px 10px;
             text-align: center;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             box-shadow: 0 4px 10px var(--shadow-color);
@@ -132,209 +157,294 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-size: 2.5em;
             font-weight: 700;
             font-style: italic;
             color: var(--accent-color);
-            margin: 0;
+            margin: 10px 0;
             text-shadow: 0 0 20px rgba(255,215,0,0.4);
-            letter-spacing: 1px;
-            line-height: 1.3;
+            letter-spacing: 2px;
+            animation: glowFadeIn 2s ease-in-out;
         }
         
-        .subtitle {
+        @keyframes glowFadeIn {
+            from { opacity: 0; text-shadow: 0 0 0 transparent; }
+            to { opacity: 1; text-shadow: 0 0 20px rgba(255,215,0,0.4); }
+        }
+        
+        .hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1em;
+            font-size: 1.3em;
             color: var(--glow-color);
-            margin: 10px auto 20px;
+            margin: 0 auto 20px;
             max-width: 800px;
             font-style: italic;
             text-shadow: 0 0 10px rgba(255,215,0,0.3);
             line-height: 1.4;
-            padding: 0 10px;
         }
         
-        /* Main Content */
-        .container {
+        /* Main Content Area */
+        #content {
             max-width: 1000px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-        
-        .intro-box {
-            background: var(--evidence-bg);
-            border: 1px solid var(--glow-color);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            margin: 40px auto;
+            padding: 40px 30px;
+            background: rgba(18,18,18,0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 30px rgba(255,215,0,0.05);
+            animation: contentFadeIn 1.5s ease-out;
             position: relative;
             overflow: hidden;
         }
         
-        .intro-box::before {
-            content: 'ANALYSIS';
+        #content::after {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: -35px;
-            background: rgba(255, 215, 0, 0.9);
-            color: #000;
-            padding: 4px 35px;
-            transform: rotate(45deg);
-            font-weight: bold;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.03) 0%, transparent 70%);
+            animation: rotateLight 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotateLight { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        @keyframes contentFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Methodology Section */
+        .methodology-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.3);
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .methodology-box::before {
+            content: 'ANALYTICAL FRAMEWORK';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--glow-color);
+            color: black;
+            padding: 5px 15px;
             font-size: 0.8em;
-            letter-spacing: 1px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+        
+        .methodology-header {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.6em;
+            color: var(--glow-color);
+            margin: 0 0 15px 0;
+            text-shadow: 0 0 15px rgba(255,215,0,0.6);
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 10px;
         }
         
         .debunking-method {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(20, 20, 20, 0.6);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
         }
         
         .method-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            background: rgba(30,30,30,0.7);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--glow-color);
+            transition: all 0.3s ease;
+        }
+        
+        .method-step:hover {
+            transform: translateY(-5px);
+            background: rgba(35,35,35,0.8);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.2);
         }
         
         .method-step i {
             color: var(--glow-color);
-            font-size: 1.2em;
-            margin-top: 3px;
-            min-width: 24px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .method-step strong {
+            color: var(--glow-color);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
         }
         
         /* Rebuttal Sections */
         .rebuttal-section {
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: var(--evidence-bg);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(25,25,25,0.7);
+            border-radius: 10px;
+            border-left: 5px solid var(--tentacle-color);
+            transition: all 0.3s ease;
+            position: relative;
         }
         
-        .rebuttal-section:active {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        .rebuttal-section:hover {
+            background: rgba(30,30,30,0.8);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
         
-        .section-title {
+        .section-header {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            color: var(--glow-color);
-            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.6em;
+            color: var(--tentacle-color);
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 15px rgba(var(--tentacle-rgb),0.6);
+            border-bottom: 2px solid rgba(var(--tentacle-rgb),0.3);
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
         
-        .section-title i {
-            font-size: 1.1em;
-            min-width: 24px;
+        .section-header i {
+            font-size: 1.2em;
+            opacity: 0.9;
         }
         
         /* Narrative and Rebuttal Boxes */
         .narrative-box {
             background: var(--narrative-bg);
-            border-left: 4px solid #cc0000;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(255,71,87,0.3);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
             position: relative;
+            border-left: 5px solid var(--disinfo-color);
         }
         
         .narrative-box h4 {
-            color: #ff6666;
-            margin-top: 0;
-            font-size: 1.1em;
+            color: var(--disinfo-color);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .narrative-box h4 i {
-            font-size: 0.9em;
+            font-size: 1.1em;
         }
         
         .rebuttal-box {
             background: var(--rebuttal-bg);
-            border-left: 4px solid #00aa00;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(0,200,83,0.3);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            position: relative;
+            border-left: 5px solid #00c853;
         }
         
         .rebuttal-box h4 {
-            color: #66ff66;
-            margin-top: 0;
-            font-size: 1.1em;
+            color: #00c853;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .rebuttal-box h4 i {
-            font-size: 0.9em;
-        }
-        
-        .evidence-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--glow-color);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 15px;
-            margin: 10px 0;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 4px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .evidence-link:hover,
-        .evidence-link:active {
-            background: rgba(255, 215, 0, 0.2);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-        
-        .tentacle-connection {
-            background: rgba(255, 215, 0, 0.08);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-            border: 1px dashed rgba(255, 215, 0, 0.4);
-        }
-        
-        .tentacle-connection h4 {
-            color: var(--glow-color);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             font-size: 1.1em;
         }
         
+        /* Evidence Links */
+        .evidence-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--glow-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 20px;
+            margin: 20px 0;
+            background: rgba(255,215,0,0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .evidence-link:hover {
+            background: rgba(255,215,0,0.2);
+            box-shadow: 0 0 15px rgba(255,215,0,0.3);
+            transform: translateY(-3px);
+        }
+        
+        .evidence-link i {
+            font-size: 1.1em;
+        }
+        
+        /* Tentacle Connection Boxes */
+        .tentacle-connection {
+            background: rgba(var(--tentacle-rgb),0.08);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(var(--tentacle-rgb),0.3);
+        }
+        
+        .tentacle-connection h4 {
+            color: var(--tentacle-color);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tentacle-connection h4 i {
+            font-size: 1.1em;
+        }
+        
+        /* Tentacle Tags */
+        .tentacle-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(var(--tentacle-rgb), 0.15);
+            color: var(--tentacle-color);
+            border: 1px solid rgba(var(--tentacle-rgb), 0.3);
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Conclusion Section */
         .conclusion {
             background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
-            padding: 1.8rem;
-            margin-top: 2.5rem;
-            border-radius: 8px;
+            padding: 40px;
+            margin: 50px 0 30px;
+            border-radius: 10px;
             border: 1px solid var(--glow-color);
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,215,0,0.05);
         }
         
         .conclusion::after {
@@ -356,59 +466,79 @@
         
         .conclusion h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: var(--glow-color);
-            margin-bottom: 1rem;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 15px rgba(255,215,0,0.6);
         }
         
+        .conclusion ol {
+            text-align: left;
+            display: inline-block;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .conclusion li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .conclusion li strong {
+            color: var(--glow-color);
+        }
+        
+        /* Footnote */
         .footnote {
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.5);
-            margin-top: 2.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            line-height: 1.5;
-        }
-        
-        /* Footer Navigation */
-        .footer-nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin: 0 auto 20px;
-            padding: 0 15px;
-        }
-        
-        .footer-nav-link {
+            font-size: 0.9em;
             color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85em;
-            padding: 10px 20px;
-            border-radius: 4px;
-            border: 1px solid rgba(255,215,0,0.1);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.6;
             background: rgba(20,20,20,0.5);
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--glow-color);
         }
         
-        .footer-nav-link:hover,
-        .footer-nav-link:active {
+        .footnote i {
             color: var(--glow-color);
-            border-color: rgba(255,215,0,0.4);
-            background: rgba(255,215,0,0.05);
-            box-shadow: 0 0 15px rgba(255,215,0,0.2);
+            margin-right: 10px;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--glow-color);
+            color: black;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255,215,0,0.8);
         }
         
         footer {
             text-align: center;
-            padding: 20px 15px 15px;
-            font-size: 0.85em;
+            padding: 25px 20px 20px;
+            font-size: 0.9em;
             color: rgba(255,255,255,0.5);
             border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 40px;
+            margin-top: 60px;
             position: relative;
         }
         
@@ -423,203 +553,252 @@
             background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
         }
         
-        /* Mobile-specific improvements */
-        ul, ol {
-            padding-left: 20px;
-            margin: 1rem 0;
+        .copyright {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.4);
         }
         
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        blockquote {
-            font-style: italic;
-            border-left: 3px solid var(--glow-color);
-            padding-left: 1rem;
-            margin: 1rem 0;
-            padding: 10px 15px;
-            background: rgba(255,215,0,0.05);
-            border-radius: 0 6px 6px 0;
-            font-size: 0.95em;
-            line-height: 1.5;
-        }
-        
-        /* Touch-friendly improvements */
-        button, 
-        .nav-link, 
-        .footer-nav-link,
-        .evidence-link {
-            cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        /* Responsive Design - Tablet */
-        @media (min-width: 600px) {
-            .main-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                font-size: 1em;
+                line-height: 1.6;
             }
             
-            .nav-link {
-                width: auto;
-                min-width: 140px;
-            }
-            
-            .footer-nav {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            
-            .footer-nav-link {
-                width: auto;
-            }
-            
-            .debunking-method {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .method-step {
-                flex: 1;
-                min-width: 250px;
+            header {
+                padding: 25px 15px 5px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             
-            .subtitle {
+            .hero-subtitle {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+            
+            .main-nav {
+                gap: 20px;
+                margin: 20px auto 0;
+                padding: 15px 10px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                font-size: 1em;
+                padding: 8px 0;
+            }
+            
+            .footer-nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                padding: 0 10px;
+            }
+            
+            .footer-nav-link {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            
+            #content {
+                padding: 25px 20px;
+                margin: 25px 15px;
+                border-radius: 12px;
+            }
+            
+            .methodology-box, .rebuttal-section, .narrative-box, .rebuttal-box {
+                padding: 20px;
+            }
+            
+            .section-header {
+                font-size: 1.4em;
+            }
+            
+            .debunking-method {
+                grid-template-columns: 1fr;
+            }
+            
+            .conclusion {
+                padding: 25px;
+                margin: 30px 0;
+            }
+            
+            .conclusion h3 {
+                font-size: 1.5em;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
                 font-size: 1.3em;
             }
         }
         
-        /* Responsive Design - Desktop */
-        @media (min-width: 768px) {
-            .main-nav {
-                flex-direction: row;
-                gap: 40px;
-                flex-wrap: nowrap;
-            }
-            
-            .nav-link {
-                width: auto;
-                border: none;
-                background: transparent;
-                padding: 10px 0;
-            }
-            
-            .footer-nav {
-                flex-direction: row;
-                gap: 30px;
-            }
-            
-            .container {
-                padding: 0 20px;
-                margin: 40px auto;
-            }
-            
-            .intro-box {
-                padding: 2rem;
-            }
-            
-            .rebuttal-section {
-                padding: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8em;
-            }
-            
+        /* Small mobile devices */
+        @media (max-width: 480px) {
             h1 {
-                font-size: 2.2em;
+                font-size: 1.5em;
             }
             
-            .subtitle {
-                font-size: 1.4em;
-            }
-        }
-        
-        /* Very small devices */
-        @media (max-width: 360px) {
-            h1 {
-                font-size: 1.6em;
-            }
-            
-            .subtitle {
+            .hero-subtitle {
                 font-size: 1em;
             }
             
-            .section-title {
+            .main-nav {
+                gap: 15px;
+                margin: 15px auto 0;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                font-size: 0.95em;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,215,0,0.1);
+            }
+            
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+            
+            .footer-nav {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-nav-link {
+                font-size: 0.8em;
+                padding: 5px 10px;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .section-header {
                 font-size: 1.2em;
             }
             
-            .nav-link, .footer-nav-link {
-                padding: 10px 15px;
-                font-size: 0.95em;
+            #content {
+                padding: 20px 15px;
+                margin: 20px 10px;
             }
             
-            .intro-box::before {
-                right: -40px;
-                padding: 3px 30px;
-                font-size: 0.7em;
+            .methodology-box, .rebuttal-section, .narrative-box, .rebuttal-box {
+                padding: 15px;
+            }
+            
+            .evidence-link {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            
+            .conclusion {
+                padding: 20px;
+            }
+            
+            .conclusion h3 {
+                font-size: 1.3em;
+            }
+            
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
             }
         }
         
-        /* Prevent horizontal scroll */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
+        /* Print styles */
+        @media print {
+            .main-nav, .footer-nav, .back-to-top {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            #content {
+                box-shadow: none;
+                background: white;
+                border: 1px solid #ddd;
+            }
+            
+            .section-header, .conclusion h3, h4 {
+                color: black;
+                text-shadow: none;
+            }
+            
+            .narrative-box, .rebuttal-box, .tentacle-connection {
+                background: white;
+                border: 1px solid #ddd;
+            }
+            
+            .evidence-link {
+                color: black;
+                background: white;
+                border: 1px solid #ddd;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Opposition & Rebuttals</h1>
-        <div class="subtitle">Deconstructing Official Narratives with Evidence-Based Analysis Across All Eight Tentacles</div>
+        <div class="hero-subtitle">Deconstructing Official Narratives with Evidence-Based Analysis Across All Eight Tentacles</div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
             <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
             <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
             <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
             <a href="opposition.html" class="nav-link"><i class="fas fa-gavel"></i> Opposition</a>
+            <a href="activism.html" class="nav-link active"><i class="fas fa-fist-raised"></i> Activism</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="intro-box">
-            <h2 style="color: var(--glow-color); margin-top: 0;">Methodological Framework</h2>
+    <div id="content">
+        <div class="methodology-box">
+            <div class="methodology-header">
+                <i class="fas fa-clipboard-check"></i> Methodological Framework
+            </div>
             <p>This page systematically addresses the most common official narratives and mainstream dismissals of the Octopus framework across all eight tentacles. Each rebuttal follows our established research methodology:</p>
             
             <div class="debunking-method">
                 <div class="method-step">
                     <i class="fas fa-quote-right"></i>
-                    <div><strong>1. Identify Official Narrative:</strong> Present the mainstream counter-claim in its most common form.</div>
+                    <strong>1. Identify Official Narrative:</strong> Present the mainstream counter-claim in its most common form.
                 </div>
                 <div class="method-step">
                     <i class="fas fa-search"></i>
-                    <div><strong>2. Source Analysis:</strong> Trace the narrative to its institutional or media origins.</div>
+                    <strong>2. Source Analysis:</strong> Trace the narrative to its institutional or media origins.
                 </div>
                 <div class="method-step">
                     <i class="fas fa-balance-scale"></i>
-                    <div><strong>3. Evidence Comparison:</strong> Contrast the narrative with documented facts and patterns.</div>
+                    <strong>3. Evidence Comparison:</strong> Contrast the narrative with documented facts and patterns.
                 </div>
                 <div class="method-step">
                     <i class="fas fa-project-diagram"></i>
-                    <div><strong>4. Framework Integration:</strong> Demonstrate how the rebuttal fits within the eight-tentacle Octopus model.</div>
+                    <strong>4. Framework Integration:</strong> Demonstrate how the rebuttal fits within the eight-tentacle Octopus model.
                 </div>
             </div>
             
-            <p><em>Our approach is not to dismiss criticism but to engage it rigorously, using the same evidential standards we apply to our own research across all domains of control.</em></p>
+            <p style="font-style: italic; color: rgba(255,215,0,0.9); border-left: 3px solid var(--glow-color); padding-left: 15px; margin-top: 20px;">
+                Our approach is not to dismiss criticism but to engage it rigorously, using the same evidential standards we apply to our own research across all domains of control.
+            </p>
         </div>
 
         <!-- Section 1: Financial Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="financial-rebuttals">
-            <div class="section-title">
+        <div class="rebuttal-section" id="financial-rebuttals" style="--tentacle-color: var(--tentacle-1); --tentacle-rgb: 255,107,107;">
+            <div class="section-header">
                 <i class="fas fa-university"></i> Financial Tentacle: "Complexity, Not Conspiracy"
             </div>
             
@@ -636,7 +815,7 @@
                 
                 <p><strong>3. Tactical Consistency:</strong> The documented tactics of "debt enslavement" (structural adjustment programs), "currency manipulation" (forex market interventions), and "usury" (sovereign debt at punitive rates) follow predictable patterns across decades and continents.</p>
                 
-                <a href="index.html#financial-domination" class="evidence-link">
+                <a href="index.html#tentacle1" class="evidence-link">
                     <i class="fas fa-link"></i> See Financial Domination Framework
                 </a>
             </div>
@@ -644,12 +823,15 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The "anti-Semitic" charge is itself a <strong>Media Tentacle</strong> tactic to prevent scrutiny of financial power structures. By conflating criticism of specific institutions or families with religious prejudice, the narrative protects the <strong>Financial Tentacle</strong> from accountability while weaponizing identity politics as a shield.</p>
+                <span class="tentacle-tag">Media Manipulation</span>
+                <span class="tentacle-tag">Cultural Erosion</span>
+                <span class="tentacle-tag">Political Infiltration</span>
             </div>
         </div>
 
         <!-- Section 2: Media Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="media-rebuttals">
-            <div class="section-title">
+        <div class="rebuttal-section" id="media-rebuttals" style="--tentacle-color: var(--tentacle-2); --tentacle-rgb: 78,205,196;">
+            <div class="section-header">
                 <i class="fas fa-broadcast-tower"></i> Media Tentacle: "Independent Journalism"
             </div>
             
@@ -666,7 +848,7 @@
                 
                 <p><strong>3. Narrative Synchronization:</strong> Quantitative analysis of COVID-19 coverage by Stanford Internet Observatory found 95% identical narrative framing across major outlets in March 2020, with dissenting scientific views systematically excluded.</p>
                 
-                <a href="index.html#media-manipulation" class="evidence-link">
+                <a href="index.html#tentacle2" class="evidence-link">
                     <i class="fas fa-link"></i> See Media Manipulation Framework
                 </a>
             </div>
@@ -674,12 +856,15 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The Media Tentacle's defense relies on the illusion of competition. While outlets may debate surface-level politics (Red vs. Blue), they maintain consensus on foundational issues: globalism, financialization, and the erosion of national sovereignty. This creates a "Overton Window" of permissible debate that excludes systemic critiques of the Octopus itself.</p>
+                <span class="tentacle-tag">Political Infiltration</span>
+                <span class="tentacle-tag">Cultural Erosion</span>
+                <span class="tentacle-tag">Financial Domination</span>
             </div>
         </div>
 
         <!-- Section 3: Political Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="political-rebuttals">
-            <div class="section-title">
+        <div class="rebuttal-section" id="political-rebuttals" style="--tentacle-color: var(--tentacle-3); --tentacle-rgb: 255,209,102;">
+            <div class="section-header">
                 <i class="fas fa-landmark"></i> Political Tentacle: "Democratic Processes"
             </div>
             
@@ -696,7 +881,7 @@
                 
                 <p><strong>3. Revolving Door Data:</strong> The Project On Government Oversight documents thousands of instances where regulators take industry jobs and vice versa, creating de facto regulatory capture.</p>
                 
-                <a href="index.html#political-infiltration" class="evidence-link">
+                <a href="index.html#tentacle3" class="evidence-link">
                     <i class="fas fa-link"></i> See Political Infiltration Framework
                 </a>
             </div>
@@ -704,12 +889,15 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The "democratic process" narrative obscures how the <strong>Political Tentacle</strong> operates: not by abolishing elections, but by making them irrelevant to substantive policy outcomes. Whether through lobbying (AIPAC's documented influence), international bureaucracy (UN/EU directives), or intelligence operations (documented interference in domestic politics), the tentacle ensures policy continuity regardless of electoral outcomes.</p>
+                <span class="tentacle-tag">Financial Domination</span>
+                <span class="tentacle-tag">Media Manipulation</span>
+                <span class="tentacle-tag">Technological Overlordship</span>
             </div>
         </div>
 
         <!-- Section 4: Cultural Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="cultural-rebuttals">
-            <div class="section-title">
+        <div class="rebuttal-section" id="cultural-rebuttals" style="--tentacle-color: var(--tentacle-4); --tentacle-rgb: 6,214,160;">
+            <div class="section-header">
                 <i class="fas fa-theater-masks"></i> Cultural Tentacle: "Social Progress"
             </div>
             
@@ -726,7 +914,7 @@
                 
                 <p><strong>3. Historical Precedent:</strong> The Frankfurt School's "Long March Through the Institutions" (1960s) explicitly advocated using culture and education to transform Western society. This is documented in their own writings, not conspiracy theory.</p>
                 
-                <a href="index.html#cultural-erosion" class="evidence-link">
+                <a href="index.html#tentacle4" class="evidence-link">
                     <i class="fas fa-link"></i> See Cultural Erosion Framework
                 </a>
             </div>
@@ -734,12 +922,15 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The Cultural Tentacle operates on generational timescales. By framing systemic value change as "progress," it pathologizes resistance as "backwardness" or "bigotry." This creates a self-reinforcing cycle: institutions promote the new values → those educated under them internalize them → they become the next generation of institutional leaders → the cycle accelerates. The tentacle's strength is making its outcomes appear inevitable and natural.</p>
+                <span class="tentacle-tag">Political Infiltration</span>
+                <span class="tentacle-tag">Media Manipulation</span>
+                <span class="tentacle-tag">Financial Domination</span>
             </div>
         </div>
 
         <!-- Section 5: Technological Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="technological-rebuttals">
-            <div class="section-title">
+        <div class="rebuttal-section" id="technological-rebuttals" style="--tentacle-color: var(--tentacle-5); --tentacle-rgb: 17,138,178;">
+            <div class="section-header">
                 <i class="fas fa-microchip"></i> Technological Tentacle: "Innovation and Safety"
             </div>
             
@@ -756,7 +947,7 @@
                 
                 <p><strong>3. Centralized Control:</strong> Cloud computing, AI development, and 5G infrastructure are increasingly concentrated in the hands of a few corporations (Amazon AWS, Microsoft Azure, Google Cloud), creating unprecedented centralization of digital infrastructure.</p>
                 
-                <a href="index.html#technological-overlordship" class="evidence-link">
+                <a href="index.html#tentacle5" class="evidence-link">
                     <i class="fas fa-link"></i> See Technological Overlordship Framework
                 </a>
             </div>
@@ -764,12 +955,15 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The "innovation" narrative frames technological centralization as inevitable progress. By creating dependencies on proprietary platforms and services, the Technological Tentacle ensures that opting out becomes increasingly difficult. This creates what Julian Assange called "the privatization of the state" - where corporate technological infrastructure becomes essential to both governance and daily life.</p>
+                <span class="tentacle-tag">Political Infiltration</span>
+                <span class="tentacle-tag">Financial Domination</span>
+                <span class="tentacle-tag">Media Manipulation</span>
             </div>
         </div>
 
-        <!-- NEW SECTION: Medical-Pharmaceutical Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="medical-rebuttals">
-            <div class="section-title">
+        <!-- Section 6: Medical-Pharmaceutical Tentacle Rebuttals -->
+        <div class="rebuttal-section" id="medical-rebuttals" style="--tentacle-color: var(--tentacle-6); --tentacle-rgb: 239,71,111;">
+            <div class="section-header">
                 <i class="fas fa-heartbeat"></i> Medical-Pharmaceutical Tentacle: "Public Health & Science"
             </div>
             
@@ -788,20 +982,23 @@
                 
                 <p><strong>4. Pandemic Profiteering:</strong> During COVID-19, Pfizer and Moderna made over $100 billion in vaccine revenue while enjoying liability protection. Public health emergencies create unparalleled profit opportunities for pharmaceutical companies.</p>
                 
-                <a href="evidence.html#medical-pharmaceutical-empire" class="evidence-link">
-                    <i class="fas fa-link"></i> See Medical-Pharmaceutical Evidence Archive
+                <a href="index.html#tentacle6" class="evidence-link">
+                    <i class="fas fa-link"></i> See Medical-Pharmaceutical Empire Framework
                 </a>
             </div>
             
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The "anti-science" charge against medical criticism parallels the "anti-Semitic" charge against financial criticism. By framing compliance with pharmaceutical and public health agendas as "scientific," and skepticism as "irrational," the Medical Tentacle bypasses democratic deliberation. Health policy becomes a technical issue to be decided by "experts" with industry ties rather than by citizens. This tentacle works closely with the Political (regulatory capture), Financial (investment in Pharma), and Media (narrative control) tentacles.</p>
+                <span class="tentacle-tag">Political Infiltration</span>
+                <span class="tentacle-tag">Financial Domination</span>
+                <span class="tentacle-tag">Media Manipulation</span>
             </div>
         </div>
 
-        <!-- NEW SECTION: Energy & Resource Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="energy-rebuttals">
-            <div class="section-title">
+        <!-- Section 7: Energy & Resource Tentacle Rebuttals -->
+        <div class="rebuttal-section" id="energy-rebuttals" style="--tentacle-color: var(--tentacle-7); --tentacle-rgb: 131,56,236;">
+            <div class="section-header">
                 <i class="fas fa-bolt"></i> Energy & Resource Tentacle: "Market Forces & Necessity"
             </div>
             
@@ -820,20 +1017,23 @@
                 
                 <p><strong>4. Monopoly Maintenance:</strong> The 1911 Standard Oil breakup created the illusion of competition while the Rockefeller family maintained controlling interests in all successor companies through interlocking directorates and shareholding.</p>
                 
-                <a href="evidence.html#energy-resource-control" class="evidence-link">
-                    <i class="fas fa-link"></i> See Energy & Resource Control Evidence Archive
+                <a href="index.html#tentacle7" class="evidence-link">
+                    <i class="fas fa-link"></i> See Energy & Resource Control Framework
                 </a>
             </div>
             
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The Energy Tentacle operates through the myth of "market inevitability." By framing energy transitions and resource distributions as economically determined rather than politically engineered, it obscures deliberate control. This tentacle coordinates closely with the Political (foreign policy), Financial (investment in energy), and Technological (control of energy infrastructure) tentacles. The "climate emergency" narrative provides cover for centralizing energy control under the guise of environmental necessity.</p>
+                <span class="tentacle-tag">Political Infiltration</span>
+                <span class="tentacle-tag">Financial Domination</span>
+                <span class="tentacle-tag">Technological Overlordship</span>
             </div>
         </div>
 
-        <!-- NEW SECTION: Food & Agriculture Tentacle Rebuttals -->
-        <div class="rebuttal-section" id="food-rebuttals">
-            <div class="section-title">
+        <!-- Section 8: Food & Agriculture Tentacle Rebuttals -->
+        <div class="rebuttal-section" id="food-rebuttals" style="--tentacle-color: var(--tentacle-8); --tentacle-rgb: 255,158,0;">
+            <div class="section-header">
                 <i class="fas fa-utensils"></i> Food & Agriculture Tentacle: "Feeding the World"
             </div>
             
@@ -852,20 +1052,23 @@
                 
                 <p><strong>4. Regulatory Capture:</strong> The FDA's Generally Recognized as Safe (GRAS) system allows food companies to self-certify additives without FDA approval. Former Monsanto executives have held key positions at the FDA, creating conflicts of interest.</p>
                 
-                <a href="evidence.html#food-agriculture-control" class="evidence-link">
-                    <i class="fas fa-link"></i> See Food & Agriculture Control Evidence Archive
+                <a href="index.html#tentacle8" class="evidence-link">
+                    <i class="fas fa-link"></i> See Food & Agriculture Control Framework
                 </a>
             </div>
             
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Octopus Integration</h4>
                 <p>The Food Tentacle controls the most fundamental human necessity. By creating dependency on centralized food systems, it ensures population compliance. This tentacle works in synergy with the Medical (nutrition affects health), Financial (commodity speculation), and Technological (GMO patents) tentacles. The "feeding the world" narrative obscures how food systems are engineered for control rather than nourishment. As the saying goes, "He who controls the food controls the people."</p>
+                <span class="tentacle-tag">Medical-Pharmaceutical</span>
+                <span class="tentacle-tag">Financial Domination</span>
+                <span class="tentacle-tag">Technological Overlordship</span>
             </div>
         </div>
 
-        <!-- Section 6: Core Octopus Rebuttals - UPDATED FOR EIGHT TENTACLES -->
-        <div class="rebuttal-section" id="core-rebuttals">
-            <div class="section-title">
+        <!-- Section 9: Core Octopus Rebuttals -->
+        <div class="rebuttal-section" id="core-rebuttals" style="--tentacle-color: var(--glow-color); --tentacle-rgb: 255,215,0;">
+            <div class="section-header">
                 <i class="fas fa-brain"></i> Core Framework: "Conspiracy Theory"
             </div>
             
@@ -892,6 +1095,9 @@
             <div class="tentacle-connection">
                 <h4><i class="fas fa-link"></i> Meta-Analysis</h4>
                 <p>The "conspiracy theory" label is the Octopus's immune response. When any analysis successfully connects dots across multiple tentacles, the Media Tentacle activates this label to discredit the pattern recognition without engaging the evidence. This psychological defense mechanism protects the entire structure by making systemic analysis socially and professionally costly. The expanded eight-tentacle model actually makes the framework more falsifiable and evidentially robust, not less.</p>
+                <span class="tentacle-tag">Media Manipulation</span>
+                <span class="tentacle-tag">Cultural Erosion</span>
+                <span class="tentacle-tag">Political Infiltration</span>
             </div>
         </div>
 
@@ -899,7 +1105,7 @@
         <div class="conclusion">
             <h3>Conclusion: The Pattern of Dismissal Across All Eight Domains</h3>
             <p>Each official narrative follows a predictable pattern when analyzed through the eight-tentacle Octopus framework:</p>
-            <ol style="text-align: left; display: inline-block; margin: 15px auto; max-width: 100%;">
+            <ol>
                 <li><strong>Personalization:</strong> Attack the critic ("anti-Semite," "conspiracy theorist," "anti-science," "Luddite," "bigot") rather than the argument.</li>
                 <li><strong>Compartmentalization:</strong> Insist each issue be examined in isolation, preventing pattern recognition across the eight tentacles.</li>
                 <li><strong>Normalization:</strong> Frame corrupt or coercive practices as "just how complex systems work" or "market forces."</li>
@@ -907,12 +1113,19 @@
                 <li><strong>Technocratization:</strong> Frame political decisions as technical issues to be decided by "experts" with industry ties.</li>
             </ol>
             <p>This expanded rebuttal archive demonstrates that the eight-tentacle Octopus framework is not a dismissal of criticism but a structured engagement with it across all domains of human life. By systematically addressing the most common counter-narratives with evidence and logic, we strengthen rather than insulate our analysis.</p>
-            <p><em>The true test of a framework is not whether it faces opposition, but whether it can coherently explain the form that opposition takes across financial, media, political, cultural, technological, medical, energy, and food systems.</em></p>
+            <p style="font-style: italic; color: rgba(255,215,0,0.9); margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,215,0,0.2);">
+                The true test of a framework is not whether it faces opposition, but whether it can coherently explain the form that opposition takes across financial, media, political, cultural, technological, medical, energy, and food systems.
+            </p>
         </div>
 
         <div class="footnote">
             <p><i class="fas fa-exclamation-triangle"></i> <strong>Research Note:</strong> This rebuttal archive is a living document. As new official narratives emerge to counter Octopus analysis across all eight domains, they will be added here with corresponding evidence-based responses. The expanded framework provides greater explanatory power for understanding how opposition manifests differently across tentacles while following consistent patterns. Researchers are encouraged to submit suggested additions via secured channels.</p>
         </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
     <footer>
@@ -923,38 +1136,55 @@
             <a href="plan.html" class="footer-nav-link">The Plan</a>
             <a href="opposition.html" class="footer-nav-link">Opposition</a>
         </nav>
-        &copy; 2026 Project Sunrise | Documenting the Architecture of Control
+        <div class="copyright">
+            &copy; 2026 Institute for Systemic Analysis | Documenting the Architecture of Control
+        </div>
+        <div style="font-size: 0.8em; color: rgba(255,255,255,0.3); margin-top: 10px;">
+            This analysis presents documented patterns for analytical consideration. All sources are cited where available.
+        </div>
     </footer>
 
     <script>
-        // Simple script to add interactivity to rebuttal sections
-        document.querySelectorAll('.rebuttal-section').forEach(section => {
-            section.addEventListener('click', function() {
-                this.style.transform = this.style.transform ? '' : 'translateY(-5px)';
-            });
-        });
-        
-        // Add navigation highlighting
         document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop();
+            // Back to top button functionality
+            const backToTopBtn = document.getElementById('backToTop');
             
-            // Highlight current page in navigation
-            document.querySelectorAll('.nav-link, .footer-nav-link').forEach(link => {
-                const linkHref = link.getAttribute('href');
-                if (linkHref === currentPage) {
-                    link.style.color = 'var(--glow-color)';
-                    link.style.textShadow = '0 0 10px rgba(255,215,0,0.7)';
-                    if (link.classList.contains('nav-link')) {
-                        link.style.fontWeight = 'bold';
-                    }
-                    if (link.classList.contains('footer-nav-link')) {
-                        link.style.borderColor = 'rgba(255,215,0,0.6)';
-                        link.style.background = 'rgba(255,215,0,0.1)';
-                    }
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
                 }
             });
             
-            // Smooth scroll to sections
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Add subtle animation to rebuttal sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all rebuttal sections
+            document.querySelectorAll('.rebuttal-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+            
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -964,7 +1194,7 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                     }
@@ -972,15 +1202,14 @@
             });
         });
         
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.body.classList.add('printing');
+        });
         
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('printing');
+        });
     </script>
 </body>
 </html>
