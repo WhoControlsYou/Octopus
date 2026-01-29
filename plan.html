@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Plan | The Octopus 💡</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,11 +13,15 @@
             --glow-color: #ffd700;
             --accent-color: #ffffff;
             --shadow-color: rgba(0, 0, 0, 0.7);
-            --evidence-bg: rgba(255, 215, 0, 0.05);
-        }
-        
-        * {
-            box-sizing: border-box;
+            --tentacle-1: #ff6b6b;
+            --tentacle-2: #4ecdc4;
+            --tentacle-3: #ffd166;
+            --tentacle-4: #06d6a0;
+            --tentacle-5: #118ab2;
+            --tentacle-6: #ef476f;
+            --tentacle-7: #8338ec;
+            --tentacle-8: #ff9e00;
+            --disinfo-color: #ff4757;
         }
         
         body {
@@ -42,12 +46,9 @@
             animation: subtlePulse 10s infinite alternate ease-in-out;
         }
         
-        @keyframes subtlePulse { 
-            0% { opacity: 0.8; } 
-            100% { opacity: 1; } 
-        }
+        @keyframes subtlePulse { 0% { opacity: 0.8; } 100% { opacity: 1; } }
         
-        /* Navigation Styles - TOP MENU - UPDATED TO MATCH INDEX.HTML */
+        /* Navigation Styles - TOP MENU */
         .main-nav {
             display: flex;
             justify-content: center;
@@ -113,7 +114,7 @@
             opacity: 1;
         }
         
-        /* Navigation Styles - BOTTOM MENU - UPDATED TO MATCH INDEX.HTML */
+        /* Navigation Styles - BOTTOM MENU */
         .footer-nav {
             display: flex;
             justify-content: center;
@@ -154,11 +155,11 @@
         
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8em;
+            font-size: 2.5em;
             font-weight: 700;
             font-style: italic;
             color: var(--accent-color);
-            margin: 0;
+            margin: 10px 0;
             text-shadow: 0 0 20px rgba(255,215,0,0.4);
             letter-spacing: 2px;
             animation: glowFadeIn 2s ease-in-out;
@@ -169,138 +170,221 @@
             to { opacity: 1; text-shadow: 0 0 20px rgba(255,215,0,0.4); }
         }
         
-        .subtitle {
+        .hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1em;
+            font-size: 1.3em;
             color: var(--glow-color);
-            margin: 10px auto 20px;
+            margin: 0 auto 20px;
             max-width: 800px;
             font-style: italic;
             text-shadow: 0 0 10px rgba(255,215,0,0.3);
             line-height: 1.4;
-            padding: 0 10px;
         }
         
-        /* Main Content */
-        .container {
+        /* Main Content Area */
+        #content {
             max-width: 1000px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-        
-        .intro-box {
-            background: var(--evidence-bg);
-            border: 1px solid var(--glow-color);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            margin: 40px auto;
+            padding: 40px 30px;
+            background: rgba(18,18,18,0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px var(--shadow-color), inset 0 0 30px rgba(255,215,0,0.05);
+            animation: contentFadeIn 1.5s ease-out;
             position: relative;
             overflow: hidden;
         }
         
-        .intro-box::before {
-            content: '2026';
+        #content::after {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: -35px;
-            background: rgba(255, 215, 0, 0.9);
-            color: #000;
-            padding: 4px 35px;
-            transform: rotate(45deg);
-            font-weight: bold;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.03) 0%, transparent 70%);
+            animation: rotateLight 20s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotateLight { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        @keyframes contentFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Executive Summary */
+        .executive-summary {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.3);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .executive-summary::before {
+            content: '2026 ANALYSIS';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--glow-color);
+            color: black;
+            padding: 5px 15px;
             font-size: 0.8em;
-            letter-spacing: 1px;
+            font-weight: bold;
+            border-radius: 4px;
         }
         
-        .section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: var(--evidence-bg);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
+        .executive-summary h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.6em;
+            color: var(--glow-color);
+            margin: 0 0 15px 0;
+            text-shadow: 0 0 15px rgba(255,215,0,0.6);
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 10px;
         }
         
-        .section:active {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        /* Section Styling with Tentacle Colors */
+        .plan-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(25,25,25,0.9), rgba(20,20,20,0.9));
+            border-radius: 10px;
+            border: 1px solid rgba(255,215,0,0.2);
+            border-left: 5px solid var(--tentacle-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,215,0,0.05);
+        }
+        
+        .plan-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,215,0,0.1);
+            border-left-color: var(--glow-color);
         }
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4em;
-            color: var(--glow-color);
-            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.6em;
+            color: var(--tentacle-color);
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 15px rgba(var(--tentacle-rgb),0.6);
+            border-bottom: 2px solid rgba(var(--tentacle-rgb),0.3);
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
         
         .section-title i {
-            font-size: 1.1em;
-            min-width: 24px;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
         
+        /* Evidence Cards */
         .evidence-card {
-            background: rgba(20, 20, 20, 0.7);
+            background: rgba(30,30,30,0.7);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
             border-left: 4px solid var(--glow-color);
-            padding: 1.2rem;
-            margin: 1.2rem 0;
-            border-radius: 0 8px 8px 0;
+            border-top: 1px solid rgba(255,215,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .evidence-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-left-color: var(--tentacle-color);
         }
         
         .evidence-card h4 {
             color: var(--glow-color);
             margin-top: 0;
-            font-size: 1.1em;
+            font-size: 1.3em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-style: italic;
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
         }
         
         .evidence-card h4 i {
+            font-size: 1.1em;
+            color: var(--tentacle-color);
+        }
+        
+        .evidence-card ul, .evidence-card ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .evidence-card li {
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        .evidence-card li::before {
+            content: '\f0eb';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--glow-color);
+            position: absolute;
+            left: 0;
+            opacity: 0.6;
             font-size: 0.9em;
-            min-width: 20px;
         }
         
         .citation {
-            font-size: 0.8em;
-            color: rgba(255, 215, 0, 0.7);
+            font-size: 0.85em;
+            color: rgba(255,215,0,0.7);
             font-style: italic;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid rgba(255, 215, 0, 0.1);
-            line-height: 1.4;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            line-height: 1.5;
         }
         
+        .citation a {
+            color: var(--glow-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .citation a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        
+        /* Data Points and Charts */
         .data-point {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin: 0.8rem 0;
-            padding: 1rem;
-            background: rgba(255, 215, 0, 0.03);
-            border-radius: 6px;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255,215,0,0.1);
         }
         
         .data-point i {
             color: var(--glow-color);
-            font-size: 1.3em;
-            margin-bottom: 5px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
         
         .chart-container {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
+            background: rgba(30,30,30,0.8);
+            padding: 25px;
+            margin: 25px 0;
             border-radius: 8px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255,215,0,0.2);
             overflow-x: auto;
         }
         
@@ -309,62 +393,74 @@
         }
         
         .chart-bar {
-            height: 26px;
-            background: linear-gradient(90deg, rgba(255,215,0,0.3), rgba(255,215,0,0.7));
-            margin: 12px 0;
+            height: 30px;
+            background: linear-gradient(90deg, var(--tentacle-color), rgba(var(--tentacle-rgb),0.7));
+            margin: 15px 0;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 10px rgba(var(--tentacle-rgb),0.3);
         }
         
         .chart-label {
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 50%;
             transform: translateY(-50%);
             font-weight: bold;
             color: #000;
             text-shadow: 0 0 2px rgba(255,255,255,0.5);
-            font-size: 0.85em;
+            font-size: 0.9em;
             white-space: nowrap;
         }
         
         .chart-value {
             position: absolute;
-            right: 10px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             font-weight: bold;
             color: #000;
-            font-size: 0.85em;
+            font-size: 0.9em;
         }
         
+        /* Tentacle Connection Boxes */
         .tentacle-connection {
-            background: rgba(255, 215, 0, 0.08);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
+            background: rgba(var(--tentacle-rgb),0.1);
+            padding: 25px;
+            margin: 25px 0;
             border-radius: 8px;
-            border: 1px dashed rgba(255, 215, 0, 0.4);
+            border: 1px solid rgba(var(--tentacle-rgb),0.3);
+            border-left: 4px solid var(--tentacle-color);
         }
         
         .tentacle-connection h4 {
-            color: var(--glow-color);
+            color: var(--tentacle-color);
             margin-top: 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            font-size: 1.3em;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-style: italic;
+        }
+        
+        .tentacle-connection h4 i {
             font-size: 1.1em;
         }
         
+        /* Conclusion Section */
         .conclusion {
-            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
-            padding: 1.8rem;
-            margin-top: 2.5rem;
-            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05));
+            padding: 40px;
+            margin: 50px 0 30px;
+            border-radius: 10px;
             border: 1px solid var(--glow-color);
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5), inset 0 0 40px rgba(255,215,0,0.1);
         }
         
         .conclusion::after {
@@ -386,18 +482,98 @@
         
         .conclusion h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: var(--glow-color);
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255,215,0,0.6);
+        }
+        
+        .conclusion ol {
+            text-align: left;
+            display: inline-block;
+            margin: 20px auto;
+            max-width: 100%;
+            padding-left: 40px;
+        }
+        
+        .conclusion li {
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
         
         .footnote {
-            font-size: 0.8em;
+            font-size: 0.85em;
             color: rgba(255,255,255,0.5);
-            margin-top: 2.5rem;
-            padding-top: 1rem;
+            margin-top: 40px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+        
+        .footnote i {
+            color: var(--glow-color);
+            margin-right: 8px;
+        }
+        
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+        
+        .stat-box {
+            background: rgba(30,30,30,0.7);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255,215,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--glow-color);
+            box-shadow: 0 5px 15px rgba(255,215,0,0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.2em;
+            color: var(--glow-color);
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--glow-color);
+            color: black;
+            border-radius: 50%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255,215,0,0.8);
         }
         
         footer {
@@ -421,7 +597,13 @@
             background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
         }
         
-        /* Mobile optimizations - UPDATED TO MATCH INDEX.HTML */
+        .copyright {
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: rgba(255,255,255,0.4);
+        }
+        
+        /* Mobile optimizations */
         @media (max-width: 768px) {
             body {
                 font-size: 1em;
@@ -433,8 +615,12 @@
             }
             
             h1 {
-                font-size: 1.5em;
-                letter-spacing: 1px;
+                font-size: 1.8em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+                padding: 0 10px;
             }
             
             .main-nav {
@@ -460,38 +646,56 @@
                 padding: 6px 12px;
             }
             
-            .container {
-                padding: 0 15px;
-                margin: 25px auto;
+            #content {
+                padding: 25px 20px;
+                margin: 25px 15px;
+                border-radius: 12px;
+            }
+            
+            .executive-summary {
+                padding: 25px 20px;
+            }
+            
+            .executive-summary h2 {
+                font-size: 1.4em;
+            }
+            
+            .plan-section {
+                padding: 25px 20px;
+                margin-bottom: 30px;
             }
             
             .section-title {
-                font-size: 1.3em;
-            }
-            
-            .subtitle {
-                font-size: 1em;
-                margin: 8px auto 15px;
-            }
-            
-            .intro-box {
-                padding: 1.2rem;
-            }
-            
-            .section {
-                padding: 1.2rem;
+                font-size: 1.4em;
             }
             
             .evidence-card {
-                padding: 1rem;
+                padding: 20px;
+            }
+            
+            .chart-container {
+                padding: 20px;
             }
             
             .conclusion {
-                padding: 1.5rem;
-                margin-top: 2rem;
+                padding: 30px 20px;
+                margin: 40px 0 25px;
             }
             
             .conclusion h3 {
+                font-size: 1.5em;
+            }
+            
+            .quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 20px 15px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
                 font-size: 1.3em;
             }
             
@@ -502,75 +706,28 @@
             }
         }
         
-        /* Small mobile devices - UPDATED TO MATCH INDEX.HTML */
+        /* Small mobile devices */
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.3em;
+                font-size: 1.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1em;
             }
             
             .main-nav {
                 gap: 15px;
                 margin: 15px auto 0;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                align-items: center;
             }
             
             .nav-link {
                 font-size: 0.95em;
-                padding: 5px 0;
-            }
-            
-            .footer-nav {
-                gap: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .footer-nav-link {
-                font-size: 0.8em;
-                padding: 5px 10px;
-            }
-            
-            .subtitle {
-                font-size: 0.9em;
-            }
-            
-            .container {
-                padding: 0 10px;
-                margin: 20px auto;
-            }
-            
-            .section-title {
-                font-size: 1.1em;
-            }
-            
-            .intro-box {
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 1rem;
-            }
-            
-            .conclusion {
-                padding: 1.2rem;
-            }
-            
-            .conclusion h3 {
-                font-size: 1.1em;
-            }
-            
-            /* Mobile vertical stacking for navigation */
-            .main-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .nav-link {
+                padding: 10px 0;
                 width: 100%;
                 text-align: center;
-                padding: 10px 0;
                 border-bottom: 1px solid rgba(255,215,0,0.1);
             }
             
@@ -579,71 +736,117 @@
             }
             
             .footer-nav {
+                gap: 10px;
                 flex-direction: column;
                 align-items: center;
-                gap: 8px;
             }
             
             .footer-nav-link {
+                font-size: 0.8em;
+                padding: 5px 10px;
                 width: 80%;
                 text-align: center;
             }
             
-            .intro-box::before {
-                right: -40px;
-                padding: 3px 30px;
-                font-size: 0.7em;
-            }
-        }
-        
-        /* Tablet adjustments */
-        @media (min-width: 600px) and (max-width: 768px) {
-            .main-nav {
-                gap: 25px;
+            .section-title {
+                font-size: 1.2em;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
             }
             
-            .nav-link {
-                font-size: 1em;
+            .quick-stats {
+                grid-template-columns: 1fr;
             }
             
-            .footer-nav {
-                gap: 20px;
-            }
-            
-            .subtitle {
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
                 font-size: 1.2em;
             }
         }
         
-        /* Prevent horizontal scroll */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
+        /* Print styles */
+        @media print {
+            .main-nav, .footer-nav, .back-to-top {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            #content {
+                box-shadow: none;
+                background: white;
+                border: 1px solid #ddd;
+            }
+            
+            .executive-summary, .plan-section, .evidence-card, .conclusion {
+                border: 1px solid #ddd;
+                box-shadow: none;
+                background: white;
+                color: black;
+            }
+            
+            .section-title, .evidence-card h4, .conclusion h3 {
+                color: black;
+                text-shadow: none;
+            }
+            
+            .chart-bar {
+                background: #ccc !important;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <h1>The Plan</h1>
-        <div class="subtitle">Demographic Engineering as Strategic Policy: A Documentation of The Great Replacement</div>
+        <div class="hero-subtitle">Demographic Engineering as Strategic Policy: A Documentation of The Great Replacement</div>
         <nav class="main-nav">
             <a href="index.html" class="nav-link"><i class="fas fa-eye"></i> The Octopus</a>
             <a href="timeline.html" class="nav-link"><i class="fas fa-stream"></i> Timeline</a>
             <a href="evidence.html" class="nav-link"><i class="fas fa-file-invoice"></i> Evidence</a>
             <a href="plan.html" class="nav-link"><i class="fas fa-chess-board"></i> The Plan</a>
             <a href="opposition.html" class="nav-link"><i class="fas fa-gavel"></i> Opposition</a>
+            <a href="activism.html" class="nav-link active"><i class="fas fa-fist-raised"></i> Activism</a>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="intro-box">
-            <h2 style="color: var(--glow-color); margin-top: 0;">Executive Summary</h2>
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+        <div class="stat-box">
+            <div class="stat-number">8</div>
+            <div class="stat-label">Tentacle System</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Analytical Sections</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">25+</div>
+            <div class="stat-label">Documented Sources</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">2026</div>
+            <div class="stat-label">Current Analysis</div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="executive-summary">
+            <h2>Executive Summary</h2>
             <p><strong>The "Great Replacement" is not a conspiracy theory.</strong> It is a documented demographic hypothesis that has evolved into a strategic policy framework adopted by global institutions and national governments. This page presents the evidence that what is dismissed as fringe paranoia is, in fact, the logical outcome of deliberate planning by the <strong>eight tentacles</strong> of The Octopus.</p>
             <p>We distinguish between the <em>cultural concept</em> popularized by Renaud Camus and the <em>policy reality</em> evidenced in UN documents, think-tank publications, and demographic data. The following analysis demonstrates how economic pressures, political decisions, medical control, energy dependency, and food systems converge with social engineering in what we identify as the complete <strong>eight-tentacle system</strong> of The Octopus.</p>
         </div>
 
         <!-- Section 1: The Demographic "Problem" -->
-        <div class="section" id="demographic-problem">
+        <div class="plan-section" id="demographic-problem" style="--tentacle-color: var(--tentacle-6); --tentacle-rgb: 239,71,111;">
             <div class="section-title">
                 <i class="fas fa-chart-line"></i> Section 1: The Engineered Crisis — Declining Populations
             </div>
@@ -690,7 +893,7 @@
         </div>
 
         <!-- Section 2: The Official "Solution" -->
-        <div class="section" id="official-solution">
+        <div class="plan-section" id="official-solution" style="--tentacle-color: var(--tentacle-3); --tentacle-rgb: 255,209,102;">
             <div class="section-title">
                 <i class="fas fa-university"></i> Section 2: The Admitted Policy — Replacement Migration
             </div>
@@ -716,8 +919,8 @@
             <p><strong>Analysis:</strong> This is not a theory. It is a published, quantitative plan. The term "Replacement Migration" is their term, not ours. The projected demographic transformation is a stated mathematical outcome of the policy, not an accidental side effect.</p>
         </div>
 
-        <!-- NEW SECTION: Section 3: Medical & Biological Engineering -->
-        <div class="section" id="medical-engineering">
+        <!-- Section 3: Medical & Biological Engineering -->
+        <div class="plan-section" id="medical-engineering" style="--tentacle-color: var(--tentacle-6); --tentacle-rgb: 239,71,111;">
             <div class="section-title">
                 <i class="fas fa-heartbeat"></i> Section 3: Medical-Pharmaceutical Control & Population Management
             </div>
@@ -732,7 +935,7 @@
             <div class="evidence-card">
                 <h4><i class="fas fa-virus"></i> Pandemics as Demographic Reset Tools</h4>
                 <p>The COVID-19 pandemic demonstrated how public health emergencies can be leveraged for demographic engineering. Lockdowns, vaccine mandates, and economic disruption created conditions that accelerated population replacement while testing mechanisms for medical surveillance and compliance enforcement.</p>
-                <div class="citation">Cross-reference: <a href="evidence.html" style="color: var(--glow-color);">Evidence Archive</a> - Swine Flu (1976) and COVID-19 pandemic response documents</div>
+                <div class="citation">Cross-reference: <a href="evidence.html">Evidence Archive</a> - Swine Flu (1976) and COVID-19 pandemic response documents</div>
             </div>
             
             <div class="evidence-card">
@@ -748,7 +951,7 @@
         </div>
 
         <!-- Section 4: Energy & Food as Control Mechanisms -->
-        <div class="section" id="energy-food-control">
+        <div class="plan-section" id="energy-food-control" style="--tentacle-color: var(--tentacle-8); --tentacle-rgb: 255,158,0;">
             <div class="section-title">
                 <i class="fas fa-gas-pump"></i> <i class="fas fa-utensils"></i> Section 4: Energy & Food Control as Population Management Tools
             </div>
@@ -785,7 +988,7 @@
         </div>
 
         <!-- Section 5: Mainstreaming & Implementation -->
-        <div class="section" id="policy-to-reality">
+        <div class="plan-section" id="policy-to-reality" style="--tentacle-color: var(--tentacle-2); --tentacle-rgb: 78,205,196;">
             <div class="section-title">
                 <i class="fas fa-bullhorn"></i> Section 5: Mainstreaming & Implementation
             </div>
@@ -814,7 +1017,7 @@
         </div>
 
         <!-- Section 6: The Octopus Integration -->
-        <div class="section" id="octopus-integration">
+        <div class="plan-section" id="octopus-integration" style="--tentacle-color: var(--glow-color); --tentacle-rgb: 255,215,0;">
             <div class="section-title">
                 <i class="fas fa-project-diagram"></i> Section 6: Synthesis — The Great Replacement as an Eight-Tentacle Operation
             </div>
@@ -851,7 +1054,7 @@
         </div>
 
         <!-- Section 7: The Ideological Vanguard -->
-        <div class="section" id="ideological-vanguard">
+        <div class="plan-section" id="ideological-vanguard" style="--tentacle-color: var(--tentacle-4); --tentacle-rgb: 6,214,160;">
             <div class="section-title">
                 <i class="fas fa-quote-right"></i> Section 7: The Ideological Vanguard — Statements of Intent
             </div>
@@ -860,7 +1063,7 @@
             <div class="evidence-card">
                 <h4><i class="fas fa-user-graduate"></i> Barbara Lerner Spectre</h4>
                 <p>Founding director of Paideia, The European Institute for Jewish Studies in Sweden, in a statement on European multiculturalism:</p>
-                <blockquote>
+                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 20px; margin: 20px 0;">
                     "I think there is a resurgence of anti-Semitism because at this point in time Europe has not yet learned how to be multicultural, and I think we are going to be part of the transformation which must take place. Europe is not going to be the monolithic societies they once were in the last century. Jews are going to be at the center of that... Jews will be resented because of our leading role. But without that leading role, and without that transformation, Europe will not survive."
                 </blockquote>
                 <div class="citation">Source: Interview with IBA News, 2010. Publicly available footage.</div>
@@ -869,12 +1072,12 @@
             <div class="evidence-card">
                 <h4><i class="fas fa-book"></i> Noel Ignatiev</h4>
                 <p>Scholar and co-founder of the journal <em>Race Traitor</em>, outlining the publication's foundational goal:</p>
-                <blockquote>
+                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 20px; margin: 20px 0;">
                     "The goal of abolishing the White race is on its face so desirable that some may find it hard to believe that it could incur any opposition other than from committed White supremacists." 
                     "We'll keep bashing the dead White males, and the live ones, and the females too, until the social construct known as the White race is destroyed. Not deconstructed, but destroyed."
                 </blockquote>
                 <p>From the journal's statement of purpose:</p>
-                <blockquote>
+                <blockquote style="font-style: italic; border-left: 3px solid var(--glow-color); padding-left: 20px; margin: 20px 0;">
                     "Treason to the White race is Loyalty to Humanity."
                 </blockquote>
                 <div class="citation">Source: Ignatiev, N. (1992). <em>Race Traitor</em>, Issue 1. &amp; Interview in <em>Harvard Magazine</em>, 2002.</div>
@@ -885,11 +1088,12 @@
                 <p>These statements are not mere opinion. They represent the <strong>Cultural Tentacle's</strong> intellectual and ideological engine. Spectre positions a specific group as the necessary "vanguard" of a painful transformation, pre-emptively framing resistance as bigotry. Ignatiev provides the radical academic framework for dismantling the targeted group's identity itself. Together, they exemplify how the Octopus operates: one tentacle (Cultural) manufactures the ideological justification and moral charge, while others (Political, Media, Medical, Energy, Food) execute and defend the resulting policies. The "resentment" anticipated by Spectre is then used to justify further censorship and control, a perfect self-sustaining loop.</p>
             </div>
         </div>
+        
         <!-- Conclusion -->
         <div class="conclusion">
             <h3>Conclusion: The Pattern is the Proof</h3>
             <p>The evidence chain is clear and documented across all eight tentacles:</p>
-            <ol style="text-align: left; display: inline-block; margin: 15px auto; max-width: 100%;">
+            <ol>
                 <li>A <strong>demographic crisis</strong> (falling birth rates) is actively exacerbated by cultural and medical engineering.</li>
                 <li>Official bodies like the UN propose <strong>"Replacement Migration"</strong> as the stated solution.</li>
                 <li>Energy and Food systems are manipulated to create economic conditions that drive migration.</li>
@@ -905,6 +1109,11 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <footer>
         <nav class="footer-nav">
             <a href="index.html" class="footer-nav-link">The Octopus</a>
@@ -913,45 +1122,81 @@
             <a href="plan.html" class="footer-nav-link">The Plan</a>
             <a href="opposition.html" class="footer-nav-link">Opposition</a>
         </nav>
-        &copy; 2026 Project Sunrise | Documenting the Architecture of Control
+        <div class="copyright">
+            &copy; 2026 Institute for Systemic Analysis | Documenting the Architecture of Control
+        </div>
+        <div style="font-size: 0.8em; color: rgba(255,255,255,0.3); margin-top: 10px;">
+            This analysis presents documented patterns for analytical consideration. All sources are cited where available.
+        </div>
     </footer>
 
     <script>
-        // Simple script to add interactivity to evidence cards
-        document.querySelectorAll('.evidence-card').forEach(card => {
-            card.addEventListener('click', function() {
-                this.style.transform = this.style.transform ? '' : 'scale(1.02)';
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'flex';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
             });
+            
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Add subtle animation to sections on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all plan sections and evidence cards
+            document.querySelectorAll('.plan-section, .evidence-card').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+            
+            // Add click effect to evidence cards
+            document.querySelectorAll('.evidence-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = this.style.transform ? '' : 'translateY(-5px) scale(1.01)';
+                });
+            });
+            
+            // Add hover effect to section titles
+            if (window.matchMedia("(hover: hover)").matches) {
+                document.querySelectorAll('.section-title').forEach(title => {
+                    title.addEventListener('mouseenter', function() {
+                        this.style.textShadow = '0 0 15px var(--tentacle-color)';
+                    });
+                    title.addEventListener('mouseleave', function() {
+                        this.style.textShadow = '';
+                    });
+                });
+            }
         });
         
-        // Add a subtle glow effect to section titles on hover (for devices with hover)
-        if (window.matchMedia("(hover: hover)").matches) {
-            document.querySelectorAll('.section-title').forEach(title => {
-                title.addEventListener('mouseenter', function() {
-                    this.style.textShadow = '0 0 15px var(--glow-color)';
-                });
-                title.addEventListener('mouseleave', function() {
-                    this.style.textShadow = '';
-                });
-            });
-        }
+        // Print functionality
+        window.addEventListener('beforeprint', () => {
+            document.body.classList.add('printing');
+        });
         
-        // Prevent zoom on double-tap for iOS
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            const now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-        
-        // Ensure proper scaling on mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const viewport = document.querySelector('meta[name="viewport"]');
-            if (viewport) {
-                viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover');
-            }
+        window.addEventListener('afterprint', () => {
+            document.body.classList.remove('printing');
         });
     </script>
 </body>
